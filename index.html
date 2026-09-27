@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#3a4118">
+<title>EasyCo 2.0 — Easy Company Field Guides</title>
+<meta name="description" content="Free battlefield guides following Company E, 506th Parachute Infantry, 101st Airborne Division — Normandy, Holland & Bastogne, Germany & Austria.">
+<style>
+@font-face{font-family:"Stardos Stencil";font-weight:400;font-display:swap;src:url(fonts/stardos-stencil-400.woff2) format("woff2")}
+@font-face{font-family:"Stardos Stencil";font-weight:700;font-display:swap;src:url(fonts/stardos-stencil-700.woff2) format("woff2")}
+@font-face{font-family:"Special Elite";font-weight:400;font-display:swap;src:url(fonts/special-elite-400.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:400;font-display:swap;src:url(fonts/courier-prime-400.woff2) format("woff2")}
+@font-face{font-family:"Courier Prime";font-weight:700;font-display:swap;src:url(fonts/courier-prime-700.woff2) format("woff2")}
+</style>
+<style>
+:root{--bg:#f3f1e9;--surface:#fff;--surface2:#f8f6ee;--line:#e3dfcf;--line2:#cfc9b2;--ink:#1c1e16;--ink2:#4b4d40;--faint:#77796a;
+--brand:#3a4118;--brand2:#4b5320;--accent:#a3261e;--disp:"Stardos Stencil",Impact,sans-serif;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--shadow:0 1px 2px rgba(28,30,22,.06),0 2px 8px rgba(28,30,22,.06);color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#121410;--surface:#1d2018;--surface2:#23261d;--line:#30342a;--line2:#454a3b;--ink:#eeede4;--ink2:#c4c3b4;--faint:#939483;--brand:#2c3214;--brand2:#c3cd88;--accent:#e0675b;--shadow:0 1px 2px rgba(0,0,0,.4);color-scheme:dark}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+a{color:inherit}
+.hero{background:var(--brand);color:#f4f1e4;padding:calc(env(safe-area-inset-top,0px) + 28px) 20px 30px;border-radius:0 0 26px 26px}
+.wrap{max-width:720px;margin:0 auto}
+.eyebrow{font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;opacity:.75}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(50px,15vw,84px);line-height:.92;letter-spacing:1px;text-transform:uppercase;margin:12px 0 10px;color:#fff}
+.sub{font-size:15px;opacity:.85}
+.lede{font-size:17px;margin:16px 0 0;max-width:36em}
+main{padding:0 16px 40px}
+h2{font-family:var(--disp);font-size:24px;letter-spacing:.5px;text-transform:uppercase;color:var(--brand2);margin:28px 4px 12px}
+.guide{display:grid;grid-template-columns:56px 1fr 16px;gap:4px 14px;align-items:center;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin:0 0 12px;min-height:88px}
+.guide:active{background:var(--surface2)}
+.guide:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.guide .n{grid-row:1/4;width:56px;height:56px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--disp);font-size:26px;font-weight:700}
+@media (prefers-color-scheme:dark){.guide .n{background:#39401c;color:#c3cd88}}
+.guide b{font-size:20px;line-height:1.2}
+.guide .d{font-size:13.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--accent)}
+.guide p{grid-column:2;margin:2px 0 0;font-size:15px;color:var(--ink2);line-height:1.45}
+.guide:after{content:"";grid-column:3;grid-row:1/4;width:10px;height:10px;border-right:2.5px solid var(--faint);border-top:2.5px solid var(--faint);transform:rotate(45deg)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.card p{margin:0 0 12px;font-size:15.5px;color:var(--ink2)}
+.pdl{display:flex;flex-direction:column;text-decoration:none;border:1.5px solid var(--line2);background:var(--surface2);border-radius:12px;padding:12px 14px;margin:0 0 8px;min-height:52px}
+.pdl b{font-size:16px}.pdl small{font-size:13.5px;color:var(--ink2)}
+.pdl.main{background:var(--brand2);border-color:var(--brand2);color:#fff}.pdl.main small{color:rgba(255,255,255,.82)}
+@media (prefers-color-scheme:dark){.pdl.main{background:#39401c;border-color:#4b5320}}
+.honor{background:var(--brand);color:#f4f1e4;border-radius:16px;padding:18px;margin:28px 0 0}
+.honor .hk{font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#f3b7ae}
+.honor h3{font-family:var(--disp);font-size:22px;line-height:1.15;text-transform:uppercase;margin:6px 0 10px;color:#fff}
+.honor p{font-size:15.5px;margin:0 0 10px}
+.hb{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 8px}
+.hb a{display:inline-flex;align-items:center;min-height:48px;padding:10px 16px;border-radius:12px;border:2px solid rgba(255,255,255,.6);font-weight:700;text-decoration:none}
+.hb a.give{background:#a3261e;border-color:#a3261e;color:#fff}
+.hn{font-size:13px;opacity:.75;margin:0}
+.foot{text-align:center;font-family:var(--disp);letter-spacing:4px;text-transform:uppercase;color:var(--faint);font-size:12px;padding:24px 0 8px}
+.how{display:grid;gap:10px}
+.how div{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;font-size:15.5px;color:var(--ink2)}
+.how span{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1.5px solid var(--line2);display:grid;place-items:center;font-weight:800;color:var(--ink)}
+.how b{color:var(--ink)}
+</style>
+<link rel="preload" as="image" href="welcome.jpg" media="not all and (min-width:900px) and (min-height:600px) and (min-aspect-ratio:5/4)"><link rel="preload" as="image" href="welcome-wide.jpg" media="(min-width:900px) and (min-height:600px) and (min-aspect-ratio:5/4)"><style id="welcome-style">
+.wel{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;background:#1c1a15;overflow:hidden;transition:opacity .45s ease,visibility .45s}
+.wel.bye{opacity:0;visibility:hidden}
+.wel .welbg{position:absolute;inset:-40px;background:#2a241c url(welcome.jpg) center/cover no-repeat;filter:blur(22px) brightness(.55) sepia(.3)}
+.wel .welimg{position:relative;flex:1 1 auto;min-height:0;width:100%;object-fit:contain;object-position:center top;padding-top:env(safe-area-inset-top,0px)}
+.wel .welpanel{position:relative;flex:none;text-align:center;padding:14px 20px calc(env(safe-area-inset-bottom,0px) + 18px);color:#f1e8d6}
+.wel .welk{font-family:"Stardos Stencil",Impact,sans-serif;font-weight:700;font-size:30px;letter-spacing:6px;text-transform:uppercase;margin:0;line-height:1}
+.wel .welt{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.4;margin:8px auto 14px;max-width:26em;color:#ddd2bd}
+.wel .welgo{display:block;width:100%;max-width:360px;margin:0 auto;min-height:56px;border:2px solid #f1e8d6;border-radius:14px;background:#efe6d2;color:#1c1a15;
+ font-family:"Stardos Stencil",Impact,sans-serif;font-weight:700;font-size:22px;letter-spacing:5px;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45)}
+.wel .welgo:active{transform:translateY(1px);background:#fff}
+.wel .welgo:focus-visible{outline:3px solid #e0675b;outline-offset:3px}
+@media (min-height:700px){.wel .welpanel{padding-top:18px}}
+body.wel-on{overflow:hidden}
+.wel .welpic{display:contents}
+/* laptops and big screens: the wide picture, and Welcome + Enter side by side (phones unchanged) */
+@media (min-width:900px) and (min-height:600px) and (min-aspect-ratio:5/4){
+ .wel .welbg{background-image:url(welcome-wide.jpg)}
+ .wel .welimg{object-position:center center;padding:24px 24px 0}
+ .wel .welpanel{display:grid;grid-template-columns:auto 1fr 260px;align-items:center;gap:28px;text-align:left;max-width:1000px;width:100%;margin:0 auto;padding:20px 32px 28px}
+ .wel .welk{font-size:34px}
+ .wel .welt{margin:0;font-size:16px;max-width:none}
+ .wel .welgo{margin:0;max-width:none}
+}
+</style></head>
+<body>
+<div class="wel" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welk">
+  <div class="welbg" aria-hidden="true"></div>
+  <picture class="welpic"><source media="(min-width:900px) and (min-height:600px) and (min-aspect-ratio:5/4)" srcset="welcome-wide.jpg"><img class="welimg" src="welcome.jpg" alt="Easy Company — European War Route, WWII 1944–1945. A paratrooper in profile under a steel helmet, C-47s overhead, and soldiers marching past a village and a stone bridge, with the 101st Airborne eagle."></picture>
+  <div class="welpanel">
+    <p class="welk" id="welk">Welcome</p>
+    <p class="welt">Walk in the footsteps of Easy Company — from the night drop into Normandy to the end of the war in the Alps.</p>
+    <button type="button" class="welgo" id="welgo">Enter</button>
+  </div>
+</div>
+<script>
+(function(){
+  var w=document.getElementById("welcome");
+  var seen=false;try{seen=sessionStorage.getItem("ec-welcomed")==="1"||localStorage.getItem("ec-welcomed")==="1"}catch(e){}
+  if(seen){w.remove();return}
+  document.body.classList.add("wel-on");
+  var go=document.getElementById("welgo");
+  function enter(){try{sessionStorage.setItem("ec-welcomed","1");localStorage.setItem("ec-welcomed","1")}catch(e){}
+    w.classList.add("bye");document.body.classList.remove("wel-on");
+    setTimeout(function(){w.remove()},500);
+    var h=document.querySelector("main h2");if(h){h.setAttribute("tabindex","-1");h.focus({preventScroll:true})}}
+  go.addEventListener("click",enter);
+})();
+</script>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Free battlefield guides · 1944–1945</div>
+  <h1>Easy<br>Company</h1>
+  <div class="sub">Company E · 506th Parachute Infantry · 101st Airborne Division</div>
+  <p class="lede">Follow one rifle company from the night drop into Normandy to the end of the war in the Alps — every stop linked to your maps, every position rated for how sure we are.</p>
+</div></header>
+<main class="wrap">
+  <h2>Choose a campaign</h2>
+  <a class="guide" href="normandy.html"><span class="n">1</span><b>Normandy</b><span class="d">6 June – 12 July 1944</span><p>The night drop behind Utah Beach, Brécourt Manor, Carentan and Bloody Gulch — and the whole invasion around it.</p></a>
+  <a class="guide" href="holland-bastogne.html"><span class="n">2</span><b>Holland &amp; Bastogne</b><span class="d">Sep 1944 – Feb 1945</span><p>Market Garden and Hell's Highway, the Island, the frozen woods above Bastogne, and the last patrol at Haguenau.</p></a>
+  <a class="guide" href="germany-austria.html"><span class="n">3</span><b>Germany &amp; Austria</b><span class="d">April – November 1945 · Combat &amp; Occupation</span><p>The Rhine, a Kaufering sub-camp near Landsberg, Berchtesgaden, the Obersalzberg and the Kehlsteinhaus (Eagle's Nest), Zell am See and the end of the war.</p></a>
+
+  <h2>How the guides work</h2>
+  <div class="how">
+    <div><span>1</span><p style="margin:0"><b>Plan.</b> Tell the Tour planner how many days you have; it builds the route and the overnight stops.</p></div>
+    <div><span>2</span><p style="margin:0"><b>Go.</b> Every stop has a Google Maps button, and the Map shows all your stops at once.</p></div>
+    <div><span>3</span><p style="margin:0"><b>Read.</b> The Timeline, The Men and Origins tell the story; the bar at the bottom of the screen always takes you home.</p></div>
+  </div>
+
+  <h2>No signal? No problem</h2><div class="card"><p style="margin:0">Each guide can be saved to your phone and used with no internet. Open a guide, tap <b>More</b> at the bottom, then <b>Save for offline</b> — do it on Wi-Fi before you travel. Tip: add this site to your home screen and it opens like an app.</p></div>
+
+  <h2>Download as PDF</h2>
+  <div class="card">
+    <p>Every guide as a printable PDF, to read offline or print for the trip.</p>
+    <a class="pdl" href="pdf/Easy-Company-Normandy.pdf" download><b>⬇ Normandy</b><small>45 pages · 4.6 MB</small></a>
+    <a class="pdl" href="pdf/Easy-Company-Holland-Bastogne.pdf" download><b>⬇ Holland &amp; Bastogne</b><small>56 pages · 10.2 MB</small></a>
+    <a class="pdl" href="pdf/Easy-Company-Germany-Austria.pdf" download><b>⬇ Germany &amp; Austria</b><small>40 pages · 6.2 MB</small></a>
+    <a class="pdl main" href="pdf/Easy-Company-Common-Reference.pdf" download><b>⬇ Common Reference</b><small>Origins, The Men, the Armoury, words to know · 46 pages · 4.3 MB</small></a>
+  </div>
+
+  
+  <div class="foot">Remember · Explore · Respect</div>
+</main>
+<script>if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register("sw.js").catch(()=>{})</script></body>
+</html>
