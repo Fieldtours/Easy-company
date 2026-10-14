@@ -1,6 +1,7 @@
 /* EasyCo 2.0 service worker — keeps the guides working without internet */
-const CORE="ec2-core", DATA="ec2-data", VERSION="v3-1";
+const CORE="ec2-core", DATA="ec2-data", VERSION="v4-site";
 const CORE_FILES=["./","index.html","welcome.jpg","welcome-wide.jpg","icon-maskable-512.png","normandy.html","holland-bastogne.html","germany-austria.html","site.webmanifest",
+ "site/home-normandy.jpg","site/home-holland.jpg","site/home-germany.jpg","site/tour.jpg","site/nearme.jpg","site/map.jpg","site/timeline.jpg","site/weapons.jpg","site/garand-v1.jpg","site/colt-v1.jpg",
  "favicon.ico","favicon-32.png","favicon-16.png","apple-touch-icon.png","icon-192.png","icon-512.png",
  "fonts/stardos-stencil-400.woff2","fonts/stardos-stencil-700.woff2","fonts/special-elite-400.woff2","fonts/courier-prime-400.woff2","fonts/courier-prime-700.woff2"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(CORE).then(c=>Promise.all(CORE_FILES.map(f=>fetch(f,{cache:"no-store"}).then(r=>r.ok&&c.put(f,r)).catch(()=>{})))).then(()=>self.skipWaiting()))});
