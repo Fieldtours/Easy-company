@@ -1,0 +1,185 @@
+<!-- dzux start: DZ Charlie phone-friendly layer (shared by all guides) -->
+<style id="dzux-css">
+/* 3 · thumb-sized buttons */
+.tchips button,.dayjump button,.bph button,.bsel button,.dayspick button,.modepick button,.tfilters button,.uxseg button,.my-chips button{min-height:44px}
+.card .tick{min-width:44px;min-height:44px}
+.lbz button{min-height:48px!important;min-width:56px}
+/* 1 · long lists fold down to the chosen item */
+.dzc-fold>button:not([aria-pressed="true"]):not(.dzc-change){display:none!important}
+.dzc-change{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 14px;margin:6px 0 2px;border:2px dashed var(--olive2,#556);border-radius:12px;font:inherit;font-weight:700;font-size:14.5px;color:var(--olive2,#334);cursor:pointer;width:100%}
+.dzc-change:focus-visible{outline:3px solid #1a73e8;outline-offset:2px}
+/* 4 · shorter text first */
+.card .body>p.dzc-clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.dzc-more{all:unset;display:inline-flex;align-items:center;min-height:40px;font-weight:700;font-size:14px;color:#1a5fc4;cursor:pointer;margin:-2px 0 6px}
+.card .plan.dzc-plan{font-family:inherit!important;font-size:14px!important;color:var(--ink,#222)!important;background:var(--paper3,#fffbe9);border-left:4px solid #1a73e8;border-radius:8px;padding:8px 10px;margin:4px 0 10px!important;line-height:1.45}
+.card .plan.dzc-vz summary{display:none}
+.card .plan.dzc-plan::before{content:"Plan your visit";display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1a5fc4;margin-bottom:2px}
+/* 2 · 7 · Today on the home screen */
+#dzToday{margin:0 0 14px}
+#dzToday .today{margin:0}
+.dzprog{display:grid;gap:4px;margin:2px 0 10px}
+.dzprog .bar{height:10px;border-radius:6px;background:color-mix(in srgb,var(--olive2,#556) 18%,transparent);overflow:hidden}
+.dzprog .bar i{display:block;height:100%;background:#2e7d32;border-radius:6px}
+.dzprog span{font-size:13.5px;font-weight:700}
+.dzpick{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;background:var(--paper3,#fff);border:2px solid #1a73e8;border-radius:12px;padding:12px 14px;margin:0 0 14px}
+.dzpick .ic{font-size:26px;grid-row:1/3}
+.dzpick b{font-size:16px}.dzpick span{font-size:13.5px;color:var(--ink2,#444)}
+.dzpick button{grid-column:1/3;min-height:48px;border-radius:10px;border:0;background:#1a73e8;color:#fff;font:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:6px}
+/* the next stop, always at thumb's reach while touring */
+#dzNext{position:fixed;left:0;right:0;z-index:60;display:flex;align-items:center;gap:8px;padding:8px 10px;background:#123a7a;color:#fff;box-shadow:0 -4px 14px rgba(0,0,0,.25);font-size:14px}
+#dzNext[hidden]{display:none}
+#dzNext .t{flex:1;min-width:0;line-height:1.25}#dzNext .t small{display:block;opacity:.8;font-size:11.5px;letter-spacing:.5px;text-transform:uppercase}
+#dzNext .t b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#dzNext a,#dzNext button{flex:0 0 auto;min-height:44px;min-width:44px;display:grid;place-items:center;padding:0 12px;border-radius:10px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+#dzNext a{background:#fff;color:#123a7a}#dzNext button{background:#2e7d32;color:#fff}
+/* 6 · offline made obvious */
+.dzoff{background:var(--paper3,#fff);border:2px solid var(--olive2,#556);border-radius:12px;padding:12px 14px;margin:0 0 14px}
+.dzoff b{font-size:16px;display:block;margin-bottom:4px}.dzoff p{font-size:14px;margin:0 0 8px}
+.dzoff .row{display:grid;gap:8px}
+.dzoff button{min-height:48px;border-radius:10px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;border:2px solid #1a73e8;background:#1a73e8;color:#fff}
+.dzoff button.alt{background:none;color:#1a5fc4}.dzoff button.no{border:0;background:none;color:var(--ink2,#555);font-weight:600;min-height:40px}
+.dzoff .st{font-weight:700;color:#1a5fc4;min-height:1.2em}
+.dzbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#9be39f;margin-left:6px;white-space:nowrap}
+/* 5 · "where am I" on the enlarged map */
+.dz-me circle{pointer-events:none}
+.dzmsg{position:fixed;left:50%;bottom:120px;transform:translateX(-50%);z-index:100000;background:#222;color:#fff;padding:10px 14px;border-radius:10px;font-size:14px;max-width:86vw;text-align:center}
+/* 9 · reading comfort */
+html.dz-a1 main,html.dz-a1 #lb .lbfoot{zoom:1.12}html.dz-a2 main,html.dz-a2 #lb .lbfoot{zoom:1.25}
+html.dz-sun{filter:contrast(1.2) brightness(1.03)}
+.dzset{background:var(--paper3,#fff);border:1px solid var(--line,#ccc);border-radius:12px;padding:12px 14px;margin:0 0 14px;display:grid;gap:10px}
+.dzset .r{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.dzset .r>span{font-weight:700;flex-basis:100%}
+.dzset button{min-height:44px;min-width:52px;border-radius:10px;border:2px solid var(--olive2,#556);background:none;color:var(--ink,#222);font:inherit;font-weight:700;cursor:pointer}
+.dzset button[aria-pressed="true"]{background:var(--olive2,#556);color:var(--paper,#fff)}
+</style>
+<script id="dzux-js">
+/* DZ Charlie phone-friendly layer: results always in sight, Today on the home screen, thumb-sized buttons,
+   short text first, "show me" on the maps, clear offline saving, visited progress, one menu for all guides,
+   text size and sun mode. Works on top of each guide without changing its data. */
+(function(){
+const $=(s,r)=>(r||document).querySelector(s),$$=(s,r)=>[...(r||document).querySelectorAll(s)];
+const KEY="dzux:"+location.pathname.replace(/[^a-z0-9]+/gi,"-");
+const get=(k,d)=>{try{const v=localStorage.getItem(KEY+k);return v===null?d:v}catch(e){return d}};
+const put=(k,v)=>{try{localStorage.setItem(KEY+k,v)}catch(e){}};
+const has=n=>typeof window[n]==="function";
+const esc2=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sticky=()=>{const s=$(".sticky");return s?s.offsetHeight:0};
+function msg(t){const m=document.createElement("div");m.className="dzmsg";m.textContent=t;document.body.appendChild(m);setTimeout(()=>m.remove(),3200)}
+
+/* ---------- 9 · reading comfort (applied at once, before anything else) ---------- */
+function applyRead(){const a=get("a","0"),s=get("sun","0");document.documentElement.classList.toggle("dz-a1",a==="1");document.documentElement.classList.toggle("dz-a2",a==="2");document.documentElement.classList.toggle("dz-sun",s==="1")}
+applyRead();
+
+/* ---------- 1 · bring the result of a choice into sight ---------- */
+function bring(sel){let set=null,n=0;const tick=()=>{if(set!==null&&Math.abs(scrollY-set)>4)return;const o=$(sel);if(!o)return;
+  const top=o.getBoundingClientRect().top,y=Math.round(top+scrollY-sticky()-10);if(Math.abs(y-scrollY)>4)scrollTo({top:y});set=scrollY;if(n++<12)setTimeout(tick,150)};setTimeout(tick,40)}
+const JUMPS=[["[data-tour]","#p-tour .summ"],["[data-days]","#p-tour .summ"],["[data-mode]","#p-tour .summ"],["[data-bsel]","#battles .bph"],["[data-ph]","#tfilters"]];
+document.addEventListener("click",e=>{for(const [s,t] of JUMPS){const b=e.target.closest(s);if(b&&!b.closest("#dzToday,#dzNext,.dzset")){const T=$(t);if(T){const r=T.getBoundingClientRect();if(r.top<sticky()||r.top>innerHeight*0.45)bring(t)}return}}});
+
+/* long lists fold down to the chosen item, with one button to change it */
+const FOLD=[".tourlist",".bsel",".tchips"];
+/* folded only once the visitor has made a choice; "Change" opens the list again */
+const isOpen=s=>get("open"+s,"1")==="1";
+function fold(){FOLD.forEach(s=>$$(s).forEach(box=>{const bs=$$(":scope>button[aria-pressed]",box);if(bs.length<6)return;
+  const sel=bs.find(b=>b.getAttribute("aria-pressed")==="true");const shut=!!sel&&!isOpen(s);box.classList.toggle("dzc-fold",shut);
+  let c=$(":scope>.dzc-change",box);if(!sel){if(c)c.remove();return}
+  if(!c){c=document.createElement("button");c.type="button";c.className="dzc-change";c.dataset.dzs=s;box.appendChild(c)}
+  const t=shut?(s===".tchips"?"Change day ▾":`Change ▾  (${bs.length} to choose from)`):"Close the list ▴";if(c.textContent!==t)c.textContent=t}))}
+document.addEventListener("click",e=>{const c=e.target.closest(".dzc-change");if(c){const s=c.dataset.dzs,box=c.parentElement;const opening=box.classList.contains("dzc-fold");put("open"+s,opening?"1":"0");fold();
+    const y=box.getBoundingClientRect().top+scrollY-sticky()-10;if(opening||box.getBoundingClientRect().top<sticky())scrollTo({top:y});return}
+  for(const s of FOLD){const b=e.target.closest(s+">button[aria-pressed]");if(b){put("open"+s,"0");setTimeout(fold,30)}}},true);
+
+/* ---------- 4 · shorter text first; the visiting plan in a fixed place ---------- */
+function tidyCards(root){$$(".card .body",root).forEach(body=>{
+  const p=$(":scope>p",body),plan=$(":scope>.plan",body);
+  if(plan&&p&&!plan.classList.contains("dzc-plan")){plan.classList.add("dzc-plan");const dt=$("details",plan);if(dt){dt.open=true;plan.classList.add("dzc-vz")}body.insertBefore(plan,p)}
+  if(p&&!p.dataset.dz){p.dataset.dz="1";if(p.textContent.length>260){p.classList.add("dzc-clamp");const m=document.createElement("button");m.type="button";m.className="dzc-more";m.textContent="Read the full story ▾";p.after(m)}}})}
+document.addEventListener("click",e=>{const m=e.target.closest(".dzc-more");if(!m)return;const p=m.previousElementSibling;const open=p.classList.toggle("dzc-clamp");m.textContent=open?"Read the full story ▾":"Show less ▴"});
+
+/* ---------- 2 · 7 · Today on the home screen, with progress ---------- */
+function plan0(){try{return has("buildPlan")?buildPlan():[]}catch(e){return []}}
+function vis(){try{return typeof visited==="object"&&visited?visited:{}}catch(e){return {}}}
+function progHtml(days){const all=days.flat(),v=vis(),n=all.filter(p=>v[p.id]).length;if(!all.length)return "";
+  return `<div class="dzprog"><span>${n} of ${all.length} stops visited on your tour</span><div class="bar"><i style="width:${Math.round(n/all.length*100)}%"></i></div></div>`}
+function onRoad(){try{return has("todayOn")?todayOn():0}catch(e){return 0}}
+function renderToday(){const home=$("#p-home");if(!home)return;let box=$("#dzToday");
+  if(!box){box=document.createElement("div");box.id="dzToday";const hero=$(".hero",home);(hero?hero.parentNode:home).insertBefore(box,hero?hero.nextSibling:home.firstChild)}
+  const days=plan0();const d=onRoad();
+  if(d&&d<=days.length&&has("todayBox")){box.innerHTML=todayBox(days).replace('<div class="today">','<div class="today">'+progHtml(days));
+    /* travelling: Today goes to the very top of the home screen */
+    const hero=$(".hero",home);if(hero&&box.nextSibling!==hero)home.insertBefore(box,hero)}
+  else{box.innerHTML=`<div class="dzpick"><span class="ic">🚐</span><b>Travelling today?</b><span>Pick the day you're on: the app shows your next stop, how far it is and one button to drive there.</span><button type="button" data-dzroad="1">Start today's stops</button></div>`+progHtml(days);
+    const hero=$(".hero",home);if(hero&&hero.nextSibling!==box)hero.after(box)}
+  renderNext()}
+document.addEventListener("click",e=>{if(e.target.closest("[data-dzroad]")){if(has("goTab"))goTab("tab-tour");setTimeout(()=>{const t=$("#p-tour .today");if(t){const y=t.getBoundingClientRect().top+scrollY-sticky()-10;scrollTo({top:y})}},120);return}
+  if(e.target.closest("[data-today],[data-tnext],[data-visit],[data-dznext]"))setTimeout(renderToday,80)});
+
+/* the next stop stays at thumb's reach on every page while touring */
+function renderNext(){let bar=$("#dzNext");if(!bar){bar=document.createElement("div");bar.id="dzNext";bar.hidden=true;document.body.appendChild(bar)}
+  const d=onRoad(),days=plan0(),home=$("#p-home"),onHome=home&&!home.hidden;
+  const tb=$("#p-tour:not([hidden]) .today"),tr=tb&&tb.getBoundingClientRect(),seen=tr&&tr.bottom>60&&tr.top<innerHeight-60;
+  if(!d||d>days.length||onHome||seen||$("#lb")){bar.hidden=true;return}
+  const ds=days[d-1],v=vis(),next=ds.find(p=>!v[p.id]);if(!next){bar.hidden=true;return}
+  const nav=$(".bbar");bar.style.bottom=(nav?nav.offsetHeight:0)+"px";
+  const url=typeof google==="function"?google(next.lat,next.lon):`https://www.google.com/maps/dir/?api=1&destination=${next.lat},${next.lon}`;
+  bar.innerHTML=`<div class="t"><small>Next stop · Day ${d}</small><b>${esc2(next.name)}</b></div><a href="${url}" target="_blank" rel="noopener" aria-label="Drive to the next stop">Drive ▸</a><button type="button" data-tnext="${esc2(next.id)}" data-dznext="1" aria-label="Mark visited, show the next stop">✓</button>`;
+  bar.hidden=false}
+
+/* ---------- 6 · offline made obvious ---------- */
+function offState(){const go=$("#rdoffgo"),del=$("#rdoffdel"),box=$("#rdoff");if(!go||!box||box.hidden)return "none";return del&&!del.hidden?"saved":"not"}
+function renderOff(){const home=$("#p-home");if(!home)return;let c=$("#dzOff");const st=offState();
+  /* a small "works offline" badge once saved */
+  const hdr=$(".hdr .ttl, .hdr .htitle, header .t, header");let bd=$("#dzBadge");
+  if(st==="saved"){if(!bd&&hdr){bd=document.createElement("span");bd.id="dzBadge";bd.className="dzbadge";bd.textContent="✓ Works offline";const t=$(".hdr .tt, .hdr .ttl, .hdr .htitle")||hdr;t.appendChild(bd)}}else if(bd)bd.remove();
+  if(st!=="not"||get("offno","0")==="1"){if(c)c.remove();return}
+  if(!c){c=document.createElement("div");c.id="dzOff";c.className="dzoff";const t=$("#dzToday");(t||$(".hero",home)||home.firstChild).after(c)}
+  const mine=$("#rdoffmine");
+  c.innerHTML=`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-dzoff]");if(!b)return;const k=b.dataset.dzoff;
+  if(k==="no"){put("offno","1");renderOff();return}
+  const real=k==="mine"?$("#rdoffmine"):$("#rdoffgo");if(!real)return;real.click();
+  const st=$("#rdoffst"),me=$("#dzOffSt");if(st&&me){const copy=()=>{me.textContent=st.textContent;if(/saved on this phone|works without internet/i.test(st.textContent))setTimeout(()=>{renderOff()},1500)};copy();new MutationObserver(copy).observe(st,{childList:true,characterData:true,subtree:true})}});
+
+/* ---------- 5 · "show me where I am" on the enlarged map ---------- */
+function addMe(){const lb=$("#lb");if(!lb||$(".dzme",lb))return;const z=$(".lbz",lb);if(!z)return;
+  const b=document.createElement("button");b.type="button";b.className="dzme";b.setAttribute("aria-label","Show where I am on this map");b.textContent="◎ Me";z.prepend(b)}
+document.addEventListener("click",e=>{const b=e.target.closest(".dzme");if(!b)return;
+  if(!navigator.geolocation){msg("This phone can't share its location.");return}
+  b.textContent="…";navigator.geolocation.getCurrentPosition(pos=>{b.textContent="◎ Me";
+    const lb=$("#lb"),svg=lb&&$(".view svg",lb),view=lb&&$(".view",lb);if(!svg)return;
+    const pr=(svg.getAttribute("data-proj")||"").split(",").map(Number);if(pr.length<5)return;
+    const [cx,cy,sc,W,H]=pr,MYf=typeof MY==="function"?MY:(la=>Math.log(Math.tan(Math.PI/4+la*Math.PI/360))*180/Math.PI);
+    const la=pos.coords.latitude,lo=pos.coords.longitude,x=W/2+(lo-cx)*sc,y=H/2-(MYf(la)-cy)*sc;
+    if(x<0||y<0||x>W||y>H){msg("You are outside this map.");return}
+    $$(".dz-me",svg).forEach(n=>n.remove());const g=document.createElementNS("http://www.w3.org/2000/svg","g");g.setAttribute("class","dz-me");
+    g.innerHTML=`<circle cx="${x}" cy="${y}" r="14" fill="#1a73e8" opacity=".18"/><circle cx="${x}" cy="${y}" r="6" fill="#1a73e8" stroke="#fff" stroke-width="2.5"/>`;svg.appendChild(g);
+    const sr=svg.getBoundingClientRect(),vr=view.getBoundingClientRect();view.scrollLeft+=sr.left+x/W*sr.width-(vr.left+vr.width/2);view.scrollTop+=sr.top+y/H*sr.height-(vr.top+vr.height/2)},
+  ()=>{b.textContent="◎ Me";msg("Location is off. Allow it for this site in your phone's settings.")},{enableHighAccuracy:true,timeout:15000,maximumAge:60000})});
+
+/* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
+function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
+  const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
+  const t=by("time");if(t){t.lastChild&&t.lastChild.nodeType===3?t.lastChild.textContent="Story":0;t.setAttribute("aria-label","Story: the war in date order")}}
+
+/* ---------- 9 · reading comfort settings (in More) ---------- */
+function renderSet(){const more=$("#p-more");if(!more||$("#dzSet"))return;const c=document.createElement("div");c.id="dzSet";c.className="dzset";
+  const a=get("a","0"),s=get("sun","0");
+  c.innerHTML=`<div class="r"><span>Text size</span>${["A","A+","A++"].map((t,i)=>`<button type="button" data-dza="${i}" aria-pressed="${a===String(i)}" style="font-size:${15+i*3}px">${t}</button>`).join("")}</div>
+  <div class="r"><span>Bright sun</span><button type="button" data-dzsun="1" aria-pressed="${s==="1"}">${s==="1"?"On":"Off"}</button><small style="flex-basis:100%;color:var(--ink2,#555)">Stronger contrast for reading outdoors.</small></div>`;
+  const first=more.firstElementChild;first&&first.tagName==="H2"?first.after(c):more.prepend(c)}
+document.addEventListener("click",e=>{const a=e.target.closest("[data-dza]"),s=e.target.closest("[data-dzsun]");
+  if(a){put("a",a.dataset.dza);applyRead();$$("[data-dza]").forEach(b=>b.setAttribute("aria-pressed",b===a))}
+  if(s){const on=get("sun","0")==="1"?"0":"1";put("sun",on);applyRead();s.setAttribute("aria-pressed",on==="1");s.textContent=on==="1"?"On":"Off"}});
+
+/* ---------- keep everything up to date as the guide redraws itself ---------- */
+let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff()}catch(e){}}
+function sched(){if(!q)q=requestAnimationFrame(run)}
+let sq=0;addEventListener("scroll",()=>{if(!sq)sq=setTimeout(()=>{sq=0;try{renderNext()}catch(e){}},150)},{passive:true});
+function start(){try{unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
+  if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
+  if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
+  if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
+  new MutationObserver(sched).observe(document.body,{childList:true,subtree:true})}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(start,0));else setTimeout(start,0);
+})();
+</script>
+<!-- dzux end -->
