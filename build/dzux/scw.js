@@ -16,6 +16,7 @@ const get=(k,d)=>{try{const v=localStorage.getItem("dzux-scw-"+k);return v===nul
 const put=(k,v)=>{try{localStorage.setItem("dzux-scw-"+k,v)}catch(e){}};
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const X=()=>window.SCWX||null;
+function setH(el,h){if(el.__dzh!==h){el.__dzh=h;el.innerHTML=h}}
 const STOP={};((window.SCW&&SCW.stops)||[]).forEach(s=>STOP[s.id]=s);
 
 function applyRead(){const a=get("a","0"),s=get("sun","0"),h=document.documentElement;h.classList.toggle("dz-a1",a==="1");h.classList.toggle("dz-a2",a==="2");h.classList.toggle("dz-sun",s==="1")}
@@ -31,23 +32,23 @@ const gm=s=>`https://www.google.com/maps/dir/?api=1&destination=${s.la},${s.lo}`
 function renderToday(){const home=$("#p-home");if(!home)return;let box=$("#dzToday");
   if(!box){box=document.createElement("div");box.id="dzToday";box.className="pg";const c=$("#cover",home);c?c.after(box):home.prepend(box)}
   const r=plan();
-  if(!r||get("hide","0")==="1"&&!day()){box.innerHTML=r?"":`<div class="dzpick"><span class="ic">🚐</span><b>${L.travel}</b><span>${L.first}</span><button type="button" data-go="tour">${L.plan}</button></div>`;return}
+  if(!r||get("hide","0")==="1"&&!day()){setH(box,r?"":`<div class="dzpick"><span class="ic">🚐</span><b>${L.travel}</b><span>${L.first}</span><button type="button" data-go="tour">${L.plan}</button></div>`);return}
   const all=r.days.flatMap(d=>d.ids),n=all.filter(visited).length;
   const prog=`<div class="dzprog"><span>${L.prog(n,all.length)}</span><div class="bar"><i style="width:${Math.round(n/all.length*100)}%"></i></div></div>`;
   const d=day();const chips=`<div class="dzchips">${r.days.map((_,i)=>`<button type="button" data-dzday="${i+1}" aria-pressed="${d===i+1}">${L.day} ${i+1}</button>`).join("")}</div>`;
   {const cv=$("#cover",home);if(cv&&cv.nextElementSibling!==box)cv.after(box)}
-  if(!d){box.innerHTML=`<div class="dzpick dzt">${prog}<b>${L.travel}</b><span>${L.which}</span>${chips}</div>`;return}
+  if(!d){setH(box,`<div class="dzpick dzt">${prog}<b>${L.travel}</b><span>${L.which}</span>${chips}</div>`);return}
   const s=nextStop();const cv=$("#cover",home);if(cv&&box.nextElementSibling!==cv)home.insertBefore(box,cv);
-  box.innerHTML=`<div class="dzpick dzt">${prog}<small class="dzh">🚐 ${L.today(d,r.days.length)}</small><div class="dzchips dzc-fold">${r.days.map((_,i)=>`<button type="button" data-dzday="${i+1}" aria-pressed="${d===i+1}">${L.day} ${i+1}</button>`).join("")}<button type="button" class="dzc-change" data-dzchange="1">${L.change}</button></div>
+  setH(box,`<div class="dzpick dzt">${prog}<small class="dzh">🚐 ${L.today(d,r.days.length)}</small><div class="dzchips dzc-fold">${r.days.map((_,i)=>`<button type="button" data-dzday="${i+1}" aria-pressed="${d===i+1}">${L.day} ${i+1}</button>`).join("")}<button type="button" class="dzc-change" data-dzchange="1">${L.change}</button></div>
    ${s?`<small class="dzh">${L.next}</small><b>${esc(s.n)}</b><a class="dzgo" href="${gm(s)}" target="_blank" rel="noopener">${L.drive}</a><button type="button" class="dzv" data-dzvis="${s.id}">${L.vis}</button><button type="button" class="dzl" data-stop="${s.id}">${L.read}</button>`:`<b>${L.done}</b>`}
-   <button type="button" class="dzl" data-dzday="0">${L.off}</button></div>`;
+   <button type="button" class="dzl" data-dzday="0">${L.off}</button></div>`);
   renderNext()}
 
 /* ---- next stop bar on the other pages ---- */
 function renderNext(){let bar=$("#dzNext");if(!bar){bar=document.createElement("div");bar.id="dzNext";bar.hidden=true;document.body.appendChild(bar)}
   const home=$("#p-home"),s=nextStop();if(!s||home&&!home.hidden||$(".sheet,.mapfull,.mapfu")){bar.hidden=true;return}
   const nav=$("nav.bot");bar.style.bottom=(nav?nav.offsetHeight:0)+"px";
-  bar.innerHTML=`<div class="t"><small>${L.next} · ${L.day} ${day()}</small><b>${esc(s.n)}</b></div><a href="${gm(s)}" target="_blank" rel="noopener">${L.drive}</a><button type="button" data-dzvis="${s.id}" aria-label="${L.vis}">✓</button>`;bar.hidden=false}
+  setH(bar,`<div class="t"><small>${L.next} · ${L.day} ${day()}</small><b>${esc(s.n)}</b></div><a href="${gm(s)}" target="_blank" rel="noopener">${L.drive}</a><button type="button" data-dzvis="${s.id}" aria-label="${L.vis}">✓</button>`);bar.hidden=false}
 
 document.addEventListener("click",e=>{const t=e.target;
   const dd=t.closest("[data-dzday]");if(dd){put("day",dd.dataset.dzday);if(dd.dataset.dzday==="0")put("hide","1");renderToday();renderNext();return}

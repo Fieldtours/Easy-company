@@ -4173,6 +4173,8 @@ const put=(k,v)=>{try{localStorage.setItem(KEY+k,v)}catch(e){}};
 const has=n=>typeof window[n]==="function";
 const esc2=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const sticky=()=>{const s=$(".sticky");return s?s.offsetHeight:0};
+/* only touch the page when something really changed (constant redrawing froze iPhones) */
+function setH(el,h){if(el.__dzh!==h){el.__dzh=h;el.innerHTML=h}}
 function msg(t){const m=document.createElement("div");m.className="dzmsg";m.textContent=t;document.body.appendChild(m);setTimeout(()=>m.remove(),3200)}
 
 /* ---------- 9 · reading comfort (applied at once, before anything else) ---------- */
@@ -4214,10 +4216,10 @@ function onRoad(){try{return has("todayOn")?todayOn():0}catch(e){return 0}}
 function renderToday(){const home=$("#p-home");if(!home)return;let box=$("#dzToday");
   if(!box){box=document.createElement("div");box.id="dzToday";const hero=$(".hero",home);(hero?hero.parentNode:home).insertBefore(box,hero?hero.nextSibling:home.firstChild)}
   const days=plan0();const d=onRoad();
-  if(d&&d<=days.length&&has("todayBox")){box.innerHTML=todayBox(days).replace('<div class="today">','<div class="today">'+progHtml(days));
+  if(d&&d<=days.length&&has("todayBox")){setH(box,todayBox(days).replace('<div class="today">','<div class="today">'+progHtml(days)));
     /* travelling: Today goes to the very top of the home screen */
     const hero=$(".hero",home);if(hero&&box.nextSibling!==hero)home.insertBefore(box,hero)}
-  else{box.innerHTML=`<div class="dzpick"><span class="ic">🚐</span><b>Travelling today?</b><span>Pick the day you're on: the app shows your next stop, how far it is and one button to drive there.</span><button type="button" data-dzroad="1">Start today's stops</button></div>`+progHtml(days);
+  else{setH(box,`<div class="dzpick"><span class="ic">🚐</span><b>Travelling today?</b><span>Pick the day you're on: the app shows your next stop, how far it is and one button to drive there.</span><button type="button" data-dzroad="1">Start today's stops</button></div>`)+progHtml(days);
     const hero=$(".hero",home);if(hero&&hero.nextSibling!==box)hero.after(box)}
   renderNext()}
 document.addEventListener("click",e=>{if(e.target.closest("[data-dzroad]")){if(has("goTab"))goTab("tab-tour");setTimeout(()=>{const t=$("#p-tour .today");if(t){const y=t.getBoundingClientRect().top+scrollY-sticky()-10;scrollTo({top:y})}},120);return}
@@ -4231,7 +4233,7 @@ function renderNext(){let bar=$("#dzNext");if(!bar){bar=document.createElement("
   const ds=days[d-1],v=vis(),next=ds.find(p=>!v[p.id]);if(!next){bar.hidden=true;return}
   const nav=$(".bbar");bar.style.bottom=(nav?nav.offsetHeight:0)+"px";
   const url=typeof google==="function"?google(next.lat,next.lon):`https://www.google.com/maps/dir/?api=1&destination=${next.lat},${next.lon}`;
-  bar.innerHTML=`<div class="t"><small>Next stop · Day ${d}</small><b>${esc2(next.name)}</b></div><a href="${url}" target="_blank" rel="noopener" aria-label="Drive to the next stop">Drive ▸</a><button type="button" data-tnext="${esc2(next.id)}" data-dznext="1" aria-label="Mark visited, show the next stop">✓</button>`;
+  setH(bar,`<div class="t"><small>Next stop · Day ${d}</small><b>${esc2(next.name)}</b></div><a href="${url}" target="_blank" rel="noopener" aria-label="Drive to the next stop">Drive ▸</a><button type="button" data-tnext="${esc2(next.id)}" data-dznext="1" aria-label="Mark visited, show the next stop">✓</button>`);
   bar.hidden=false}
 
 /* ---------- 6 · offline made obvious ---------- */
@@ -4243,7 +4245,7 @@ function renderOff(){const home=$("#p-home");if(!home)return;let c=$("#dzOff");c
   if(st!=="not"||get("offno","0")==="1"){if(c)c.remove();return}
   if(!c){c=document.createElement("div");c.id="dzOff";c.className="dzoff";const t=$("#dzToday");(t||$(".hero",home)||home.firstChild).after(c)}
   const mine=$("#rdoffmine");
-  c.innerHTML=`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`}
+  setH(c,`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`)}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-dzoff]");if(!b)return;const k=b.dataset.dzoff;
   if(k==="no"){put("offno","1");renderOff();return}
   const real=k==="mine"?$("#rdoffmine"):$("#rdoffgo");if(!real)return;real.click();
@@ -4301,7 +4303,7 @@ function start(){try{unifyNav();renderSet();renderToday();renderOff();run()}catc
   if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
-  new MutationObserver(sched).observe(document.body,{childList:true,subtree:true})}
+  new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(start,0));else setTimeout(start,0);
 })();
 </script>
