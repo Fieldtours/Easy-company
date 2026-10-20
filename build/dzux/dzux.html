@@ -155,6 +155,19 @@ document.addEventListener("click",e=>{const b=e.target.closest(".dzme");if(!b)re
     const sr=svg.getBoundingClientRect(),vr=view.getBoundingClientRect();view.scrollLeft+=sr.left+x/W*sr.width-(vr.left+vr.width/2);view.scrollTop+=sr.top+y/H*sr.height-(vr.top+vr.height/2)},
   ()=>{b.textContent="◎ Me";msg("Location is off. Allow it for this site in your phone's settings.")},{enableHighAccuracy:true,timeout:15000,maximumAge:60000})});
 
+
+/* ---------- map dots on phones: one tap opens the site ----------
+   iPhones treat the first tap on a dot as "hover" (the dot lights up) and wait for a second tap.
+   We act on the touch itself: a short tap on or near a dot opens that site straight away. */
+function dzNear(root,x,y,R){let best=null,bd=R;$$(".wp[data-key]",root).forEach(g=>{const c=$(".wpc",g)||g;const r=c.getBoundingClientRect();if(!r.width)return;const d=Math.hypot(r.x+r.width/2-x,r.y+r.height/2-y);if(d<bd){bd=d;best=g}});return best}
+let dzT=null;
+document.addEventListener("touchstart",e=>{dzT=null;if(e.touches.length!==1)return;const t=e.touches[0],el=e.target;if(!el.closest||!el.closest(".sitmap,#lb .view"))return;dzT=[t.clientX,t.clientY,Date.now()]},{passive:true,capture:true});
+document.addEventListener("touchmove",e=>{if(dzT&&e.touches.length>1)dzT=null},{passive:true,capture:true});
+document.addEventListener("touchend",e=>{const s=dzT;dzT=null;if(!s||e.touches.length)return;const t=e.changedTouches[0];
+  if(Math.hypot(t.clientX-s[0],t.clientY-s[1])>10||Date.now()-s[2]>700)return;
+  const root=e.target.closest&&e.target.closest(".sitmap,#lb .view");if(!root||!has("goWaypoint"))return;
+  const g=dzNear(root,t.clientX,t.clientY,22);if(!g)return;
+  e.preventDefault();e.stopPropagation();goWaypoint(g.dataset.key,g.dataset.tab)},{passive:false,capture:true});
 /* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
 function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
   const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
