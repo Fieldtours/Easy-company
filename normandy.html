@@ -4074,6 +4074,11 @@ if(x.origin===location.origin&&/\/pdf\/.*\.pdf$/i.test(x.pathname))send('record_
 </script>
 <!-- dzux start: DZ Charlie phone-friendly layer (shared by all guides) -->
 <style id="dzux-css">
+#dzSite{position:fixed;inset:0;z-index:99990;background:rgba(0,0,0,.55);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 10px 40px}
+#dzSite .in{max-width:640px;margin:0 auto;background:var(--paper,#f4efe2);border-radius:14px;padding:0 10px 12px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+#dzSite .bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px;background:var(--paper,#f4efe2);font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink2,#555)}
+#dzSite .bar button{min-height:44px;padding:0 16px;border-radius:10px;border:2px solid var(--ink,#222);background:var(--ink,#222);color:var(--paper,#fff);font:inherit;font-size:15px;text-transform:none;letter-spacing:0;cursor:pointer}
+#dzSite article.card{margin:0}#dzSite .card .num{display:none}
 /* 3 · thumb-sized buttons */
 .tchips button,.dayjump button,.bph button,.bsel button,.dayspick button,.modepick button,.tfilters button,.uxseg button,.my-chips button{min-height:44px}
 .card .tick{min-width:44px;min-height:44px}
@@ -4244,6 +4249,28 @@ document.addEventListener("touchend",e=>{const s=dzT;dzT=null;if(!s||e.touches.l
   const root=e.target.closest&&e.target.closest(".sitmap,#lb .view");if(!root||!has("goWaypoint"))return;
   const g=dzNear(root,t.clientX,t.clientY,22);if(!g)return;
   e.preventDefault();e.stopPropagation();goWaypoint(g.dataset.key,g.dataset.tab)},{passive:false,capture:true});
+
+/* ---------- a site tapped on a map always opens that site ----------
+   The map dots lead to the Tour page, but that page only lists the tour chosen there, so most sites
+   were missing. If the site is not on the page, its full entry now opens in a panel on top. */
+function poolOf(key){try{return typeof POOL!=="undefined"&&Array.isArray(POOL)?POOL.find(p=>p.id===key):null}catch(e){return null}}
+function closeSite(){const o=$("#dzSite");if(o){o.remove();document.body.style.overflow=""}}
+function showSite(p){closeSite();if(!has("card"))return false;
+  let html;try{html=card({key:p.id,num:"",name:p.name,when:"Visit "+p.min+" min",cat:p.cat,conf:p.conf,lat:p.lat,lon:p.lon,text:p.text,look:p.look,plan:p.plan,priv:p.priv})}catch(e){return false}
+  const o=document.createElement("div");o.id="dzSite";o.setAttribute("role","dialog");o.setAttribute("aria-modal","true");o.setAttribute("aria-label",p.name);
+  o.innerHTML=`<div class="in"><div class="bar"><span>${p.day?"Day "+p.day+" of the full route":""}</span><button type="button" data-dzclose="1">✕ Close</button></div>${html}</div>`;
+  document.body.appendChild(o);document.body.style.overflow="hidden";
+  const c=$("article.card",o);if(c){c.classList.remove("fold");const t=$(".top",c);if(t)t.setAttribute("aria-expanded","true")}
+  tidyCards(o);const b=$("[data-dzclose]",o);b&&b.focus({preventScroll:true});return true}
+document.addEventListener("click",e=>{if(e.target.closest("[data-dzclose]")||e.target.id==="dzSite"){closeSite()}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSite()});
+function wrapGo(){if(!has("goWaypoint")||window.goWaypoint.dz)return;const o=window.goWaypoint;
+  window.goWaypoint=function(key,tab){try{
+    const tb=tab&&document.getElementById(tab),panel=tb&&document.getElementById(tb.getAttribute("aria-controls"));
+    const there=(panel||document).querySelector(`article.card[data-key="${CSS.escape(key)}"]`);
+    const p=!there&&poolOf(key);
+    if(p){const lb=document.getElementById("lb");if(lb&&has("closeMap"))closeMap();if(showSite(p))return}
+  }catch(e){}return o.apply(this,arguments)};window.goWaypoint.dz=1}
 /* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
 function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
   const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
@@ -4263,7 +4290,7 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-dza]"),s=e
 let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff()}catch(e){}}
 function sched(){if(!q)q=requestAnimationFrame(run)}
 let sq=0;addEventListener("scroll",()=>{if(!sq)sq=setTimeout(()=>{sq=0;try{renderNext()}catch(e){}},150)},{passive:true});
-function start(){try{unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
+function start(){try{wrapGo();unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
   if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
