@@ -5,6 +5,9 @@
 #dzSite .bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px;background:var(--paper,#f4efe2);font-size:12.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--ink2,#555)}
 #dzSite .bar button{min-height:44px;padding:0 16px;border-radius:10px;border:2px solid var(--ink,#222);background:var(--ink,#222);color:var(--paper,#fff);font:inherit;font-size:15px;text-transform:none;letter-spacing:0;cursor:pointer}
 #dzSite article.card{margin:0}#dzSite .card .num{display:none}
+.dzback{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;margin:0 0 10px;border-radius:20px;border:1.5px solid currentColor;font-size:14px;font-weight:700;text-decoration:none;color:#f4efe2!important;background:rgba(0,0,0,.25)}
+.dzbackt{display:grid;gap:2px;padding:14px 16px;margin:0 0 14px;border-radius:12px;background:var(--ink,#222);color:var(--paper,#fff)!important;text-decoration:none;min-height:44px}
+.dzbackt b{font-size:17px}.dzbackt span{font-size:13.5px;opacity:.85}
 /* 3 · thumb-sized buttons */
 .tchips button,.dayjump button,.bph button,.bsel button,.dayspick button,.modepick button,.tfilters button,.uxseg button,.my-chips button{min-height:44px}
 .card .tick{min-width:44px;min-height:44px}
@@ -197,6 +200,12 @@ function wrapGo(){if(!has("goWaypoint")||window.goWaypoint.dz)return;const o=win
     const p=!there&&poolOf(key);
     if(p){const lb=document.getElementById("lb");if(lb&&has("closeMap"))closeMap();if(showSite(p))return}
   }catch(e){}return o.apply(this,arguments)};window.goWaypoint.dz=1}
+
+/* ---------- a way back to dzcharlie.com from inside every guide ---------- */
+const HOMEURL=/(^|\.)dzcharlie\.com$/.test(location.hostname)?"/":"https://dzcharlie.com/";
+function addBack(){const home=$("#p-home"),hero=home&&$(".hero",home);
+  if(hero&&!$(".dzback",hero)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent="‹ All DZ Charlie guides";hero.prepend(a)}
+  const more=$("#p-more");if(more&&!$(".dzbackt",more)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML="<b>‹ All DZ Charlie guides</b><span>Back to dzcharlie.com, to choose another battlefield</span>";const set=$("#dzSet");set?set.before(a):more.prepend(a)}}
 /* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
 function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
   const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
@@ -216,7 +225,7 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-dza]"),s=e
 let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff()}catch(e){}}
 function sched(){if(!q)q=requestAnimationFrame(run)}
 let sq=0;addEventListener("scroll",()=>{if(!sq)sq=setTimeout(()=>{sq=0;try{renderNext()}catch(e){}},150)},{passive:true});
-function start(){try{wrapGo();unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
+function start(){try{wrapGo();addBack();unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
   if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}

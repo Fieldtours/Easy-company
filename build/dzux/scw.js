@@ -78,7 +78,13 @@ function renderSet(){const pg=$("#p-more .pg");if(!pg||$("#dzSet"))return;const 
   c.innerHTML=`<div class="r"><span>${L.size}</span>${["A","A+","A++"].map((t,i)=>`<button type="button" data-dza="${i}" aria-pressed="${a===String(i)}" style="font-size:${15+i*3}px">${t}</button>`).join("")}</div>
   <div class="r"><span>${L.sun}</span><button type="button" data-dzsun="1" aria-pressed="${s==="1"}">${s==="1"?L.on:L.no}</button><small style="flex-basis:100%;color:var(--faint,#555)">${L.sunP}</small></div>`;pg.prepend(c)}
 
+
+/* ---- a way back to dzcharlie.com ---- */
+const HOMEURL=/(^|\.)dzcharlie\.com$/.test(location.hostname)?"/":"https://dzcharlie.com/";
+const BK=ES?["‹ Todas las guías de DZ Charlie","Volver a dzcharlie.com para elegir otro campo de batalla"]:["‹ All DZ Charlie guides","Back to dzcharlie.com, to choose another battlefield"];
+function addBack(){const cin=$("#cover .in");if(cin&&!$(".dzback",cin)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent=BK[0];cin.prepend(a)}
+  const pg=$("#p-more .pg");if(pg&&!$(".dzbackt",pg)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML=`<b>${BK[0]}</b><span>${BK[1]}</span>`;pg.prepend(a)}}
 let q=0;new MutationObserver(()=>{if(!q)q=requestAnimationFrame(()=>{q=0;try{renderNext()}catch(e){}})}).observe(document.body,{childList:true});
-function start(){try{unifyNav();renderSet();renderToday();renderOff();renderNext()}catch(e){console.error(e)}}
+function start(){try{unifyNav();renderSet();addBack();renderToday();renderOff();renderNext()}catch(e){console.error(e)}}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(start,50));else setTimeout(start,50);
 })();
