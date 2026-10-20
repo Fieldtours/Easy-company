@@ -15,6 +15,10 @@ css+='''
 .dzpick button.dzl{width:100%;background:none;color:#1a5fc4;text-decoration:underline;min-height:40px;font-weight:600;font-size:15px}
 #dzToday.pg,#dzOff.pg{padding-bottom:0}
 .seg button,.tile,.btn{min-height:44px}
+a.ib.dzall{text-decoration:none;color:inherit}
+.dzlang{display:grid;gap:2px;margin:14px 0 4px;padding:12px 16px;border-radius:12px;background:#f0c46b;color:#1f1d17!important;text-decoration:none;border:2px solid #1f1d17;box-shadow:0 4px 14px rgba(0,0,0,.35);max-width:420px}
+.dzlang small{font-size:11.5px;font-weight:700;letter-spacing:1.5px}
+.dzlang b{font-size:19px}
 '''
 js=open('/home/claude/dzux/scw.js').read()
 block='<!-- dzux start: DZ Charlie phone-friendly layer -->\n<style id="dzux-css">'+css+'</style>\n<script id="dzux-js">\n'+js+'</script>\n<!-- dzux end -->\n'

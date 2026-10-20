@@ -82,7 +82,12 @@ function renderSet(){const pg=$("#p-more .pg");if(!pg||$("#dzSet"))return;const 
 /* ---- a way back to dzcharlie.com ---- */
 const HOMEURL=/(^|\.)dzcharlie\.com$/.test(location.hostname)?"/":"https://dzcharlie.com/";
 const BK=ES?["‹ Todas las guías de DZ Charlie","Volver a dzcharlie.com para elegir otro campo de batalla"]:["‹ All DZ Charlie guides","Back to dzcharlie.com, to choose another battlefield"];
-function addBack(){const cin=$("#cover .in");if(cin&&!$(".dzback",cin)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent=BK[0];cin.prepend(a)}
+function addBack(){const w=$("#b-weap")||$("header.top .ib");if(w&&!$(".dzall")){const a=document.createElement("a");a.className="ib dzall";a.href=HOMEURL;a.setAttribute("aria-label",ES?"Todas las guías de DZ Charlie":"All DZ Charlie guides");a.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span>'+(ES?"Guías":"Guides")+'</span>';w.before(a)}
+  const cv=$("#cover .in"),h1=cv&&$("h1",cv);if(h1&&!$(".dzlang",cv)){const a=document.createElement("a");a.className="dzlang";
+    if(ES){a.href="./?lang=en";a.setAttribute("data-lang","en");a.setAttribute("hreflang","en");a.lang="en";a.innerHTML="<small>ENGLISH</small><b>Read this guide in English →</b>"}
+    else{a.href="es.html";a.setAttribute("data-lang","es");a.setAttribute("hreflang","es");a.lang="es";a.innerHTML="<small>¡AHORA EN ESPAÑOL!</small><b>Ver la guía en español →</b>"}
+    const sub=$(".sub",cv);(sub||h1).after(a)}
+  const cin=$("#cover .in");if(cin&&!$(".dzback",cin)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent=BK[0];cin.prepend(a)}
   const pg=$("#p-more .pg");if(pg&&!$(".dzbackt",pg)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML=`<b>${BK[0]}</b><span>${BK[1]}</span>`;pg.prepend(a)}}
 let q=0;new MutationObserver(()=>{if(!q)q=requestAnimationFrame(()=>{q=0;try{renderNext()}catch(e){}})}).observe(document.body,{childList:true});
 function start(){try{unifyNav();renderSet();addBack();renderToday();renderOff();renderNext()}catch(e){console.error(e)}}
