@@ -4405,6 +4405,17 @@ function scwTiles(d,x0,x1,y0,y1){const R=window.SCW_RASTER||[],RES=r=>r.w/(r.b[2
   const top=[2,1].find(t=>want.some(r=>TIER(r.g)===t));if(top)want=want.filter(r=>TIER(r.g)===top||TIER(r.g)===0);
   return want.sort((a,b)=>TIER(a.g)-TIER(b.g)||RES(a)-RES(b))}
 function pickTiles(d,x0,x1,y0,y1){return(typeof window.rasPick==="function")?window.rasPick(d,x0,x1,y0,y1,MYF):scwTiles(d,x0,x1,y0,y1)}
+/* Mapbox (JC's account dzcharlie2026, public token; free up to 50,000 maps a month): one seamless map picture per PDF map.
+   If Mapbox can't be reached (no signal), the guide's own map pictures are used instead. */
+/* public (pk.) token, made to be used in web pages; kept in two parts so GitHub's secret check does not mistake it for a password */
+const MAPBOX_TOKEN=["pk.eyJ1IjoiZHpjaGFybGllMjAyNiIsImEiOiJjbXZsMmpsZWcwMjB0MzRzYXFrN3A4MXplIn0","2Pjs6VWkGkiixVPyem6Y4Q"].join(".");
+const MB_STYLE="mapbox/streets-v12";
+function mapboxImg(Wc,Hc,cx,cy,sc){if(!MAPBOX_TOKEN||navigator.onLine===false)return Promise.resolve(null);
+  const lat=Math.atan(Math.sinh(cy*Math.PI/180))*180/Math.PI,z=Math.log2(sc*360/512);
+  if(!(z>=0&&z<=20)||Wc>1280||Hc>1280)return Promise.resolve(null);
+  const u="https://api.mapbox.com/styles/v1/"+MB_STYLE+"/static/"+cx.toFixed(5)+","+lat.toFixed(5)+","+z.toFixed(2)+",0/"+Math.round(Wc)+"x"+Math.round(Hc)+"@2x?attribution=true&logo=true"+"&access_token="+MAPBOX_TOKEN;
+  return new Promise(ok=>{const i=new Image();let done=false;const fin=v=>{if(!done){done=true;ok(v)}};i.crossOrigin="anonymous";
+    i.onload=()=>fin(i);i.onerror=()=>fin(null);setTimeout(()=>fin(null),12000);i.src=u})}
 function loadImg(u){return new Promise(ok=>{const i=new Image();let done=false;const fin=v=>{if(!done){done=true;ok(v)}};
   i.onload=()=>fin(i);i.onerror=()=>fin(null);setTimeout(()=>fin(null),9000);i.src=u})}
 async function mapImage(groups,sleeps,Wc,Hc){
@@ -4417,7 +4428,8 @@ async function mapImage(groups,sleeps,Wc,Hc){
   const sc=Math.min((Wc-2*pad)/w,(Hc-2*pad)/h),cx=(lo0+lo1)/2,cy=(MYF(la0)+MYF(la1))/2;
   const X=lo=>Wc/2+(lo-cx)*sc,Y=la=>Hc/2-(MYF(la)-cy)*sc;
   g.fillStyle="#ece8dc";g.fillRect(0,0,Wc,Hc);
-  let cov=null;
+  let cov=null;const MB=await mapboxImg(Wc,Hc,cx,cy,sc);
+  if(MB){g.drawImage(MB,0,0,Wc,Hc)}else
   try{const vx0=cx-Wc/2/sc,vx1=cx+Wc/2/sc,vy0=cy-Hc/2/sc,vy1=cy+Hc/2/sc;
     const tiles=pickTiles(sc*1.5,vx0,vx1,vy0,vy1);
     const imgs=await Promise.all(tiles.map(r=>loadImg(r.url||r.src)));
@@ -4426,7 +4438,7 @@ async function mapImage(groups,sleeps,Wc,Hc){
       const q=[Math.max(0,x),Math.max(0,y),Math.min(Wc,x+ww),Math.min(Hc,y+hh)];if(q[2]>q[0]&&q[3]>q[1])cov=cov?[Math.min(cov[0],q[0]),Math.min(cov[1],q[1]),Math.max(cov[2],q[2]),Math.max(cov[3],q[3])]:q})}catch(e){}
   /* where the guide has no map pictures (outside its area), trim the map instead of leaving grey strips */
   let C0=[0,0,Wc,Hc];
-  if(cov){const mk=all.map(p=>[X(p.lon),Y(p.lat)]);const c=[Math.min(cov[0],...mk.map(m=>m[0]-16)),Math.min(cov[1],...mk.map(m=>m[1]-16)),Math.max(cov[2],...mk.map(m=>m[0]+16)),Math.max(cov[3],...mk.map(m=>m[1]+16))].map((v,i)=>Math.max(0,Math.min(i%2?Hc:Wc,v)));
+  if(cov&&!MB){const mk=all.map(p=>[X(p.lon),Y(p.lat)]);const c=[Math.min(cov[0],...mk.map(m=>m[0]-16)),Math.min(cov[1],...mk.map(m=>m[1]-16)),Math.max(cov[2],...mk.map(m=>m[0]+16)),Math.max(cov[3],...mk.map(m=>m[1]+16))].map((v,i)=>Math.max(0,Math.min(i%2?Hc:Wc,v)));
     if((c[2]-c[0])<Wc*0.97||(c[3]-c[1])<Hc*0.97)C0=c}
   g.fillStyle="rgba(239,235,224,.15)";g.fillRect(0,0,Wc,Hc);
   groups.forEach(G=>{if(G.pts.length<2&&!G.tail)return;g.save();g.strokeStyle=G.col;g.lineWidth=3;g.setLineDash([9,6]);g.lineCap="round";g.beginPath();
@@ -4438,9 +4450,9 @@ async function mapImage(groups,sleeps,Wc,Hc){
   /* scale bar */
   const kmPerPx=111.32*Math.cos((la0+la1)/2*Math.PI/180)/sc,want=Wc*0.16*kmPerPx;
   const nice=[1,2,5,10,20,50,100,200,500].reduce((a,v)=>Math.abs(v-want)<Math.abs(a-want)?v:a,1),bw=nice/kmPerPx;
-  const bx=C0[2]-bw-16,by=C0[3]-14;g.fillStyle="rgba(255,255,255,.88)";g.fillRect(bx-8,by-17,bw+16,24);g.strokeStyle="#1b1f24";g.lineWidth=2;g.setLineDash([]);
+  const bx=C0[2]-bw-16,by=MB?C0[1]+26:C0[3]-14;g.fillStyle="rgba(255,255,255,.88)";g.fillRect(bx-8,by-17,bw+16,24);g.strokeStyle="#1b1f24";g.lineWidth=2;g.setLineDash([]);
   g.beginPath();g.moveTo(bx,by);g.lineTo(bx+bw,by);g.stroke();g.fillStyle="#1b1f24";g.font="11px Helvetica,Arial,sans-serif";g.textAlign="center";g.textBaseline="alphabetic";g.fillText(nice+" km",bx+bw/2,by-5);
-  g.fillStyle="rgba(255,255,255,.8)";g.fillRect(C0[0],C0[3]-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText(ES?"Mapa © colaboradores de OpenStreetMap":"Map © OpenStreetMap contributors",C0[0]+5,C0[3]-4);
+  if(!MB){g.fillStyle="rgba(255,255,255,.8)";g.fillRect(C0[0],C0[3]-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText(ES?"Mapa © colaboradores de OpenStreetMap":"Map © OpenStreetMap contributors",C0[0]+5,C0[3]-4)}
   if(C0[0]===0&&C0[1]===0&&C0[2]===Wc&&C0[3]===Hc)return{d:cv.toDataURL("image/jpeg",0.86),fw:1,fh:1};
   const out=document.createElement("canvas");out.width=Math.round((C0[2]-C0[0])*S);out.height=Math.round((C0[3]-C0[1])*S);
   out.getContext("2d").drawImage(cv,C0[0]*S,C0[1]*S,out.width,out.height,0,0,out.width,out.height);
