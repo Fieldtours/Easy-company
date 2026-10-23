@@ -4464,12 +4464,27 @@ function makePlan(){if(IS_SCW)return scwPlan();
   return out}
 
 /* ---------- maps: the guide's own map pictures, drawn on a canvas ---------- */
+/* Spanish Civil War maps: the app's own pick rule (map.js rasPick), plus one rule for print:
+   a sharper layer is used only where it covers the WHOLE map, so a printed map never looks like a patchwork */
 function scwTiles(d,x0,x1,y0,y1){const R=window.SCW_RASTER||[],RES=r=>r.w/(r.b[2]-r.b[0]);
-  const inV=r=>r.b[2]>x0&&r.b[0]<x1&&MYF(r.b[3])>y0&&MYF(r.b[1])<y1;const fam={};
-  R.forEach(r=>{if(r.lv<0)return;const F=fam[r.g]=fam[r.g]||{};if(!(r.lv in F))F[r.lv]=RES(r)});
-  const near={};Object.keys(fam).forEach(g=>{const lv=Object.entries(fam[g]);near[g]=+lv.reduce((a,x)=>Math.abs(Math.log(x[1]/d))<Math.abs(Math.log(a[1]/d))?x:a,lv[0])[0]});
-  const bare=R.filter(r=>r.lv===-1&&inV(r)),named=R.filter(r=>r.lv>=0&&near[r.g]===r.lv&&inV(r)&&RES(r)>=d*0.25);
-  return bare.sort((a,b)=>RES(a)-RES(b)).concat(named.sort((a,b)=>RES(a)-RES(b)))}
+  const inV=r=>r.b[2]>x0&&r.b[0]<x1&&MYF(r.b[3])>y0&&MYF(r.b[1])<y1;const FAM={};
+  R.forEach(r=>{const F=FAM[r.g]=FAM[r.g]||{};if(!(r.lv in F))F[r.lv]=RES(r)});
+  const TOP={};Object.keys(FAM).forEach(g=>TOP[g]=Math.max(...Object.values(FAM[g])));const TIER=g=>+g===0?0:(TOP[g]<3000?1:2);
+  const pick={},best=[0,0,0];
+  Object.keys(FAM).sort((a,b)=>TIER(a)-TIER(b)||a-b).forEach(g=>{const t=TIER(g);const lv=Object.entries(FAM[g]).map(([l,res])=>[+l,res]).filter(x=>x[0]>=0).sort((a,b)=>a[1]-b[1]);
+    if(!lv.length){pick[g]=-9;return}
+    let c=lv.find(x=>x[1]>=d*0.8)||lv[lv.length-1];
+    if(t>0&&(c[1]>d*2||c[1]<Math.max(best[0],t>1?best[1]:0)*1.5))c=null;
+    if(c)best[t]=Math.max(best[t],c[1]);
+    if(c&&c[1]<d*0.45&&(-1 in FAM[g]))c=[-1,FAM[g][-1]];pick[g]=c?c[0]:-9});
+  let want=R.filter(r=>pick[r.g]===r.lv&&inV(r));
+  /* print rule: keep a middle or close-up layer only if its pictures cover the whole view */
+  const pts=[];for(let i=0;i<8;i++)for(let j=0;j<8;j++)pts.push([x0+(x1-x0)*(i+.5)/8,y0+(y1-y0)*(j+.5)/8]);
+  const covers=L=>pts.every(([x,y])=>L.some(r=>x>=r.b[0]&&x<=r.b[2]&&y>=MYF(r.b[1])&&y<=MYF(r.b[3])));
+  [1,2].forEach(t=>{const L=want.filter(r=>TIER(r.g)===t);if(L.length&&!covers(L))want=want.filter(r=>TIER(r.g)!==t)});
+  /* drawn coarse to sharp; if a sharp layer covers everything, the layers under it are not needed */
+  const top=[2,1].find(t=>want.some(r=>TIER(r.g)===t));if(top)want=want.filter(r=>TIER(r.g)===top||TIER(r.g)===0);
+  return want.sort((a,b)=>TIER(a.g)-TIER(b.g)||RES(a)-RES(b))}
 function pickTiles(d,x0,x1,y0,y1){return(typeof window.rasPick==="function")?window.rasPick(d,x0,x1,y0,y1,MYF):scwTiles(d,x0,x1,y0,y1)}
 function loadImg(u){return new Promise(ok=>{const i=new Image();let done=false;const fin=v=>{if(!done){done=true;ok(v)}};
   i.onload=()=>fin(i);i.onerror=()=>fin(null);setTimeout(()=>fin(null),9000);i.src=u})}
@@ -4483,11 +4498,17 @@ async function mapImage(groups,sleeps,Wc,Hc){
   const sc=Math.min((Wc-2*pad)/w,(Hc-2*pad)/h),cx=(lo0+lo1)/2,cy=(MYF(la0)+MYF(la1))/2;
   const X=lo=>Wc/2+(lo-cx)*sc,Y=la=>Hc/2-(MYF(la)-cy)*sc;
   g.fillStyle="#ece8dc";g.fillRect(0,0,Wc,Hc);
+  let cov=null;
   try{const vx0=cx-Wc/2/sc,vx1=cx+Wc/2/sc,vy0=cy-Hc/2/sc,vy1=cy+Hc/2/sc;
-    const tiles=pickTiles(sc*S,vx0,vx1,vy0,vy1);
+    const tiles=pickTiles(sc*1.5,vx0,vx1,vy0,vy1);
     const imgs=await Promise.all(tiles.map(r=>loadImg(r.url||r.src)));
     tiles.forEach((r,i)=>{const im=imgs[i];if(!im)return;const x=Wc/2+(r.b[0]-cx)*sc,y=Hc/2-(MYF(r.b[3])-cy)*sc;
-      g.drawImage(im,x,y,(r.b[2]-r.b[0])*sc,(MYF(r.b[3])-MYF(r.b[1]))*sc)})}catch(e){}
+      const ww=(r.b[2]-r.b[0])*sc,hh=(MYF(r.b[3])-MYF(r.b[1]))*sc;g.drawImage(im,x,y,ww,hh);
+      const q=[Math.max(0,x),Math.max(0,y),Math.min(Wc,x+ww),Math.min(Hc,y+hh)];if(q[2]>q[0]&&q[3]>q[1])cov=cov?[Math.min(cov[0],q[0]),Math.min(cov[1],q[1]),Math.max(cov[2],q[2]),Math.max(cov[3],q[3])]:q})}catch(e){}
+  /* where the guide has no map pictures (outside its area), trim the map instead of leaving grey strips */
+  let C0=[0,0,Wc,Hc];
+  if(cov){const mk=all.map(p=>[X(p.lon),Y(p.lat)]);const c=[Math.min(cov[0],...mk.map(m=>m[0]-16)),Math.min(cov[1],...mk.map(m=>m[1]-16)),Math.max(cov[2],...mk.map(m=>m[0]+16)),Math.max(cov[3],...mk.map(m=>m[1]+16))].map((v,i)=>Math.max(0,Math.min(i%2?Hc:Wc,v)));
+    if((c[2]-c[0])<Wc*0.97||(c[3]-c[1])<Hc*0.97)C0=c}
   g.fillStyle="rgba(239,235,224,.15)";g.fillRect(0,0,Wc,Hc);
   groups.forEach(G=>{if(G.pts.length<2&&!G.tail)return;g.save();g.strokeStyle=G.col;g.lineWidth=3;g.setLineDash([9,6]);g.lineCap="round";g.beginPath();
     G.pts.concat(G.tail?[G.tail]:[]).forEach((p,i)=>i?g.lineTo(X(p.lon),Y(p.lat)):g.moveTo(X(p.lon),Y(p.lat)));g.stroke();g.restore()});
@@ -4498,10 +4519,16 @@ async function mapImage(groups,sleeps,Wc,Hc){
   /* scale bar */
   const kmPerPx=111.32*Math.cos((la0+la1)/2*Math.PI/180)/sc,want=Wc*0.16*kmPerPx;
   const nice=[1,2,5,10,20,50,100,200,500].reduce((a,v)=>Math.abs(v-want)<Math.abs(a-want)?v:a,1),bw=nice/kmPerPx;
-  const bx=Wc-bw-16,by=Hc-14;g.fillStyle="rgba(255,255,255,.88)";g.fillRect(bx-8,by-17,bw+16,24);g.strokeStyle="#1b1f24";g.lineWidth=2;g.setLineDash([]);
+  const bx=C0[2]-bw-16,by=C0[3]-14;g.fillStyle="rgba(255,255,255,.88)";g.fillRect(bx-8,by-17,bw+16,24);g.strokeStyle="#1b1f24";g.lineWidth=2;g.setLineDash([]);
   g.beginPath();g.moveTo(bx,by);g.lineTo(bx+bw,by);g.stroke();g.fillStyle="#1b1f24";g.font="11px Helvetica,Arial,sans-serif";g.textAlign="center";g.textBaseline="alphabetic";g.fillText(nice+" km",bx+bw/2,by-5);
-  g.fillStyle="rgba(255,255,255,.8)";g.fillRect(0,Hc-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText(ES?"Mapa © colaboradores de OpenStreetMap":"Map © OpenStreetMap contributors",5,Hc-4);
-  return cv.toDataURL("image/jpeg",0.86)}
+  g.fillStyle="rgba(255,255,255,.8)";g.fillRect(C0[0],C0[3]-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText(ES?"Mapa © colaboradores de OpenStreetMap":"Map © OpenStreetMap contributors",C0[0]+5,C0[3]-4);
+  if(C0[0]===0&&C0[1]===0&&C0[2]===Wc&&C0[3]===Hc)return{d:cv.toDataURL("image/jpeg",0.86),fw:1,fh:1};
+  const out=document.createElement("canvas");out.width=Math.round((C0[2]-C0[0])*S);out.height=Math.round((C0[3]-C0[1])*S);
+  out.getContext("2d").drawImage(cv,C0[0]*S,C0[1]*S,out.width,out.height,0,0,out.width,out.height);
+  return{d:out.toDataURL("image/jpeg",0.86),fw:(C0[2]-C0[0])/Wc,fh:(C0[3]-C0[1])/Hc}}
+/* put a map picture into its box on the page: a trimmed map is enlarged to fit and centred */
+function placeMap(doc,m,x,y,W,H){let w=W*m.fw,h=H*m.fh;const f=Math.min(W/w,H/h);w*=f;h*=f;const ox=x+(W-w)/2,oy=y+(H-h)/2;
+  doc.addImage(m.d,"JPEG",ox,oy,w,h);return[ox,oy,w,h]}
 
 /* ---------- headings in the guide's own stencil lettering ---------- */
 async function headingImg(txt,pt,col,maxW){
@@ -4553,8 +4580,8 @@ async function buildPdf(){
   para(L.lede(plural(nDays,L.day,L.days),plural(nStops,L.stop,L.stops),hm(totV),hm(totD),totK),M,A4W-2*M,10.5,"#3a3f46");y+=3;
   const ovH=88,ovW=A4W-2*M;
   const ov=await mapImage(plan.map((d,i)=>({col:col(i),pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base&&!d.base.near?{lat:d.base.lat,lon:d.base.lon}:null})),plan.filter(d=>d.base&&!d.base.near).map(d=>({lat:d.base.lat,lon:d.base.lon})),Math.round(ovW*4.9),Math.round(ovH*4.9));
-  doc.addImage(ov,"JPEG",M,y,ovW,ovH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(M,y,ovW,ovH,2,2,"S");y+=ovH+2;
-  txtc("#6b717b");font("helvetica","normal",7);{const mc=doc.splitTextToSize(T(L.mapcap),A4W-2*M);doc.text(mc,M,y+2);y+=4+mc.length*3}
+  {const r=placeMap(doc,ov,M,y,ovW,ovH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(r[0],r[1],r[2],r[3],2,2,"S")}y+=ovH+2;
+  txtc("#6b717b");font("helvetica","normal",7);{const sq=plan.some(d=>d.base&&!d.base.near);const mc=doc.splitTextToSize(T(sq?L.mapcap:L.mapcap.replace(/ · (black squares = where to sleep|cuadros negros = dónde dormir)/,"")),A4W-2*M);doc.text(mc,M,y+2);y+=4+mc.length*3}
   /* at a glance */
   const cx=[M,M+16,M+80,M+94,M+118,M+150];const heads=L.heads;
   const tHead=()=>{font("courier","bold",7);txtc("#6b717b");heads.forEach((h,i)=>doc.text(T(h),cx[i],y+3));y+=5;draw(BRAND);doc.setLineWidth(0.4);doc.line(M,y,A4W-M,y);y+=1.5};
@@ -4586,7 +4613,7 @@ async function buildPdf(){
     /* map + timetable */
     const mW=88,mH=74,sy=y;
     const dm=await mapImage([{col:C,pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base&&!d.base.near?{lat:d.base.lat,lon:d.base.lon}:null}],d.base&&!d.base.near?[{lat:d.base.lat,lon:d.base.lon}]:[],Math.round(mW*6),Math.round(mH*6));
-    doc.addImage(dm,"JPEG",M,y,mW,mH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(M,y,mW,mH,2,2,"S");
+    {const r=placeMap(doc,dm,M,y,mW,mH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(r[0],r[1],r[2],r[3],2,2,"S")}
     const tx=M+mW+6,tw=A4W-M-tx;let ty=y;
     const dot=(cx_,cy_,c,label)=>{fill(c);doc.circle(cx_,cy_,2.6,"F");txtc("#ffffff");font("helvetica","bold",7.5);doc.text(label,cx_,cy_+0.1,{align:"center",baseline:"middle"})};
     d.rows.forEach(r=>{
