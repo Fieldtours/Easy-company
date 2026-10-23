@@ -4346,11 +4346,11 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 })();
 </script>
 <!-- dzux end -->
-<!-- routepdf start: "Download Route PDF" for Build my own route (shared by all guides) -->
+<!-- routepdf start: "Download Route PDF" for the tour planners (shared by all guides; Spanish wording on Spanish pages) -->
 <style id="routepdf-css">
-#mybox .rp-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:12px 0 4px;padding:13px 14px;min-height:52px;border-radius:14px;background:var(--brand,#24323f);color:#fff;font-weight:700;font-size:17px;box-shadow:0 3px 10px rgba(0,0,0,.25)}
-#mybox .rp-btn[disabled]{opacity:.6;cursor:progress}
-#mybox .rp-note{margin:4px 2px 0;font-size:13px;opacity:.8}
+.rp-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin:12px 0 4px;padding:13px 14px;min-height:52px;border-radius:14px;background:var(--brand,#24323f);color:#fff;font-weight:700;font-size:17px;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.rp-btn[disabled]{opacity:.6;cursor:progress}
+.rp-note{margin:4px 2px 0;font-size:13px;opacity:.8}
 #rpReady{position:fixed;inset:0;z-index:99995;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:20px}
 #rpReady .in{max-width:380px;width:100%;background:var(--paper,#f4efe2);color:var(--ink,#1c1a15);border-radius:16px;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,.4);text-align:center}
 #rpReady b{display:block;font-size:19px;margin-bottom:6px}
@@ -4358,7 +4358,7 @@ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",
 #rpReady button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;min-height:48px;margin-top:8px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;padding:12px}
 #rpReady .go{background:var(--brand,#24323f);color:#fff}
 #rpReady .x{border:2px solid currentColor}
-@media (prefers-color-scheme:dark){#mybox .rp-btn{background:#e8e4d8;color:#121410}}
+@media (prefers-color-scheme:dark){.rp-btn{background:#e8e4d8;color:#121410}}
 </style>
 <script id="routepdf-js">
 (function(){
@@ -4371,7 +4371,43 @@ function loadLib(src){return new Promise((ok,ko)=>{if(document.querySelector('sc
   const s=document.createElement("script");s.src=src;s.dataset.rp=src;s.onload=ok;s.onerror=()=>ko(new Error("Could not load "+src));document.head.appendChild(s)})}
 const cssVar=(n,d)=>{const v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();return v||d};
 const short=n=>String(n).split(/ — | \/ |, |: /)[0];
-const hm=m=>apHm(m);
+const hm=m=>{m=Math.round(m);const h=Math.floor(m/60),r=m%60;return h?(r?h+" h "+r+" min":h+" h"):r+" min"};
+const MYF=la=>Math.log(Math.tan(Math.PI/4+la*Math.PI/360))*180/Math.PI;
+const ES=(document.documentElement.lang||"").toLowerCase().startsWith("es");
+/* words used on the button and in the PDF (Spanish = Castilian, for the Spanish pages) */
+const L=ES?{btn:"Descargar ruta en PDF",note:"Mapas, horarios y todas las paradas, listo para imprimir o guardar en el móvil.",making:"Preparando tu PDF…",
+  ready:"Tu ruta en PDF está lista",readyP:"Guárdala en el móvil, imprímela o envíasela a alguien.",share:"Guardar o compartir el PDF",close:"Cerrar",done:"PDF de la ruta descargado",
+  fail:"Lo sentimos, no se ha podido crear el PDF. Inténtalo de nuevo.",offline:"La primera vez el PDF necesita internet. Inténtalo cuando tengas conexión.",
+  field:"GUÍA DE CAMPO DZ CHARLIE",my:"MI RUTA",yours:"TU RUTA",day:"día",days:"días",Day:"Día",stop:"parada",stops:"paradas",
+  title:(a,b)=>"Mi ruta: "+(b?"de "+a+" a "+b:a),
+  lede:(nd,ns,v,d,k)=>nd+" · "+ns+" · unas "+v+" de visitas y "+d+" en coche ("+k+" km). Cada día va en orden de conducción y empieza a las 09:00.",
+  mapcap:"Números = paradas en orden de visita, un color por día · cuadros negros = dónde dormir · línea discontinua = orden de visita, no la carretera",
+  heads:["DÍA","DE – A","PARADAS","VISITAS","EN COCHE","DORMIR EN"],total:"Total",how:"CÓMO USARLO",
+  tips:["Cada día empieza a las 09:00; los horarios son orientativos.","Escanea el código de cada día para abrir el día entero en Google Maps.","Cada parada tiene también su código, para ir directamente.","Los horarios y precios cambian: compruébalos antes de ir."],
+  dayline:(ns,v,d,k,e)=>ns+" · visitas "+v+" + coche "+d+" ("+k+" km) · de 09:00 a las "+e+" aprox.",scan:["Escanea para","ver el día entero","en Google Maps"],
+  drive:(m,k)=>"en coche, unos "+m+" · "+k+" km",visit:"Visita",visitl:"visita",lunch:"Pausa para comer",lunchS:"aprox. 1 h",leave:"Salida: ",leaveS:"donde has dormido",
+  arrive:"Llegada: ",arriveS:n=>"para dormir · fin del día "+n,near:"Noche cerca de ",nearS:n=>"fin del día "+n,dash:"Línea discontinua = orden de visita, no la carretera · los tiempos en coche son aproximados",
+  what:"QUÉ PASÓ",see:"QUÉ SE VE HOY",prac:"INFORMACIÓN PRÁCTICA",dir:"Cómo llegar",sleepT:(n,b)=>"Fin del día "+n+": dormir en "+b,
+  sleep1:b=>"Buena zona para alojarse: "+b+". En la app, el planificador enlaza directamente con hoteles, Airbnb y campings de la zona.",camp:"Camping o área de autocaravanas que recomendamos: ",
+  nearT:(n,b)=>"Fin del día "+n+": noche cerca de "+b,near1:b=>"Busca alojamiento cerca de "+b+": en la app, «Buscar alojamiento» abre los hoteles de la zona en Google Maps.",
+  made:d=>"Creado el "+d+" · comprueba los horarios antes de ir",page:"Página",locale:"es-ES",file:"Mi ruta",checkweb:/\s*(?:Consulta|Comprueba)[^.]{0,40}antes de ir\.?/i}
+ :{btn:"Download Route PDF",note:"Maps, times and every stop, ready to print or keep on your phone.",making:"Making your PDF…",
+  ready:"Your route PDF is ready",readyP:"Save it to your phone, print it, or send it to someone.",share:"Save or share the PDF",close:"Close",done:"Route PDF downloaded",
+  fail:"Sorry, the PDF could not be made. Please try again.",offline:"The PDF needs the internet the first time. Please try again when you are online.",
+  field:"DZ CHARLIE FIELD GUIDE",my:"MY ROUTE",yours:"YOUR OWN ROUTE",day:"day",days:"days",Day:"Day",stop:"stop",stops:"stops",
+  title:(a,b)=>"My route: "+a+(b?" to "+b:""),
+  lede:(nd,ns,v,d,k)=>nd+" · "+ns+" · about "+v+" of visits and "+d+" of driving ("+k+" km). Each day is in driving order and starts at 09:00.",
+  mapcap:"Numbers = stops in visiting order, one colour per day · black squares = where to sleep · dashed line = order of visit, not the road",
+  heads:["DAY","FROM – TO","STOPS","VISITING","DRIVING","SLEEP IN"],total:"Total",how:"HOW TO USE THIS",
+  tips:["Each day starts at 09:00; the times are a guide.","Scan the code at the top of a day to open the whole day in Google Maps.","Every stop has its own code too, to drive straight there.","Opening times and prices change: check before you go."],
+  dayline:(ns,v,d,k,e)=>ns+" · visits "+v+" + driving "+d+" ("+k+" km) · 09:00 to about "+e,scan:["Scan to drive","the whole day","in Google Maps"],
+  drive:(m,k)=>"drive about "+m+" · "+k+" km",visit:"Visit",visitl:"visit",lunch:"Lunch break",lunchS:"about 1 h",leave:"Leave ",leaveS:"where you slept",
+  arrive:"Arrive ",arriveS:n=>"sleep here · end of Day "+n,near:"Overnight near ",nearS:n=>"end of Day "+n,dash:"Dashed line = order of visit, not the road · drive times are estimates",
+  what:"WHAT HAPPENED",see:"WHAT YOU SEE TODAY",prac:"PRACTICAL",dir:"Directions",sleepT:(n,b)=>"End of Day "+n+": sleep in "+b,
+  sleep1:b=>"Good area to stay: "+b+". In the app, the tour planner links straight to hotels, Airbnb and campsites around there.",camp:"Campsite or motorhome area we suggest: ",
+  nearT:(n,b)=>"End of Day "+n+": overnight near "+b,near1:b=>"Find somewhere to stay near "+b+": in the app, “Find a place to stay” opens the hotels around there in Google Maps.",
+  made:d=>"Made "+d+" · check opening times before you go",page:"Page",locale:"en-GB",file:"My route",checkweb:/\s*Check the website before you go\.?/i};
+const plural=(n,a,b)=>n+" "+(n===1?a:b);
 const clock=m=>{m=Math.round(m);return String(Math.floor(m/60)%24).padStart(2,"0")+":"+String(m%60).padStart(2,"0")};
 const T0=document.title;const guideName=()=>String(window.__T0||T0).split(/:| — | \| /)[0].trim();
 /* the built-in PDF letters only know Western European characters: replace or simplify the rest */
@@ -4391,7 +4427,28 @@ function dayLink(ds,b){const pts=ds.map(p=>p.lat.toFixed(5)+","+p.lon.toFixed(5)
   return "https://www.google.com/maps/dir/"+pts.slice(0,10).join("/")}
 
 /* ---------- the plan, in the same order and with the same times as the app ---------- */
-function makePlan(){
+const IS_SCW=typeof window.myBuild!=="function"&&!!window.SCW;
+function scwPlan(){let P=null;try{P=JSON.parse(localStorage.getItem("scw-plan")||"null")}catch(e){}
+  const R=P&&P.res;if(!R||!R.days)return[];const by={};window.SCW.stops.forEach(s=>by[s.id]=s);
+  const town=s=>String(s.tw||s.n).split(/[\/(]/)[0].trim();
+  const tr=(g,v)=>typeof window.SCW_TR==="function"?window.SCW_TR(g,v):v;
+  const pt=s=>({id:s.id,name:s.n,lat:s.la,lon:s.lo,min:s.m,cat:tr("k",s.k),conf:s.c,confL:tr("c",s.c),text:s.t,look:s.lk,plan:s.pl});
+  const out=[];
+  R.days.forEach((d,di)=>{const ss=d.ids.map(id=>by[id]).filter(Boolean),ds=ss.map(pt);if(!ds.length)return;
+    const rows=[];let t=9*60,drv=0,km=0,vis=0,lunch=false;
+    if(di===0&&R.start)rows.push({k:"leave",t,name:R.start[2],sub:""});
+    else if(di>0&&out[out.length-1]&&out[out.length-1].base)rows.push({k:"leave",t,name:out[out.length-1].base.base,sub:L.leaveS});
+    ds.forEach((p,i)=>{const lg=(d.legs||[])[i]||[0,0];
+      if(lg[0]>0.3&&lg[1]>0){rows.push({k:"drive",m:lg[1],km:lg[0]});t+=lg[1];drv+=lg[1];km+=lg[0]}
+      rows.push({k:"stop",n:i+1,p,t,m:p.min});t+=p.min;vis+=p.min;
+      if(!lunch&&t>=12*60&&i<ds.length-1){rows.push({k:"lunch",t});t+=60;lunch=true}});
+    const lastS=ss[ss.length-1],isLast=di===R.days.length-1;
+    const base=isLast?null:{base:town(lastS),lat:lastS.la,lon:lastS.lo,near:true};
+    if(base)rows.push({k:"near",t,name:base.base});
+    const pts=(di===0&&R.start?[[R.start[0],R.start[1]]]:[]).concat(ds.map(p=>[p.lat,p.lon]));
+    out.push({n:out.length+1,ds,base,rows,drv,km:Math.round(km),vis,end:t,link:"https://www.google.com/maps/dir/"+pts.slice(0,10).map(q=>q[0].toFixed(5)+","+q[1].toFixed(5)).join("/")})});
+  return out}
+function makePlan(){if(IS_SCW)return scwPlan();
   const days=myBuild();const out=[];
   days.forEach((ds,di)=>{
     const b=ds.length?baseFor(ds,di===days.length-1,days[di+1]):null;
@@ -4407,6 +4464,13 @@ function makePlan(){
   return out}
 
 /* ---------- maps: the guide's own map pictures, drawn on a canvas ---------- */
+function scwTiles(d,x0,x1,y0,y1){const R=window.SCW_RASTER||[],RES=r=>r.w/(r.b[2]-r.b[0]);
+  const inV=r=>r.b[2]>x0&&r.b[0]<x1&&MYF(r.b[3])>y0&&MYF(r.b[1])<y1;const fam={};
+  R.forEach(r=>{if(r.lv<0)return;const F=fam[r.g]=fam[r.g]||{};if(!(r.lv in F))F[r.lv]=RES(r)});
+  const near={};Object.keys(fam).forEach(g=>{const lv=Object.entries(fam[g]);near[g]=+lv.reduce((a,x)=>Math.abs(Math.log(x[1]/d))<Math.abs(Math.log(a[1]/d))?x:a,lv[0])[0]});
+  const bare=R.filter(r=>r.lv===-1&&inV(r)),named=R.filter(r=>r.lv>=0&&near[r.g]===r.lv&&inV(r)&&RES(r)>=d*0.25);
+  return bare.sort((a,b)=>RES(a)-RES(b)).concat(named.sort((a,b)=>RES(a)-RES(b)))}
+function pickTiles(d,x0,x1,y0,y1){return(typeof window.rasPick==="function")?window.rasPick(d,x0,x1,y0,y1,MYF):scwTiles(d,x0,x1,y0,y1)}
 function loadImg(u){return new Promise(ok=>{const i=new Image();let done=false;const fin=v=>{if(!done){done=true;ok(v)}};
   i.onload=()=>fin(i);i.onerror=()=>fin(null);setTimeout(()=>fin(null),9000);i.src=u})}
 async function mapImage(groups,sleeps,Wc,Hc){
@@ -4415,15 +4479,15 @@ async function mapImage(groups,sleeps,Wc,Hc){
   let la0=Math.min(...all.map(p=>p.lat)),la1=Math.max(...all.map(p=>p.lat)),lo0=Math.min(...all.map(p=>p.lon)),lo1=Math.max(...all.map(p=>p.lon));
   const minW=0.12;if(lo1-lo0<minW){const c=(lo0+lo1)/2;lo0=c-minW/2;lo1=c+minW/2}
   if(la1-la0<minW*0.6){const c=(la0+la1)/2;la0=c-minW*0.3;la1=c+minW*0.3}
-  const pad=34,w=lo1-lo0,h=MY(la1)-MY(la0);
-  const sc=Math.min((Wc-2*pad)/w,(Hc-2*pad)/h),cx=(lo0+lo1)/2,cy=(MY(la0)+MY(la1))/2;
-  const X=lo=>Wc/2+(lo-cx)*sc,Y=la=>Hc/2-(MY(la)-cy)*sc;
+  const pad=34,w=lo1-lo0,h=MYF(la1)-MYF(la0);
+  const sc=Math.min((Wc-2*pad)/w,(Hc-2*pad)/h),cx=(lo0+lo1)/2,cy=(MYF(la0)+MYF(la1))/2;
+  const X=lo=>Wc/2+(lo-cx)*sc,Y=la=>Hc/2-(MYF(la)-cy)*sc;
   g.fillStyle="#ece8dc";g.fillRect(0,0,Wc,Hc);
   try{const vx0=cx-Wc/2/sc,vx1=cx+Wc/2/sc,vy0=cy-Hc/2/sc,vy1=cy+Hc/2/sc;
-    const tiles=rasPick(sc*S,vx0,vx1,vy0,vy1,MY);
+    const tiles=pickTiles(sc*S,vx0,vx1,vy0,vy1);
     const imgs=await Promise.all(tiles.map(r=>loadImg(r.url||r.src)));
-    tiles.forEach((r,i)=>{const im=imgs[i];if(!im)return;const x=Wc/2+(r.b[0]-cx)*sc,y=Hc/2-(MY(r.b[3])-cy)*sc;
-      g.drawImage(im,x,y,(r.b[2]-r.b[0])*sc,(MY(r.b[3])-MY(r.b[1]))*sc)})}catch(e){}
+    tiles.forEach((r,i)=>{const im=imgs[i];if(!im)return;const x=Wc/2+(r.b[0]-cx)*sc,y=Hc/2-(MYF(r.b[3])-cy)*sc;
+      g.drawImage(im,x,y,(r.b[2]-r.b[0])*sc,(MYF(r.b[3])-MYF(r.b[1]))*sc)})}catch(e){}
   g.fillStyle="rgba(239,235,224,.15)";g.fillRect(0,0,Wc,Hc);
   groups.forEach(G=>{if(G.pts.length<2&&!G.tail)return;g.save();g.strokeStyle=G.col;g.lineWidth=3;g.setLineDash([9,6]);g.lineCap="round";g.beginPath();
     G.pts.concat(G.tail?[G.tail]:[]).forEach((p,i)=>i?g.lineTo(X(p.lon),Y(p.lat)):g.moveTo(X(p.lon),Y(p.lat)));g.stroke();g.restore()});
@@ -4436,7 +4500,7 @@ async function mapImage(groups,sleeps,Wc,Hc){
   const nice=[1,2,5,10,20,50,100,200,500].reduce((a,v)=>Math.abs(v-want)<Math.abs(a-want)?v:a,1),bw=nice/kmPerPx;
   const bx=Wc-bw-16,by=Hc-14;g.fillStyle="rgba(255,255,255,.88)";g.fillRect(bx-8,by-17,bw+16,24);g.strokeStyle="#1b1f24";g.lineWidth=2;g.setLineDash([]);
   g.beginPath();g.moveTo(bx,by);g.lineTo(bx+bw,by);g.stroke();g.fillStyle="#1b1f24";g.font="11px Helvetica,Arial,sans-serif";g.textAlign="center";g.textBaseline="alphabetic";g.fillText(nice+" km",bx+bw/2,by-5);
-  g.fillStyle="rgba(255,255,255,.8)";g.fillRect(0,Hc-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText("Map © OpenStreetMap contributors",5,Hc-4);
+  g.fillStyle="rgba(255,255,255,.8)";g.fillRect(0,Hc-14,190,14);g.fillStyle="#444";g.font="9px Helvetica,Arial,sans-serif";g.textAlign="left";g.fillText(ES?"Mapa © colaboradores de OpenStreetMap":"Map © OpenStreetMap contributors",5,Hc-4);
   return cv.toDataURL("image/jpeg",0.86)}
 
 /* ---------- headings in the guide's own stencil lettering ---------- */
@@ -4460,138 +4524,146 @@ function qrDraw(doc,url,x,y,size){
 async function buildPdf(){
   const plan=makePlan().filter(d=>d.ds.length),guide=guideName();
   const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:"mm",format:"a4",compress:true});
-  const BRAND=cssVar("--brand","#24323f"),ACC=cssVar("--accent","#a3261e");
+  const BRAND=cssVar("--brand",cssVar("--earth","#24323f")),ACC=cssVar("--accent",cssVar("--red","#a3261e"));
   const COLS=(typeof AP_COL!=="undefined"?AP_COL:["#a3261e","#2f6f8f","#a8741a","#5d7a2a","#6b4c8a","#2f7f7a"]);
   const col=i=>COLS[i%COLS.length];
   const nDays=plan.length,nStops=plan.reduce((s,d)=>s+d.ds.length,0);
-  const made=new Date().toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+  const made=new Date().toLocaleDateString(L.locale,{day:"numeric",month:"short",year:"numeric"});
   const site=location.host.replace(/^www\./,"");
   let y=0,page=0;
   const fill=c=>doc.setFillColor(...hex2rgb(c)),txtc=c=>doc.setTextColor(...hex2rgb(c)),draw=c=>doc.setDrawColor(...hex2rgb(c));
   const font=(f,s,sz)=>{doc.setFont(f,s);doc.setFontSize(sz)};
   const LH=sz=>sz*0.3528*1.32;
-  function header(){fill(BRAND);doc.rect(0,0,A4W,15,"F");txtc("#ffffff");font("courier","bold",7);doc.text(T("DZ CHARLIE FIELD GUIDE"),M,6);
-    font("helvetica","bold",10.5);doc.text(T(guide.toUpperCase()+" · MY ROUTE"),M,11.2);
-    font("courier","normal",7.5);doc.text(T(nDays+" day"+(nDays>1?"s":"")+" · "+nStops+" stop"+(nStops>1?"s":"")),A4W-M,11.2,{align:"right"})}
+  function header(){fill(BRAND);doc.rect(0,0,A4W,15,"F");txtc("#ffffff");font("courier","bold",7);doc.text(T(L.field),M,6);
+    font("helvetica","bold",10.5);doc.text(T(guide.toUpperCase()+" · "+L.my),M,11.2);
+    font("courier","normal",7.5);doc.text(T(plural(nDays,L.day,L.days)+" · "+plural(nStops,L.stop,L.stops)),A4W-M,11.2,{align:"right"})}
   function footer(){draw("#e2dccb");doc.setLineWidth(0.2);doc.line(M,288,A4W-M,288);txtc("#8f979f");font("courier","normal",6.8);
-    doc.text(T(site),M,292);doc.text(T("Made "+made+" · check opening times before you go"),A4W/2,292,{align:"center"});doc.text("Page "+page,A4W-M,292,{align:"right"})}
+    doc.text(T(site),M,292);doc.text(T(L.made(made)),A4W/2,292,{align:"center"});doc.text(L.page+" "+page,A4W-M,292,{align:"right"})}
   function newPage(){if(page)doc.addPage();page++;header();footer();y=22}
   const room=h=>{if(y+h>BOT)newPage()};
-  function para(txt,x,w,sz,color,style){if(!txt)return 0;font("helvetica",style||"normal",sz);txtc(color||"#1b1f24");const L=doc.splitTextToSize(T(txt),w);doc.text(L,x,y,{baseline:"top",lineHeightFactor:1.32});const h=L.length*LH(sz);y+=h;return h}
+  function para(txt,x,w,sz,color,style){if(!txt)return 0;font("helvetica",style||"normal",sz);txtc(color||"#1b1f24");const LN=doc.splitTextToSize(T(txt),w);doc.text(LN,x,y,{baseline:"top",lineHeightFactor:1.32});const h=LN.length*LH(sz);y+=h;return h}
   const measure=(txt,w,sz,style)=>{if(!txt)return 0;font("helvetica",style||"normal",sz);return doc.splitTextToSize(T(txt),w).length*LH(sz)};
 
   /* ===== page 1: overview ===== */
   newPage();
-  txtc(ACC);font("courier","bold",8.5);doc.text("YOUR OWN ROUTE",M,y+3);y+=7;
+  txtc(ACC);font("courier","bold",8.5);doc.text(T(L.yours),M,y+3);y+=7;
   const first=short(plan[0].ds[0].name),lastD=plan[plan.length-1],last=short(lastD.ds[lastD.ds.length-1].name);
-  const H1=await headingImg(("My route: "+first+(nStops>1&&last!==first?" to "+last:"")).toUpperCase(),34,"#1b1f24",A4W-2*M);doc.addImage(H1.d,"PNG",M,y,H1.w,H1.h);y+=H1.h+2;
+  const H1=await headingImg(L.title(first,nStops>1&&last!==first?last:"").toUpperCase(),34,"#1b1f24",A4W-2*M);doc.addImage(H1.d,"PNG",M,y,H1.w,H1.h);y+=H1.h+2;
   const totV=plan.reduce((s,d)=>s+d.vis,0),totD=plan.reduce((s,d)=>s+d.drv,0),totK=plan.reduce((s,d)=>s+d.km,0);
-  para(nDays+" day"+(nDays>1?"s":"")+" · "+nStops+" stop"+(nStops>1?"s":"")+" · about "+hm(totV)+" of visits and "+hm(totD)+" of driving ("+totK+" km). Each day is in driving order and starts at 09:00.",M,A4W-2*M,10.5,"#3a3f46");y+=3;
+  para(L.lede(plural(nDays,L.day,L.days),plural(nStops,L.stop,L.stops),hm(totV),hm(totD),totK),M,A4W-2*M,10.5,"#3a3f46");y+=3;
   const ovH=88,ovW=A4W-2*M;
-  const ov=await mapImage(plan.map((d,i)=>({col:col(i),pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base?{lat:d.base.lat,lon:d.base.lon}:null})),plan.filter(d=>d.base).map(d=>({lat:d.base.lat,lon:d.base.lon})),Math.round(ovW*4.9),Math.round(ovH*4.9));
+  const ov=await mapImage(plan.map((d,i)=>({col:col(i),pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base&&!d.base.near?{lat:d.base.lat,lon:d.base.lon}:null})),plan.filter(d=>d.base&&!d.base.near).map(d=>({lat:d.base.lat,lon:d.base.lon})),Math.round(ovW*4.9),Math.round(ovH*4.9));
   doc.addImage(ov,"JPEG",M,y,ovW,ovH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(M,y,ovW,ovH,2,2,"S");y+=ovH+2;
-  txtc("#6b717b");font("helvetica","normal",7);doc.text(T("Numbers = stops in visiting order, one colour per day · black squares = where to sleep · dashed line = order of visit, not the road"),M,y+2);y+=7;
+  txtc("#6b717b");font("helvetica","normal",7);{const mc=doc.splitTextToSize(T(L.mapcap),A4W-2*M);doc.text(mc,M,y+2);y+=4+mc.length*3}
   /* at a glance */
-  const cx=[M,M+16,M+80,M+94,M+118,M+150];const heads=["DAY","FROM – TO","STOPS","VISITING","DRIVING","SLEEP IN"];
-  const tHead=()=>{font("courier","bold",7);txtc("#6b717b");heads.forEach((h,i)=>doc.text(h,cx[i],y+3));y+=5;draw(BRAND);doc.setLineWidth(0.4);doc.line(M,y,A4W-M,y);y+=1.5};
+  const cx=[M,M+16,M+80,M+94,M+118,M+150];const heads=L.heads;
+  const tHead=()=>{font("courier","bold",7);txtc("#6b717b");heads.forEach((h,i)=>doc.text(T(h),cx[i],y+3));y+=5;draw(BRAND);doc.setLineWidth(0.4);doc.line(M,y,A4W-M,y);y+=1.5};
   tHead();
   plan.forEach((d,i)=>{const ft=short(d.ds[0].name)+(d.ds.length>1?" – "+short(d.ds[d.ds.length-1].name):"");
-    font("helvetica","normal",8.6);const L=doc.splitTextToSize(T(ft),62),sl=doc.splitTextToSize(T(d.base?d.base.base:"-"),A4W-M-cx[5]);
-    const h=Math.max(L.length,sl.length,1)*LH(8.6)+2.6;if(y+h>BOT){newPage();tHead()}
-    fill(col(i));doc.circle(cx[0]+1.3,y+2.4,1.3,"F");font("helvetica","bold",8.6);txtc("#1b1f24");doc.text("Day "+d.n,cx[0]+4,y+1,{baseline:"top"});
-    font("helvetica","normal",8.6);doc.text(L,cx[1],y+1,{baseline:"top",lineHeightFactor:1.32});doc.text(String(d.ds.length),cx[2],y+1,{baseline:"top"});
+    font("helvetica","normal",8.6);const LN=doc.splitTextToSize(T(ft),62),sl=doc.splitTextToSize(T(d.base?d.base.base:"-"),A4W-M-cx[5]);
+    const h=Math.max(LN.length,sl.length,1)*LH(8.6)+2.6;if(y+h>BOT){newPage();tHead()}
+    fill(col(i));doc.circle(cx[0]+1.3,y+2.4,1.3,"F");font("helvetica","bold",8.6);txtc("#1b1f24");doc.text(T(L.Day+" "+d.n),cx[0]+4,y+1,{baseline:"top"});
+    font("helvetica","normal",8.6);doc.text(LN,cx[1],y+1,{baseline:"top",lineHeightFactor:1.32});doc.text(String(d.ds.length),cx[2],y+1,{baseline:"top"});
     doc.text(T(hm(d.vis)),cx[3],y+1,{baseline:"top"});doc.text(T(hm(d.drv)+" · "+d.km+" km"),cx[4],y+1,{baseline:"top"});doc.text(sl,cx[5],y+1,{baseline:"top",lineHeightFactor:1.32});
     y+=h;draw("#e2dccb");doc.setLineWidth(0.2);doc.line(M,y,A4W-M,y);y+=0.8});
-  if(nDays>1){room(8);font("helvetica","bold",8.6);txtc("#1b1f24");doc.text("Total",cx[0],y+1.5,{baseline:"top"});doc.text(String(nStops),cx[2],y+1.5,{baseline:"top"});doc.text(T(hm(totV)),cx[3],y+1.5,{baseline:"top"});doc.text(T(hm(totD)+" · "+totK+" km"),cx[4],y+1.5,{baseline:"top"});y+=8}
+  if(nDays>1){room(8);font("helvetica","bold",8.6);txtc("#1b1f24");doc.text(L.total,cx[0],y+1.5,{baseline:"top"});doc.text(String(nStops),cx[2],y+1.5,{baseline:"top"});doc.text(T(hm(totV)),cx[3],y+1.5,{baseline:"top"});doc.text(T(hm(totD)+" · "+totK+" km"),cx[4],y+1.5,{baseline:"top"});y+=8}
   y+=4;
-  const tips=["Each day starts at 09:00; the times are a guide.","Scan the code at the top of a day to open the whole day in Google Maps.","Every stop has its own code too, to drive straight there.","Opening times and prices change: check before you go."];
+  const tips=L.tips;
   const tipH=6+tips.reduce((s,t)=>s+measure("•  "+t,A4W-2*M-10,8.6),0)+2;room(tipH);
   draw("#d8d1bd");doc.setLineWidth(0.3);fill("#ffffff");doc.roundedRect(M,y,A4W-2*M,tipH,2,2,"FD");
-  const y0=y;y+=3.5;txtc(ACC);font("courier","bold",7.5);doc.text("HOW TO USE THIS",M+5,y+2);y+=4.5;tips.forEach(t=>para("•  "+t,M+5,A4W-2*M-10,8.6,"#1b1f24"));y=y0+tipH;
+  const y0=y;y+=3.5;txtc(ACC);font("courier","bold",7.5);doc.text(T(L.how),M+5,y+2);y+=4.5;tips.forEach(t=>para("•  "+t,M+5,A4W-2*M-10,8.6,"#1b1f24"));y=y0+tipH;
 
   /* ===== one section per day ===== */
   for(let di=0;di<plan.length;di++){
     const d=plan[di],C=col(di);newPage();
     /* day bar */
-    const ttl=("Day "+d.n+" — "+short(d.ds[0].name)+(d.ds.length>1?" → "+short(d.ds[d.ds.length-1].name):"")).toUpperCase();
+    const ttl=(L.Day+" "+d.n+" — "+short(d.ds[0].name)+(d.ds.length>1?" → "+short(d.ds[d.ds.length-1].name):"")).toUpperCase();
     const HD=await headingImg(ttl,20,"#ffffff",A4W-2*M-46);const barH=Math.max(24,HD.h+12);
     fill(C);doc.rect(0,y-3,A4W,barH,"F");doc.addImage(HD.d,"PNG",M,y,HD.w,HD.h);
-    txtc("#ffffff");font("helvetica","normal",8.2);doc.text(T(d.ds.length+" stop"+(d.ds.length>1?"s":"")+" · visits "+hm(d.vis)+" + driving "+hm(d.drv)+" ("+d.km+" km) · 09:00 to about "+clock(d.end)),M,y+HD.h+2.5,{baseline:"top"});
-    const qs=barH-6;qrDraw(doc,d.link,A4W-M-qs,y,qs);font("helvetica","normal",6.6);doc.text(["Scan to drive","the whole day","in Google Maps"],A4W-M-qs-2,y+qs/2-3,{align:"right",baseline:"top",lineHeightFactor:1.25});
+    txtc("#ffffff");font("helvetica","normal",8.2);doc.text(T(L.dayline(plural(d.ds.length,L.stop,L.stops),hm(d.vis),hm(d.drv),d.km,clock(d.end))),M,y+HD.h+2.5,{baseline:"top"});
+    const qs=barH-6;qrDraw(doc,d.link,A4W-M-qs,y,qs);font("helvetica","normal",6.6);doc.text(L.scan.map(T),A4W-M-qs-2,y+qs/2-3,{align:"right",baseline:"top",lineHeightFactor:1.25});
     y+=barH+1;
     /* map + timetable */
     const mW=88,mH=74,sy=y;
-    const dm=await mapImage([{col:C,pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base?{lat:d.base.lat,lon:d.base.lon}:null}],d.base?[{lat:d.base.lat,lon:d.base.lon}]:[],Math.round(mW*6),Math.round(mH*6));
+    const dm=await mapImage([{col:C,pts:d.ds.map((p,j)=>({lat:p.lat,lon:p.lon,n:j+1})),tail:d.base&&!d.base.near?{lat:d.base.lat,lon:d.base.lon}:null}],d.base&&!d.base.near?[{lat:d.base.lat,lon:d.base.lon}]:[],Math.round(mW*6),Math.round(mH*6));
     doc.addImage(dm,"JPEG",M,y,mW,mH);draw("#d8d1bd");doc.setLineWidth(0.3);doc.roundedRect(M,y,mW,mH,2,2,"S");
     const tx=M+mW+6,tw=A4W-M-tx;let ty=y;
     const dot=(cx_,cy_,c,label)=>{fill(c);doc.circle(cx_,cy_,2.6,"F");txtc("#ffffff");font("helvetica","bold",7.5);doc.text(label,cx_,cy_+0.1,{align:"center",baseline:"middle"})};
     d.rows.forEach(r=>{
       if(r.k==="drive"){draw("#c9c1aa");doc.setLineWidth(0.5);doc.setLineDashPattern([0.8,0.8],0);doc.line(tx+15.5,ty-0.3,tx+15.5,ty+4.3);doc.setLineDashPattern([],0);
-        txtc("#6b717b");font("helvetica","normal",7.4);doc.text(T("drive about "+hm(r.m)+" · "+Math.round(r.km)+" km"),tx+19.5,ty+0.6,{baseline:"top"});ty+=4.6;return}
+        txtc("#6b717b");font("helvetica","normal",7.4);doc.text(T(L.drive(hm(r.m),Math.round(r.km))),tx+19.5,ty+0.6,{baseline:"top"});ty+=4.6;return}
       font("courier","bold",8.4);txtc("#1b1f24");doc.text(clock(r.t),tx,ty+2.4,{baseline:"middle"});
       let nm,sub,c,lab;
-      if(r.k==="stop"){nm=r.p.name;sub="Visit "+hm(r.m);c=C;lab=String(r.n)}
-      else if(r.k==="lunch"){nm="Lunch break";sub="about 1 h";c="#8f979f";lab="L"}
-      else if(r.k==="leave"){nm="Leave "+r.name;sub="where you slept";c="#1b2631";lab="Z"}
-      else{nm="Arrive "+r.name;sub="sleep here · end of Day "+d.n;c="#1b2631";lab="Z"}
-      dot(tx+15.5,ty+2.4,c,lab);font("helvetica","bold",8.4);txtc("#1b1f24");const L=doc.splitTextToSize(T(nm),tw-20);doc.text(L,tx+19.5,ty,{baseline:"top",lineHeightFactor:1.2});
-      const h=L.length*8.4*0.3528*1.2;txtc("#6b717b");font("helvetica","normal",7.2);doc.text(T(sub),tx+19.5,ty+h+0.2,{baseline:"top"});ty+=h+4.6});
-    y=Math.max(sy+mH,ty)+2;txtc("#6b717b");font("helvetica","normal",6.8);doc.text(T("Dashed line = order of visit, not the road · drive times are estimates"),M,y);y+=4;
+      if(r.k==="stop"){nm=r.p.name;sub=L.visit+" "+hm(r.m);c=C;lab=String(r.n)}
+      else if(r.k==="lunch"){nm=L.lunch;sub=L.lunchS;c="#8f979f";lab="L"}
+      else if(r.k==="leave"){nm=L.leave+r.name;sub=r.sub!=null?r.sub:L.leaveS;c="#1b2631";lab="Z"}
+      else if(r.k==="near"){nm=L.near+r.name;sub=L.nearS(d.n);c="#1b2631";lab="Z"}
+      else{nm=L.arrive+r.name;sub=L.arriveS(d.n);c="#1b2631";lab="Z"}
+      dot(tx+15.5,ty+2.4,c,lab);font("helvetica","bold",8.4);txtc("#1b1f24");const LN=doc.splitTextToSize(T(nm),tw-20);doc.text(LN,tx+19.5,ty,{baseline:"top",lineHeightFactor:1.2});
+      const h=LN.length*8.4*0.3528*1.2;txtc("#6b717b");font("helvetica","normal",7.2);if(sub)doc.text(T(sub),tx+19.5,ty+h+0.2,{baseline:"top"});ty+=h+(sub?4.6:2.4)});
+    y=Math.max(sy+mH,ty)+2;txtc("#6b717b");font("helvetica","normal",6.8);doc.text(T(L.dash),M,y);y+=4;
     /* stop cards */
     d.ds.forEach((p,i)=>{
       const bx=M+10,bw=A4W-M-bx-27;
-      const hist=sentences(p.text,2),look=sentences(p.look,1),prac=String(p.plan||"").replace(/<[^>]+>/g," ").replace(/\s*Check the website before you go\.?/i,"").trim();
-      const meta=[p.cat,"visit "+hm(p.min)].filter(Boolean).join(" · ");
+      const hist=sentences(p.text,2),look=sentences(p.look,1),prac=String(p.plan||"").replace(/<[^>]+>/g," ").replace(L.checkweb,"").trim();
+      const meta=[p.cat,L.visitl+" "+hm(p.min)].filter(Boolean).join(" · ");
       let h=3+measure(p.name,bw,11,"bold")+LH(8)+1.5;if(hist)h+=4+measure(hist,bw,8.8)+1;if(look)h+=4+measure(look,bw,8.8)+1;if(prac)h+=4+measure(prac,bw-5,8)+4;h=Math.max(h,30)+2;
       if(y+h>BOT)newPage();
       draw("#e2dccb");doc.setLineWidth(0.25);doc.line(M,y,A4W-M,y);const top=y;y+=3;
       fill(C);doc.circle(M+4,y+3.6,3.6,"F");txtc("#ffffff");font("helvetica","bold",10);doc.text(String(i+1),M+4,y+3.7,{align:"center",baseline:"middle"});
       para(p.name,bx,bw,11,"#1b1f24","bold");
       font("helvetica","normal",8);txtc("#6b717b");doc.text(T(meta),bx,y+0.5,{baseline:"top"});
-      if(p.conf){const cw=doc.getTextWidth(T(meta))+2;const cc={HIGH:"#3d6b2a",DOC:"#2f4358",MEDIUM:"#b07a12",LOW:"#8a2b1c"}[p.conf]||"#6b717b";font("helvetica","bold",6.2);const bw2=doc.getTextWidth(p.conf)+2.6;fill(cc);doc.roundedRect(bx+cw,y+0.3,bw2,3.4,0.6,0.6,"F");txtc("#ffffff");doc.text(p.conf,bx+cw+1.3,y+2.05,{baseline:"middle"})}
+      if(p.conf){const cw=doc.getTextWidth(T(meta))+2;const cc={HIGH:"#3d6b2a",DOC:"#2f4358",MEDIUM:"#b07a12",LOW:"#8a2b1c"}[p.conf]||"#6b717b";font("helvetica","bold",6.2);const cl=T(p.confL||p.conf),bw2=doc.getTextWidth(cl)+2.6;fill(cc);doc.roundedRect(bx+cw,y+0.3,bw2,3.4,0.6,0.6,"F");txtc("#ffffff");doc.text(cl,bx+cw+1.3,y+2.05,{baseline:"middle"})}
       y+=LH(8)+1.5;
       const lab=t=>{txtc(ACC);font("courier","bold",7);doc.text(t,bx,y+2.2);y+=3.6};
-      if(hist){lab("WHAT HAPPENED");para(hist,bx,bw,8.8);y+=1}
-      if(look){lab("WHAT YOU SEE TODAY");para(look,bx,bw,8.8);y+=1}
-      if(prac){const ph=measure(prac,bw-5,8)+7;fill("#f2eee2");doc.roundedRect(bx,y,bw,ph,1.2,1.2,"F");y+=1.6;txtc(ACC);font("courier","bold",7);doc.text("PRACTICAL",bx+2.5,y+2.2);y+=3.6;para(prac,bx+2.5,bw-5,8,"#3a3f46");y+=1.8}
+      if(hist){lab(T(L.what));para(hist,bx,bw,8.8);y+=1}
+      if(look){lab(T(L.see));para(look,bx,bw,8.8);y+=1}
+      if(prac){const ph=measure(prac,bw-5,8)+7;fill("#f2eee2");doc.roundedRect(bx,y,bw,ph,1.2,1.2,"F");y+=1.6;txtc(ACC);font("courier","bold",7);doc.text(T(L.prac),bx+2.5,y+2.2);y+=3.6;para(prac,bx+2.5,bw-5,8,"#3a3f46");y+=1.8}
       qrDraw(doc,google1(p.lat,p.lon),A4W-M-21,top+3.5,21);txtc("#6b717b");font("helvetica","normal",6.2);
-      doc.text(["Directions",p.lat.toFixed(4)+", "+p.lon.toFixed(4)],A4W-M-10.5,top+26.5,{align:"center",baseline:"top",lineHeightFactor:1.2});
+      doc.text([T(L.dir),p.lat.toFixed(4)+", "+p.lon.toFixed(4)],A4W-M-10.5,top+26.5,{align:"center",baseline:"top",lineHeightFactor:1.2});
       y=Math.max(y,top+h)});
     /* where to sleep */
-    if(d.base){const b=d.base,lines=["Good area to stay: "+b.base+". In the app, the tour planner links straight to hotels, Airbnb and campsites around there."];
-      if(b.name)lines.push("Campsite or motorhome area we suggest: "+b.name+(b.addr?", "+b.addr:"")+(b.info?" · "+b.info:""));
+    if(d.base){const b=d.base,lines=[b.near?L.near1(b.base):L.sleep1(b.base)];
+      if(b.name)lines.push(L.camp+b.name+(b.addr?", "+b.addr:"")+(b.info?" · "+b.info:""));
       const bh=9+lines.reduce((s,l)=>s+measure(l,A4W-2*M-12,8.4),0)+2;room(bh+3);y+=3;
-      fill("#1b2631");doc.roundedRect(M,y,A4W-2*M,bh,2,2,"F");const yy=y;y+=4;txtc("#ffffff");font("helvetica","bold",10.5);doc.text(T("End of Day "+d.n+": sleep in "+b.base),M+6,y,{baseline:"top"});y+=5.5;
+      fill("#1b2631");doc.roundedRect(M,y,A4W-2*M,bh,2,2,"F");const yy=y;y+=4;txtc("#ffffff");font("helvetica","bold",10.5);doc.text(T(b.near?L.nearT(d.n,b.base):L.sleepT(d.n,b.base)),M+6,y,{baseline:"top"});y+=5.5;
       lines.forEach(l=>para(l,M+6,A4W-2*M-12,8.4,"#e8e4d8"));y=yy+bh}
   }
-  const fname=T("My route - "+guide+" - "+nDays+" day"+(nDays>1?"s":"")).replace(/[\\/:*?"<>|]+/g,"")+".pdf";
+  const fname=T(L.file+" - "+guide+" - "+plural(nDays,L.day,L.days)).replace(/[\\/:*?"<>|]+/g,"").replace(/[–—]/g,"-").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^\x20-\x7e]/g,"")+".pdf";
   return{blob:doc.output("blob"),name:fname}}
 
 /* ---------- saving: download on a computer; on a phone, a sheet with Save / Share ---------- */
 const mobile=()=>/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
 function download(blob,name){const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;a.rel="noopener";a.style.display="none";a.addEventListener("click",e=>e.stopPropagation());document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
 function readySheet(res){let el=document.getElementById("rpReady");if(el)el.remove();el=document.createElement("div");el.id="rpReady";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");
-  el.innerHTML='<div class="in"><b>Your route PDF is ready</b><p>Save it to your phone, print it, or send it to someone.</p><button type="button" class="go">Save or share the PDF</button><button type="button" class="x">Close</button></div>';
+  el.innerHTML='<div class="in"><b>'+L.ready+'</b><p>'+L.readyP+'</p><button type="button" class="go">'+L.share+'</button><button type="button" class="x">'+L.close+'</button></div>';
   document.body.appendChild(el);
   el.querySelector(".go").onclick=async()=>{const f=new File([res.blob],res.name,{type:"application/pdf"});
     if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:res.name})}catch(e){}}else download(res.blob,res.name)};
   el.querySelector(".x").onclick=()=>el.remove();el.addEventListener("click",e=>{if(e.target===el)el.remove()})}
+function rpToast(msg){if(typeof window.toast==="function"){try{window.toast(msg);return}catch(e){}}
+  let el=document.getElementById("rpToast");if(!el){el=document.createElement("div");el.id="rpToast";el.setAttribute("role","status");
+    el.style.cssText="position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:99996;max-width:90vw;background:#1f1a14;color:#fff;padding:12px 18px;border-radius:12px;font-size:15px;box-shadow:0 6px 20px rgba(0,0,0,.35)";document.body.appendChild(el)}
+  el.textContent=msg;el.hidden=false;clearTimeout(el._t);el._t=setTimeout(()=>{el.hidden=true},2800)}
 async function run(btn){
-  if(btn.disabled)return;const old=btn.innerHTML;btn.disabled=true;btn.textContent="Making your PDF…";
+  if(btn.disabled)return;const old=btn.innerHTML;btn.disabled=true;btn.textContent=L.making;
   try{for(const l of LIBS)await loadLib(l);const res=await buildPdf();window.__rpLast=res;
-    if(mobile())readySheet(res);else{download(res.blob,res.name);if(typeof toast==="function")toast("Route PDF downloaded")}}
-  catch(e){console.error(e);if(typeof toast==="function")toast(navigator.onLine?"Sorry, the PDF could not be made. Please try again.":"The PDF needs the internet the first time. Please try again when you are online.")}
+    if(mobile())readySheet(res);else{download(res.blob,res.name);rpToast(L.done)}}
+  catch(e){console.error(e);rpToast(navigator.onLine?L.fail:L.offline)}
   finally{btn.disabled=false;btn.innerHTML=old}}
 
-/* ---------- the button: under "Edit my route / Start again" whenever your own route is showing ---------- */
-const BTN='<button type="button" class="rp-btn" data-rp="go"><span aria-hidden="true">⬇</span> Download Route PDF</button><p class="rp-note">Maps, times and every stop, ready to print or keep on your phone.</p>';
-function place(){const box=document.getElementById("mybox");if(!box)return;const has=box.querySelector(".rp-btn");
-  let on=false;try{on=myOn()&&myCount()>0}catch(e){}
-  if(!on){if(has){has.nextElementSibling&&has.nextElementSibling.classList.contains("rp-note")&&has.nextElementSibling.remove();has.remove()}return}
-  if(has)return;const row=box.querySelector(".ap-row");if(row)row.insertAdjacentHTML("afterend",BTN);else box.insertAdjacentHTML("beforeend",BTN)}
-document.addEventListener("click",e=>{const b=e.target.closest('#mybox [data-rp="go"]');if(b){e.preventDefault();run(b)}});
-if(typeof window.renderTour==="function"){const orig=window.renderTour;window.renderTour=function(){const r=orig.apply(this,arguments);try{place()}catch(e){}return r}}
-const box=document.getElementById("mybox");if(box)new MutationObserver(()=>place()).observe(box,{childList:true});
+/* ---------- the button ----------
+   guides with "Build my own route": under "Edit my route / Start again" whenever your own route is showing
+   Spanish Civil War: under the summary of "Your tour", once the planner has built it */
+const BTN='<button type="button" class="rp-btn" data-rp="go"><span aria-hidden="true">⬇</span> '+L.btn+'</button><p class="rp-note">'+L.note+'</p>';
+const HOST=IS_SCW?"tour-body":"mybox";
+function shown(){try{if(IS_SCW){const b=document.getElementById(HOST);return !!(b&&b.querySelector("#r-map"))&&scwPlan().length>0}return myOn()&&myCount()>0}catch(e){return false}}
+function place(){const box=document.getElementById(HOST);if(!box)return;const has=box.querySelector(".rp-btn");
+  if(!shown()){if(has){const n=has.nextElementSibling;if(n&&n.classList.contains("rp-note"))n.remove();has.remove()}return}
+  if(has)return;const at=box.querySelector(IS_SCW?".sum":".ap-row");if(at)at.insertAdjacentHTML("afterend",BTN);else box.insertAdjacentHTML("beforeend",BTN)}
+document.addEventListener("click",e=>{const b=e.target.closest('[data-rp="go"]');if(b){e.preventDefault();run(b)}});
+if(!IS_SCW&&typeof window.renderTour==="function"){const orig=window.renderTour;window.renderTour=function(){const r=orig.apply(this,arguments);try{place()}catch(e){}return r}}
+const hostEl=document.getElementById(HOST);if(hostEl)new MutationObserver(()=>place()).observe(hostEl,{childList:true});
 place();
 })();
 </script>
