@@ -2773,7 +2773,7 @@ function renderHome(){
   const pts=DSITES.map((d,i)=>({key:"dd"+i,tab:"tab-dday",num:i+1,name:d[0],lat:d[2],lon:d[3],conf:"DOC"}));
   document.getElementById("heromap").innerHTML=panelmap(pts,APP.heroMapTitle,{h:240,beaches:true,nolabels:true,cap:APP.heroMapCap});
   const days=buildPlan(),all=days.flat(),done=all.filter(p=>visited[p.id]).length;
-  document.getElementById("homestats").innerHTML=`<div><b>${TL.length}</b><span>positions</span></div><div><b>${DAYS.reduce((s,d)=>s+d.stops.length,0)}</b><span>tour stops</span></div><div><b>${plan.days}</b><span>${plan.mode==="easy"?"day Easy route":"day full route"}</span></div><div><b>${done}<span style="display:inline;font-size:12px;color:var(--faint);letter-spacing:0;text-transform:none">/${all.length}</span></b><span>stops visited</span></div>`;
+  document.getElementById("homestats").innerHTML=`<div><b>${TL.length}</b><span>positions</span></div><div><b>${DAYS.reduce((s,d)=>s+d.stops.length,0)}</b><span>tour stops</span></div><div><b>${plan.days}</b><span>day${plan.days>1?"s":""} · your itinerary</span></div><div><b>${done}<span style="display:inline;font-size:12px;color:var(--faint);letter-spacing:0;text-transform:none">/${all.length}</span></b><span>stops visited</span></div>`;
 }
 /* ---------- MAP LIGHTBOX ---------- */
 let lbZoom=1;
