@@ -48,6 +48,7 @@ a.hbtn.dzall{text-decoration:none;color:inherit}
 .dzoff button{min-height:48px;border-radius:10px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;border:2px solid #1a73e8;background:#1a73e8;color:#fff}
 .dzoff button.alt{background:none;color:#1a5fc4}.dzoff button.no{border:0;background:none;color:var(--ink2,#555);font-weight:600;min-height:40px}
 .dzoff .st{font-weight:700;color:#1a5fc4;min-height:1.2em}
+.dzoff p.inc{font-size:13px;color:var(--ink2,#555)}
 .dzbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#9be39f;margin-left:6px;white-space:nowrap}
 /* 5 · "where am I" on the enlarged map */
 .dz-me circle{pointer-events:none}
@@ -144,11 +145,20 @@ function renderOff(){const home=$("#p-home");if(!home)return;let c=$("#dzOff");c
   if(st!=="not"||get("offno","0")==="1"){if(c)c.remove();return}
   if(!c){c=document.createElement("div");c.id="dzOff";c.className="dzoff";const t=$("#dzToday");(t||$(".hero",home)||home.firstChild).after(c)}
   const mine=$("#rdoffmine");
-  setH(c,`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`)}
+  setH(c,`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><p class="inc">Saves the stories, the visiting information and the guide’s own maps. Driving directions open in Google Maps, which needs signal unless you have saved that area in Google Maps too.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`)}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-dzoff]");if(!b)return;const k=b.dataset.dzoff;
-  if(k==="no"){put("offno","1");renderOff();return}
+  if(k==="no"){put(b.closest("#dzOffT")?"offno2":"offno","1");renderOff();renderOffTour();return}
   const real=k==="mine"?$("#rdoffmine"):$("#rdoffgo");if(!real)return;real.click();
-  const st=$("#rdoffst"),me=$("#dzOffSt");if(st&&me){const copy=()=>{me.textContent=st.textContent;if(/saved on this phone|works without internet/i.test(st.textContent))setTimeout(()=>{renderOff()},1500)};copy();new MutationObserver(copy).observe(st,{childList:true,characterData:true,subtree:true})}});
+  const st=$("#rdoffst"),me=(b.closest(".dzoff")&&b.closest(".dzoff").querySelector(".st"))||$("#dzOffSt");if(st&&me){const copy=()=>{me.textContent=st.textContent;if(/saved on this phone|works without internet/i.test(st.textContent))setTimeout(()=>{renderOff();renderOffTour()},1500)};copy();new MutationObserver(copy).observe(st,{childList:true,characterData:true,subtree:true})}});
+
+/* after a plan is made: "Taking this trip? Save your guide before you leave." (only until it is saved) */
+function renderOffTour(){const tour=$("#p-tour");if(!tour)return;let c=$("#dzOffT");const st=offState();
+  const anchor=$("#p-tour .fsstart")||$("#p-tour .summ");
+  if(st!=="not"||!anchor||get("offno2","0")==="1"){if(c)c.remove();return}
+  if(!c){c=document.createElement("div");c.id="dzOffT";c.className="dzoff dzofft"}
+  if(anchor.nextElementSibling!==c)anchor.after(c);
+  const mine=$("#rdoffmine");
+  setH(c,`<b>Taking this trip? Save your guide before you leave.</b><p class="inc">Saves the stories, the visiting information and the guide’s own maps. Driving directions open in Google Maps, which needs signal unless you have saved that area in Google Maps too.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save the whole guide (large · Wi-Fi)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" aria-live="polite"></p>`)}
 
 /* ---------- 5 · "show me where I am" on the enlarged map ---------- */
 function addMe(){const lb=$("#lb");if(!lb||$(".dzme",lb))return;const z=$(".lbz",lb);if(!z)return;
@@ -207,7 +217,8 @@ const HOMEURL=/(^|\.)dzcharlie\.com$/.test(location.hostname)?"/":"https://dzcha
 function addBack(){const hb=$(".hdr .hbtn");if(hb&&!$(".dzall")){const a=document.createElement("a");a.className="hbtn dzall";a.href=HOMEURL;a.setAttribute("aria-label","All DZ Charlie guides");a.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span class="hl">Guides</span>';hb.before(a)}
   const home=$("#p-home"),hero=home&&$(".hero",home);
   if(hero&&!$(".dzback",hero)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent="‹ All DZ Charlie guides";hero.prepend(a)}
-  const more=$("#p-more");if(more&&!$(".dzbackt",more)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML="<b>‹ All DZ Charlie guides</b><span>Back to dzcharlie.com, to choose another battlefield</span>";const set=$("#dzSet");set?set.before(a):more.prepend(a)}}
+  const more=$("#p-more");if(more&&!$(".dzbackt",more)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML="<b>‹ All DZ Charlie guides</b><span>Back to dzcharlie.com, to choose another battlefield</span>";const set=$("#dzSet");set?set.before(a):more.prepend(a)}
+  if(more&&!$(".dzabout",more)){const b=$(".dzbackt",more);if(b){const a=document.createElement("a");a.className="dzbackt dzabout";a.href=HOMEURL+"#about";a.innerHTML="<b>About &amp; sources</b><span>Who makes DZ Charlie, how every stop is researched, what HIGH, MEDIUM and LOW mean, and how to report a mistake</span>";b.after(a)}}}
 /* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
 function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
   const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
@@ -224,14 +235,14 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-dza]"),s=e
   if(s){const on=get("sun","0")==="1"?"0":"1";put("sun",on);applyRead();s.setAttribute("aria-pressed",on==="1");s.textContent=on==="1"?"On":"Off"}});
 
 /* ---------- keep everything up to date as the guide redraws itself ---------- */
-let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff()}catch(e){}}
+let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff();renderOffTour()}catch(e){}}
 function sched(){if(!q)q=requestAnimationFrame(run)}
 let sq=0;addEventListener("scroll",()=>{if(!sq)sq=setTimeout(()=>{sq=0;try{renderNext()}catch(e){}},150)},{passive:true});
 function start(){try{wrapGo();addBack();unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
   if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
-  new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
+  new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzOffT,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
 /* ---------- open one stop straight from a link: ?stop=pointe-du-hoc (a stop name or its id) ----------
    Used by "Try a stop" on dzcharlie.com. Closing the panel leaves the visitor on the guide's home. */
 function dzSlug(t){return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}

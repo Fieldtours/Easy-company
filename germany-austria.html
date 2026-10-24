@@ -1,7 +1,32 @@
 <!doctype html><html lang="en"><head><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta charset=utf8><meta name="theme-color" content="#3a4118"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Easy Company in Germany &amp; Austria — WWII Battlefield Field Guide | DZ Charlie</title><meta property="og:type" content="website"><meta property="og:site_name" content="DZ Charlie"><meta property="og:url" content="https://dzcharlie.com/germany-austria.html"><meta property="og:title" content="Easy Company in Germany &amp; Austria — WWII Battlefield Field Guide | DZ Charlie"><meta property="og:description" content="Free offline phone guide to Easy Company's last campaign in 1945, through Germany to Berchtesgaden and Austria, with route, maps and stories."><meta property="og:image" content="https://dzcharlie.com/site/home-germany.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Easy Company in Germany &amp; Austria — WWII Battlefield Field Guide | DZ Charlie"><meta name="twitter:description" content="Free offline phone guide to Easy Company's last campaign in 1945, through Germany to Berchtesgaden and Austria, with route, maps and stories."><meta name="twitter:image" content="https://dzcharlie.com/site/home-germany.jpg"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "TravelApplication", "name": "Easy Company in Germany & Austria — WWII Battlefield Field Guide", "url": "https://dzcharlie.com/germany-austria.html", "description": "Free offline phone guide to Easy Company's last campaign in 1945, through Germany to Berchtesgaden and Austria, with route, maps and stories.", "image": "https://dzcharlie.com/site/home-germany.jpg", "applicationCategory": "TravelApplication", "operatingSystem": "Web, iOS, Android", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "about": "Easy Company in Germany and Austria, 1945", "publisher": {"@type": "Organization", "name": "DZ Charlie", "url": "https://dzcharlie.com/"}}</script>
 <meta name="description" content="Free offline phone guide to Easy Company's last campaign in 1945, through Germany to Berchtesgaden and Austria, with route, maps and stories.">
-<link rel="canonical" href="https://dzcharlie.com/germany-austria.html"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="canonical" href="https://dzcharlie.com/germany-austria.html"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script id="fs-start">
+/* Ready-made tours: driving between the stops of each day, estimated the same way as the area planner
+   (straight-line distance x 1.35 at 60 km/h, or 90 km/h over 80 km). Days are separate: getting to the first stop is not counted. */
+function rmDrive(ds){let m=0;for(let i=1;i<ds.length;i++){try{m+=apDrive(apKm(ds[i-1].lat,ds[i-1].lon,ds[i].lat,ds[i].lon))}catch(e){}}return m}
+/* One clear next step under every plan: the first stop, then view the day or change the plan */
+function startBlock(days){try{const d=(typeof todayOn==="function"&&todayOn())||1,ds=days[d-1]||days[0]||[],f=ds[0];if(!f)return "";
+  const esc3=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  return `<div class="fsstart"><div class="k">${d>1?"Today's first stop · Day "+d:"Your first stop · Day 1"}</div><b>${esc3(f.name)}</b><span>Allow ${apHm(f.min)} there · ${ds.length} stop${ds.length===1?"":"s"} that day</span>
+  <div class="b"><button type="button" data-fsday="${d}">View ${d>1?"today's":"Day 1"} stops</button><button type="button" class="alt" data-fsadj="1">Change the plan</button></div>
+  <details class="how"><summary>How the times are worked out</summary><p>Visit times are the usual time to see each site. Driving is a rough estimate from the distance between stops (as the crow flies, plus a third for the roads, at 60–90 km/h). It does not include getting to the first stop, ferries, traffic or parking, and opening hours are not checked: use Google Maps on the day for the real driving time.</p></details></div>`}catch(e){return ""}}
+document.addEventListener("click",e=>{const v=e.target.closest("[data-fsday]"),a=e.target.closest("[data-fsadj]");if(!v&&!a)return;
+  const st=document.querySelector(".sticky"),off=(st?st.offsetHeight:0)+10;
+  const t=v?document.getElementById("tday-"+v.dataset.fsday):(document.querySelector("#p-tour .modepick, #p-tour .seg, #p-tour h2, #p-tour")||null);
+  if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-off,behavior:"smooth"})});
+</script>
+<style id="fs-start-css">
+.fsstart{background:var(--paper3,#fff);border:2px solid var(--olive2,#3b4a5a);border-radius:12px;padding:12px 14px;margin:0 0 14px;display:grid;gap:4px}
+.fsstart .k{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink2,#555)}
+.fsstart b{font-size:17px;line-height:1.25}.fsstart>span{font-size:14px;color:var(--ink2,#444)}
+.fsstart .b{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.fsstart button{min-height:48px;border-radius:10px;border:2px solid #1a73e8;background:#1a73e8;color:#fff;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.fsstart button.alt{background:none;color:#1a5fc4}
+.fsstart .how{margin-top:6px;font-size:13.5px}.fsstart .how summary{cursor:pointer;font-weight:700;color:#1a5fc4;min-height:32px;display:flex;align-items:center}
+.fsstart .how p{margin:4px 0 0;line-height:1.45}
+</style>
+</head><body>
 
 <style>
 @font-face{font-family:"Stardos Stencil";font-weight:400;font-display:swap;src:url(fonts/stardos-stencil-400.woff2) format("woff2")}
@@ -1985,13 +2010,13 @@ function renderTour(){
   const sel=document.getElementById("addsel");
   sel.innerHTML=POOL.filter(p=>!inPlan.has(p.id)).sort((a,b)=>a.seq-b.seq).map(p=>`<option value="${p.id}">${esc(p.name)} (${p.min} min)</option>`).join("")||'<option value="">Everything is already in your plan</option>';
   const totalMin=days.flat().reduce((s,p)=>s+p.min,0),nStops=days.flat().length,nDone=days.flat().filter(p=>visited[p.id]).length;
-  let html=myOn()?mySummary(days):apOn()?apSummary(days):`<div class="summ">${plan.mode==="easy"?APP.modeEasy[0]:APP.modeFull[0]} · ${plan.days} day${plan.days>1?"s":""} · ${nStops} stops · ${Math.round(totalMin/60)} h of visits · ${nDone} visited${plan.custom.length?` · ${plan.custom.length} of your own`:""}</div>`;
-  html+=todayBox(days)+dayJump(days);
+  let html=myOn()?mySummary(days):apOn()?apSummary(days):(()=>{const drv=days.reduce((s,ds)=>s+rmDrive(ds),0);return `<div class="summ"><b>Your selected tour: ${plan.mode==="easy"?APP.modeEasy[0]:APP.modeFull[0]} · ${plan.days} day${plan.days>1?"s":""} · ${nStops} stops · about ${apHm(totalMin+drv)} including ${apHm(drv)} driving</b><br>Visits ${apHm(totalMin)} · driving ${apHm(drv)} · ${nDone} visited${plan.custom.length?` · ${plan.custom.length} of your own`:""}</div>`})();
+  html+=startBlock(days)+todayBox(days)+dayJump(days);
   days.forEach((ds,di)=>{
     const n=di+1;
     const title=(!apOn()&&!myOn()&&plan.days===DAYS.length&&plan.mode!=="easy"&&DAYNAMES[di])?DAYNAMES[di]:(ds.length>1?`${ds[0].name.split(/ — | \/ /)[0]} → ${ds[ds.length-1].name.split(/ — | \/ /)[0]}`:(ds.length?ds[0].name.split(/ — | \/ /)[0]:"Free day"));
     const dmin=ds.reduce((s,p)=>s+p.min,0);
-    html+=`<div class="daybar" id="tday-${n}"><div class="t">Day ${n} — ${esc(title)}</div><div class="r">${myOn()?myDayLine(di,ds):apOn()?apDayLine(di,ds):`${ds.length} stops · ~${Math.floor(dmin/60)} h ${dmin%60} m of visits + driving`}</div></div>`;
+    html+=`<div class="daybar" id="tday-${n}"><div class="t">Day ${n} — ${esc(title)}</div><div class="r">${myOn()?myDayLine(di,ds):apOn()?apDayLine(di,ds):(()=>{const dd=rmDrive(ds);return `${ds.length} stop${ds.length===1?"":"s"} · about ${apHm(dmin+dd)} (visits ${apHm(dmin)} + driving ${apHm(dd)})`})()}</div></div>`;
     if(ds.length){
       html+=routeBox(n,ds,baseFor(ds,di===days.length-1,days[di+1]));
       const pts=ds.map((p,i)=>({key:p.id,tab:"tab-tour",num:i+1,name:p.name,short:p.name.split(/ — | \/ /)[0].slice(0,24),lat:p.lat,lon:p.lon,conf:p.conf}));
@@ -2092,7 +2117,7 @@ function apBuild(){
   return days}
 function apSummary(days){const r=AP.res;if(!r)return"";const all=days.flat(),vis=all.reduce((s,p)=>s+p.min,0),drv=r.days.reduce((s,d)=>s+d.drv,0),nDone=all.filter(p=>visited[p.id]).length;
   const focus=(AP_FOCUS.find(x=>x[0]===AP.focus)||AP_FOCUS[0])[1];
-  return `<div class="summ ap-summ"><b>${esc(r.B.label)} · ${all.length} stop${all.length===1?"":"s"} · about ${apHm(vis+drv)} including ${apHm(drv)} driving</b><br>Area: ${esc(apAreaName())} · ${esc(focus)}${r.fb?` (none in this area, so the other sites are shown)`:""}${r.start?` · starting from ${esc(AP.startPlace[2])}`:""}${nDone?` · ${nDone} visited`:""}</div>`}
+  return `<div class="summ ap-summ"><b>Your selected tour: ${esc(r.B.label)} · ${all.length} stop${all.length===1?"":"s"} · about ${apHm(vis+drv)} including ${apHm(drv)} driving</b><br>Area: ${esc(apAreaName())} · ${esc(focus)}${r.fb?` (none in this area, so the other sites are shown)`:""}${r.start?` · starting from ${esc(AP.startPlace[2])}`:""}${nDone?` · ${nDone} visited`:""}</div>`}
 function apDayLine(di,ds){const d=AP.res&&AP.res.days[di];if(!d)return `${ds.length} stops`;const vis=d.stops.reduce((s,x)=>s+x.s.min,0);
   return `${ds.length} stop${ds.length===1?"":"s"} · about ${apHm(d.used)} (visits ${apHm(vis)} + driving ${apHm(d.drv)})`}
 function apEmptyDay(){return `<p class="small" style="margin-bottom:12px">Nothing left for this day — everything that fits your choices is already in the days above. Add more with ＋ Add stops, choose a bigger area, or choose "Everything".</p>`}
@@ -2397,6 +2422,7 @@ function draw(){const el=root(),all=days(),total=all.filter(d=>d.n).length;let h
     ${all.length?`<div class="aar-list">${all.map(d=>{const r=REP[d.date];return `<button type="button" class="aar-row" data-aar="write" data-date="${d.date}"><span class="aar-k">${d.n||"·"}</span><span class="aar-x"><b>${d.n?"Day "+d.n+" · ":""}${ESC(dayTitle(d))}</b><small>${ESC(longDate(d.date))} · ${d.ids.length} site${d.ids.length===1?"":"s"} visited</small></span><span class="aar-st${r?" ok":""}">${r?"Written":"Write"}</span></button>`}).join("")}</div>`
       :`<div class="aar-empty"><b>No visits yet</b><p>Tick <b>Visited</b> on each site as you see it. In the evening, come back here and write the day's page.</p></div>`}
     ${wrote.length?`<button type="button" class="aar-btn" data-aar="booklet">Make my trip booklet (${wrote.length} page${wrote.length===1?"":"s"})</button><p class="aar-note">Opens the print window: choose "Save as PDF" to keep it, or print it for your journal.</p>`:""}
+    <p class="aar-note">Your notes are saved on this device only, in this browser. To keep a copy, make your trip booklet and save it as a PDF.</p>
     ${C.tourCard===false?"":`<label class="aar-sw"><input type="checkbox" data-aar="remind"${SET.remind?" checked":""}><span><b>Remind me on the Tour page</b><small>Shows "Write today's ${ESC(C.docNameShort)}" after you visit sites.</small></span></label>`}
     <p class="aar-note">Your pages stay on this phone. Nothing is sent anywhere unless you choose to share it.</p></div>`}
   else{const dy=dayByDate(S.date);if(!dy){S.view="list";return draw()}const q=pickQ(dy),hasQ=!!q,SEQ=hasQ?[1,2,3]:[2,3],steps=SEQ.length,cur=SEQ.indexOf(S.step)+1;
@@ -2513,7 +2539,7 @@ function myBuild(){let prev=null;return MYR.lists.slice(0,MYR.days).map(l=>{cons
 function myDrive(ds,di,days){let m=0,cur=null;if(di>0){const pd=days[di-1];if(pd&&pd.length)cur=[pd[pd.length-1].lat,pd[pd.length-1].lon]}
   ds.forEach(p=>{if(cur)m+=apDrive(apKm(cur[0],cur[1],p.lat,p.lon));cur=[p.lat,p.lon]});return m}
 function mySummary(days){const all=days.flat(),vis=all.reduce((s,p)=>s+p.min,0),drv=days.reduce((s,ds,di)=>s+myDrive(ds,di,days),0),nDone=all.filter(p=>visited[p.id]).length;
-  return `<div class="summ ap-summ"><b>Your own route · ${days.length} day${days.length>1?"s":""} · ${all.length} stop${all.length===1?"":"s"} · about ${apHm(vis+drv)} including ${apHm(drv)} driving</b><br>Each day is put in driving order; the first stop of a day follows on from where the day before ended.${nDone?` · ${nDone} visited`:""}</div>`}
+  return `<div class="summ ap-summ"><b>Your selected tour: your own route · ${days.length} day${days.length>1?"s":""} · ${all.length} stop${all.length===1?"":"s"} · about ${apHm(vis+drv)} including ${apHm(drv)} driving</b><br>Each day is put in driving order; the first stop of a day follows on from where the day before ended.${nDone?` · ${nDone} visited`:""}</div>`}
 function myDayLine(di,ds){const days=buildPlan(),vis=ds.reduce((s,p)=>s+p.min,0),drv=myDrive(ds,di,days);
   return `${ds.length} stop${ds.length===1?"":"s"} · about ${apHm(vis+drv)} (visits ${apHm(vis)} + driving ${apHm(drv)})${vis+drv>600?" · a long day: consider moving a stop":""}`}
 function myEmptyDay(){return `<p class="small" style="margin-bottom:12px">No stops chosen for this day yet. Tap <b>Edit my route</b> above to add some.</p>`}
@@ -3964,7 +3990,7 @@ function e(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;"
 function host(u){return u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]}
 function mail(name){
   var s="DZ Charlie – problem at: "+name+" ("+G+")";
-  var b="Guide: "+G+"\nStop: "+name+"\nPage: "+location.origin+location.pathname+"\n\nWhat's wrong (closed, moved, wrong hours, path blocked...):\n\n";
+  var b="Guide: "+G+"\nStop: "+name+"\nPage: "+location.origin+location.pathname+"\n\nWhat kind of problem? (delete the ones that don't apply)\n- A historical fact is wrong\n- The pin is in the wrong place\n- Opening times, prices or access have changed\n- Something in the app doesn't work\n\nWhat's wrong, and how do you know?\n\n";
   return "mailto:"+MAIL+"?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent(b);
 }
 function block(id,name){
@@ -4077,6 +4103,7 @@ a.hbtn.dzall{text-decoration:none;color:inherit}
 .dzoff button{min-height:48px;border-radius:10px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;border:2px solid #1a73e8;background:#1a73e8;color:#fff}
 .dzoff button.alt{background:none;color:#1a5fc4}.dzoff button.no{border:0;background:none;color:var(--ink2,#555);font-weight:600;min-height:40px}
 .dzoff .st{font-weight:700;color:#1a5fc4;min-height:1.2em}
+.dzoff p.inc{font-size:13px;color:var(--ink2,#555)}
 .dzbadge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;letter-spacing:.5px;color:#9be39f;margin-left:6px;white-space:nowrap}
 /* 5 · "where am I" on the enlarged map */
 .dz-me circle{pointer-events:none}
@@ -4173,11 +4200,20 @@ function renderOff(){const home=$("#p-home");if(!home)return;let c=$("#dzOff");c
   if(st!=="not"||get("offno","0")==="1"){if(c)c.remove();return}
   if(!c){c=document.createElement("div");c.id="dzOff";c.className="dzoff";const t=$("#dzToday");(t||$(".hero",home)||home.firstChild).after(c)}
   const mine=$("#rdoffmine");
-  setH(c,`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`)}
+  setH(c,`<b>Save this guide for no-signal areas?</b><p>Many sites have poor signal. Save it now on Wi-Fi and it works with no internet at all.</p><p class="inc">Saves the stories, the visiting information and the guide’s own maps. Driving directions open in Google Maps, which needs signal unless you have saved that area in Google Maps too.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save only my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save everything (large · Wi-Fi recommended)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" id="dzOffSt" aria-live="polite"></p>`)}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-dzoff]");if(!b)return;const k=b.dataset.dzoff;
-  if(k==="no"){put("offno","1");renderOff();return}
+  if(k==="no"){put(b.closest("#dzOffT")?"offno2":"offno","1");renderOff();renderOffTour();return}
   const real=k==="mine"?$("#rdoffmine"):$("#rdoffgo");if(!real)return;real.click();
-  const st=$("#rdoffst"),me=$("#dzOffSt");if(st&&me){const copy=()=>{me.textContent=st.textContent;if(/saved on this phone|works without internet/i.test(st.textContent))setTimeout(()=>{renderOff()},1500)};copy();new MutationObserver(copy).observe(st,{childList:true,characterData:true,subtree:true})}});
+  const st=$("#rdoffst"),me=(b.closest(".dzoff")&&b.closest(".dzoff").querySelector(".st"))||$("#dzOffSt");if(st&&me){const copy=()=>{me.textContent=st.textContent;if(/saved on this phone|works without internet/i.test(st.textContent))setTimeout(()=>{renderOff();renderOffTour()},1500)};copy();new MutationObserver(copy).observe(st,{childList:true,characterData:true,subtree:true})}});
+
+/* after a plan is made: "Taking this trip? Save your guide before you leave." (only until it is saved) */
+function renderOffTour(){const tour=$("#p-tour");if(!tour)return;let c=$("#dzOffT");const st=offState();
+  const anchor=$("#p-tour .fsstart")||$("#p-tour .summ");
+  if(st!=="not"||!anchor||get("offno2","0")==="1"){if(c)c.remove();return}
+  if(!c){c=document.createElement("div");c.id="dzOffT";c.className="dzoff dzofft"}
+  if(anchor.nextElementSibling!==c)anchor.after(c);
+  const mine=$("#rdoffmine");
+  setH(c,`<b>Taking this trip? Save your guide before you leave.</b><p class="inc">Saves the stories, the visiting information and the guide’s own maps. Driving directions open in Google Maps, which needs signal unless you have saved that area in Google Maps too.</p><div class="row">${mine?`<button type="button" data-dzoff="mine">Save my tour's maps (smaller)</button><button type="button" class="alt" data-dzoff="all">Save the whole guide (large · Wi-Fi)</button>`:`<button type="button" data-dzoff="all">Save for offline (Wi-Fi recommended)</button>`}<button type="button" class="no" data-dzoff="no">Not now</button></div><p class="st" aria-live="polite"></p>`)}
 
 /* ---------- 5 · "show me where I am" on the enlarged map ---------- */
 function addMe(){const lb=$("#lb");if(!lb||$(".dzme",lb))return;const z=$(".lbz",lb);if(!z)return;
@@ -4236,7 +4272,8 @@ const HOMEURL=/(^|\.)dzcharlie\.com$/.test(location.hostname)?"/":"https://dzcha
 function addBack(){const hb=$(".hdr .hbtn");if(hb&&!$(".dzall")){const a=document.createElement("a");a.className="hbtn dzall";a.href=HOMEURL;a.setAttribute("aria-label","All DZ Charlie guides");a.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg><span class="hl">Guides</span>';hb.before(a)}
   const home=$("#p-home"),hero=home&&$(".hero",home);
   if(hero&&!$(".dzback",hero)){const a=document.createElement("a");a.className="dzback";a.href=HOMEURL;a.textContent="‹ All DZ Charlie guides";hero.prepend(a)}
-  const more=$("#p-more");if(more&&!$(".dzbackt",more)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML="<b>‹ All DZ Charlie guides</b><span>Back to dzcharlie.com, to choose another battlefield</span>";const set=$("#dzSet");set?set.before(a):more.prepend(a)}}
+  const more=$("#p-more");if(more&&!$(".dzbackt",more)){const a=document.createElement("a");a.className="dzbackt";a.href=HOMEURL;a.innerHTML="<b>‹ All DZ Charlie guides</b><span>Back to dzcharlie.com, to choose another battlefield</span>";const set=$("#dzSet");set?set.before(a):more.prepend(a)}
+  if(more&&!$(".dzabout",more)){const b=$(".dzbackt",more);if(b){const a=document.createElement("a");a.className="dzbackt dzabout";a.href=HOMEURL+"#about";a.innerHTML="<b>About &amp; sources</b><span>Who makes DZ Charlie, how every stop is researched, what HIGH, MEDIUM and LOW mean, and how to report a mistake</span>";b.after(a)}}}
 /* ---------- 8 · one menu for every guide: Home · Tour · Map · Story · More ---------- */
 function unifyNav(){const bar=$(".bbar .in")||$(".bbar");if(!bar||bar.dataset.dz)return;bar.dataset.dz="1";
   const by=k=>$(`[data-rd="${k}"]`,bar);const order=["home","tour","map","time","more"].map(by).filter(Boolean);order.forEach(b=>bar.appendChild(b));
@@ -4253,14 +4290,14 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-dza]"),s=e
   if(s){const on=get("sun","0")==="1"?"0":"1";put("sun",on);applyRead();s.setAttribute("aria-pressed",on==="1");s.textContent=on==="1"?"On":"Off"}});
 
 /* ---------- keep everything up to date as the guide redraws itself ---------- */
-let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff()}catch(e){}}
+let q=0;function run(){q=0;try{fold();tidyCards();addMe();renderNext();renderOff();renderOffTour()}catch(e){}}
 function sched(){if(!q)q=requestAnimationFrame(run)}
 let sq=0;addEventListener("scroll",()=>{if(!sq)sq=setTimeout(()=>{sq=0;try{renderNext()}catch(e){}},150)},{passive:true});
 function start(){try{wrapGo();addBack();unifyNav();renderSet();renderToday();renderOff();run()}catch(e){}
   if(has("renderHome")&&!window.renderHome.dz){const o=window.renderHome;window.renderHome=function(){const r=o.apply(this,arguments);try{renderToday();renderOff()}catch(e){}return r};window.renderHome.dz=1}
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
-  new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
+  new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzOffT,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
 /* ---------- open one stop straight from a link: ?stop=pointe-du-hoc (a stop name or its id) ----------
    Used by "Try a stop" on dzcharlie.com. Closing the panel leaves the visitor on the guide's home. */
 function dzSlug(t){return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
