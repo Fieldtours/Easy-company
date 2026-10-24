@@ -232,7 +232,18 @@ function start(){try{wrapGo();addBack();unifyNav();renderSet();renderToday();ren
   if(has("goTab")&&!window.goTab.dz){const o=window.goTab;window.goTab=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderNext()},30);return r};window.goTab.dz=1}
   if(has("goHome")&&!window.goHome.dz){const o=window.goHome;window.goHome=function(){const r=o.apply(this,arguments);setTimeout(()=>{renderToday();renderNext()},30);return r};window.goHome.dz=1}
   new MutationObserver(ms=>{if(ms.some(m=>!(m.target.closest&&m.target.closest("#dzNext,#dzToday,#dzOff,#dzSet,.dzmsg"))))sched()}).observe(document.body,{childList:true,subtree:true})}
-if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",()=>setTimeout(start,0));else setTimeout(start,0);
+/* ---------- open one stop straight from a link: ?stop=pointe-du-hoc (a stop name or its id) ----------
+   Used by "Try a stop" on dzcharlie.com. Closing the panel leaves the visitor on the guide's home. */
+function dzSlug(t){return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+function deepStop(){let q=null;try{q=new URLSearchParams(location.search).get("stop")}catch(e){}if(!q)return;q=dzSlug(q);
+  let n=0;const t=setInterval(()=>{n++;
+    if(typeof POOL==="undefined"||!Array.isArray(POOL)||!POOL.length||!has("card")){if(n>60)clearInterval(t);return}
+    clearInterval(t);
+    const p=POOL.find(x=>x.id===q)||POOL.find(x=>dzSlug(x.name)===q)||POOL.find(x=>dzSlug(x.name).startsWith(q));if(!p)return;
+    const wg=document.getElementById("welgo");if(wg)wg.click();
+    setTimeout(()=>showSite(p),wg?550:0)},150)}
+function boot(){setTimeout(start,0);setTimeout(deepStop,0)}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
 })();
 </script>
 <!-- dzux end -->
