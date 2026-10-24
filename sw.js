@@ -1,5 +1,5 @@
 /* EasyCo 2.0 service worker — keeps the guides working without internet */
-const CORE="ec2-core", DATA="ec2-data", VERSION="v4-site";
+const CORE="ec2-core", DATA="ec2-data", VERSION="v5-site-icon";
 const CORE_FILES=["lib/jspdf.umd.min.js","lib/qrcode.js","./","index.html","welcome.jpg","welcome-wide.jpg","icon-maskable-512.png","normandy.html","holland-bastogne.html","germany-austria.html","site.webmanifest",
  "site/home-normandy.jpg","site/home-holland.jpg","site/home-germany.jpg","site/tour.jpg","site/nearme.jpg","site/map.jpg","site/timeline.jpg","site/weapons.jpg","site/garand-v1.jpg","site/colt-v1.jpg",
  "favicon.ico","favicon-32.png","favicon-16.png","apple-touch-icon.png","icon-192.png","icon-512.png",
