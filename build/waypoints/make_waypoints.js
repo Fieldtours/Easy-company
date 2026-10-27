@@ -30,8 +30,8 @@ function descText(p){const a=[];if(p.when)a.push(p.when);if(p.text)a.push(p.text
  a.push("Guide: "+p.url);a.push("DZ Charlie field guides · dzcharlie.com");return a.join("\n\n")}
 function write(base,title,pts,multi){
  const nm=p=>multi?p.name+" ("+p.app+")":p.name;
- let g=`<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="DZ Charlie — dzcharlie.com" xmlns="http://www.topografix.com/GPX/1/1">\n<metadata><name>${esc(title)}</name><desc>Waypoints from the DZ Charlie field guides. Map pins marked LOW or AREA are the centre of a search area, not an exact spot.</desc><link href="https://dzcharlie.com/"><text>DZ Charlie</text></link></metadata>\n`;
- pts.forEach(p=>{g+=`<wpt lat="${p.lat.toFixed(6)}" lon="${p.lon.toFixed(6)}"><name>${esc(nm(p))}</name><desc>${esc(descText(p))}</desc><link href="${p.url}"><text>Open the guide</text></link><sym>${p.sym}</sym><type>${esc((multi?p.app+" · ":"")+p.group)}</type></wpt>\n`});
+ let g=`<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="DZ Charlie — dzcharlie.com" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">\n<metadata><name>${esc(title)}</name><desc>Waypoints from the DZ Charlie field guides. Map pins marked LOW or AREA are the centre of a search area, not an exact spot.</desc><link href="https://dzcharlie.com/"><text>DZ Charlie</text></link></metadata>\n`;
+ pts.forEach(p=>{g+=`<wpt lat="${p.lat.toFixed(6)}" lon="${p.lon.toFixed(6)}"><name>${esc(nm(p))}</name><desc>${esc(descText(p))}</desc><link href="${p.url}"><text>Open the guide</text></link><sym>${p.sym}</sym><type>${esc((multi?p.app+" · ":"")+p.group)}</type><extensions><gpxx:WaypointExtension><gpxx:Categories><gpxx:Category>DZ Charlie</gpxx:Category></gpxx:Categories></gpxx:WaypointExtension></extensions></wpt>\n`});
  g+=`</gpx>\n`;fs.writeFileSync(path.join(OUT,base+'.gpx'),g);
  const groups=[];pts.forEach(p=>{const k=(multi?p.app+" — ":"")+p.group;let f=groups.find(x=>x.k===k);if(!f)groups.push(f={k,p:[]});f.p.push(p)});
  const col={"Easy Company timeline":"ff2222cc","Tour stops":"ffcc7a1f","Museums":"ff2a8f2a"};
