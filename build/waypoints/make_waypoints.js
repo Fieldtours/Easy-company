@@ -15,9 +15,9 @@ const near=(a,b)=>Math.abs(a.lat-b.lat)<0.0008&&Math.abs(a.lon-b.lon)<0.0012; //
   await p.close();
   const url="https://dzcharlie.com/"+file+".html",pts=[];
   const add=(o)=>{if(!isFinite(o.lat)||!isFinite(o.lon))return;if(pts.some(q=>near(q,o)))return;o.app=label;o.url=url;pts.push(o)};
-  d.tl.forEach(t=>add({group:"Easy Company timeline",name:String(t[0]).padStart(2,"0")+" "+t[1],lat:t[4],lon:t[5],conf:t[3],when:t[2],text:t[6],look:t[7],sym:"Flag, Red"}));
-  d.pool.forEach(s=>add({group:"Tour stops",name:s.name,lat:s.lat,lon:s.lon,conf:s.conf,when:s.day?"Tour day "+s.day:"Extra stop",text:s.text,look:s.look,priv:s.priv,sym:"Flag, Blue"}));
-  d.mus.forEach(m=>add({group:"Museums",name:m[0],lat:m[2],lon:m[3],when:m[1],text:m[4],look:m[5]?"Allow: "+m[5]:"",sym:"Museum"}));
+  d.tl.forEach(t=>add({group:"Easy Company timeline",name:"DZC "+t[1],lat:t[4],lon:t[5],conf:t[3],when:t[2],text:t[6],look:t[7],sym:"Flag, Red"}));
+  d.pool.forEach(s=>add({group:"Tour stops",name:"DZC "+s.name,lat:s.lat,lon:s.lon,conf:s.conf,when:s.day?"Tour day "+s.day:"Extra stop",text:s.text,look:s.look,priv:s.priv,sym:"Flag, Blue"}));
+  d.mus.forEach(m=>add({group:"Museums",name:"DZC "+m[0],lat:m[2],lon:m[3],when:m[1],text:m[4],look:m[5]?"Allow: "+m[5]:"",sym:"Museum"}));
   counts[file]=pts.length;all.push(...pts);
   write(base,"Easy Company — "+label,pts,false);
  }
@@ -36,7 +36,7 @@ function write(base,title,pts,multi){
  const groups=[];pts.forEach(p=>{const k=(multi?p.app+" — ":"")+p.group;let f=groups.find(x=>x.k===k);if(!f)groups.push(f={k,p:[]});f.p.push(p)});
  const col={"Easy Company timeline":"ff2222cc","Tour stops":"ffcc7a1f","Museums":"ff2a8f2a"};
  let k=`<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">\n<Document><name>${esc(title)}</name><description>Waypoints from the DZ Charlie field guides (dzcharlie.com).</description>\n`;
- Object.entries(col).forEach(([n,c],i)=>{k+=`<Style id="s${i}"><IconStyle><color>${c}</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>\n`});
+ Object.entries(col).forEach(([n,c],i)=>{k+=`<Style id="s${i}"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>\n`});
  const sid=g=>"s"+Object.keys(col).indexOf(g);
  groups.forEach(f=>{k+=`<Folder><name>${esc(f.k)}</name>\n`;f.p.forEach(p=>{k+=`<Placemark><name>${esc(nm(p))}</name><description>${esc(descText(p))}</description><styleUrl>#${sid(p.group)}</styleUrl><Point><coordinates>${p.lon.toFixed(6)},${p.lat.toFixed(6)},0</coordinates></Point></Placemark>\n`});k+=`</Folder>\n`});
  k+=`</Document>\n</kml>\n`;fs.writeFileSync(path.join(OUT,base+'.kml'),k);

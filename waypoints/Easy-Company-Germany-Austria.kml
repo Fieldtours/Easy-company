@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document><name>Easy Company — Germany &amp; Austria</name><description>Waypoints from the DZ Charlie field guides (dzcharlie.com).</description>
-<Style id="s0"><IconStyle><color>ff2222cc</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
-<Style id="s1"><IconStyle><color>ffcc7a1f</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
-<Style id="s2"><IconStyle><color>ff2a8f2a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="s0"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
+<Style id="s1"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
+<Style id="s2"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
 <Folder><name>Easy Company timeline</name>
-<Placemark><name>01 Mourmelon-le-Grand — Presidential Unit Citation</name><description>25 Feb – 1 Apr 1945
+<Placemark><name>DZC Mourmelon-le-Grand — Presidential Unit Citation</name><description>25 Feb – 1 Apr 1945
 
 Back from Haguenau by boxcar. On 15 March Eisenhower reviewed the 101st and presented the first Presidential Unit Citation ever given to an entire division, for Bastogne. Replacements arrived; the veterans watched the Rhine crossings on the newsreels and wondered whether they would jump again.
 
@@ -16,7 +16,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>4.365800,49.140100,0</coordinates></Point></Placemark>
-<Placemark><name>02 Stürzelberg / Dormagen — the Rhine bank</name><description>2–18 Apr 1945
+<Placemark><name>DZC Stürzelberg / Dormagen — the Rhine bank</name><description>2–18 Apr 1945
 
 The 101st was sent to the west bank of the Rhine south of Düsseldorf to face the Ruhr pocket. The 506th held the river line around Stürzelberg and Dormagen: outposts on the dike, a displaced-persons camp to guard, patrols by boat across the water. Winters' battalion HQ was in a village house on the river. Easy's first sight of Germany was a country of white flags.
 
@@ -27,7 +27,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>6.816500,51.141350,0</coordinates></Point></Placemark>
-<Placemark><name>03 Cologne — the ruined city</name><description>April 1945
+<Placemark><name>DZC Cologne — the ruined city</name><description>April 1945
 
 Men of the 506th went into Cologne on passes: the cathedral standing in a sea of rubble, the Hohenzollern bridge in the river. For most it was the first German city they had seen and the first proof of what the bombing had done.
 
@@ -38,7 +38,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>6.958300,50.941300,0</coordinates></Point></Placemark>
-<Placemark><name>04 Ruhr pocket surrenders — the front dissolves</name><description>18 Apr 1945
+<Placemark><name>DZC Ruhr pocket surrenders — the front dissolves</name><description>18 Apr 1945
 
 The 317,000 Germans trapped in the Ruhr gave up on 18 April. The 101st's Rhine mission ended; the division was transferred to the Seventh Army for the drive into Bavaria and the supposed 'Alpine Redoubt'.
 
@@ -49,7 +49,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>6.800000,51.200000,0</coordinates></Point></Placemark>
-<Placemark><name>05 The autobahn south — Württemberg</name><description>22–26 Apr 1945
+<Placemark><name>DZC The autobahn south — Württemberg</name><description>22–26 Apr 1945
 
 By truck and DUKW down the autobahn through the Rhineland and Württemberg, past columns of surrendering Germans and liberated slave labourers walking the other way. Ulm's cathedral was the landmark. Nobody shot at them.
 
@@ -60,7 +60,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>9.990000,48.400000,0</coordinates></Point></Placemark>
-<Placemark><name>06 Buchloe / Landsberg sector — into Bavaria</name><description>27–28 Apr 1945
+<Placemark><name>DZC Buchloe / Landsberg sector — into Bavaria</name><description>27–28 Apr 1945
 
 The 506th came into the Landsberg area behind the 12th Armored and 4th Infantry Divisions. The country looked untouched; then the smell reached them.
 
@@ -71,7 +71,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>10.725000,48.038000,0</coordinates></Point></Placemark>
-<Placemark><name>07 Kaufering — the camp Easy found</name><description>28–29 Apr 1945
+<Placemark><name>DZC Kaufering — the camp Easy found</name><description>28–29 Apr 1945
 
 Easy Company entered one of the Kaufering sub-camps of Dachau — usually identified as Kaufering IV at Hurlach, reached by the 12th Armored Division on 27 April, a day before the 101st arrived; the SS had burned the huts with the sick inside two days earlier. Typhus, starvation, the dead in the earth huts. Winters ordered food brought in; the medics then had to stop the men eating; Landsberg's citizens were marched out to bury the dead. Several Easy Company veterans later described the camp as one of their most disturbing experiences of the war.
 
@@ -82,7 +82,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>10.845200,48.102800,0</coordinates></Point></Placemark>
-<Placemark><name>08 Kaufering VII — European Holocaust Memorial</name><description>29–30 Apr 1945
+<Placemark><name>DZC Kaufering VII — European Holocaust Memorial</name><description>29–30 Apr 1945
 
 The one Kaufering camp that survives: earth huts, foundations and the memorial stones of the nations whose people died here. 30,000 Jews passed through the eleven Kaufering camps building underground aircraft factories; 14,500 died.
 
@@ -93,7 +93,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>10.852475,48.030475,0</coordinates></Point></Placemark>
-<Placemark><name>09 Landsberg am Lech — billets, and Hitler's prison</name><description>30 Apr – 2 May 1945
+<Placemark><name>DZC Landsberg am Lech — billets, and Hitler's prison</name><description>30 Apr – 2 May 1945
 
 The company was billeted in the town where Hitler had written Mein Kampf in the fortress prison in 1924. On 30 April the news came that he was dead in Berlin. Sink set up in the town; the men were made to see the camp.
 
@@ -104,7 +104,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>10.872000,48.049000,0</coordinates></Point></Placemark>
-<Placemark><name>10 Munich — through the ruins</name><description>3 May 1945
+<Placemark><name>DZC Munich — through the ruins</name><description>3 May 1945
 
 The convoy passed through Munich, taken by the Seventh Army on 30 April, on the autobahn toward the Alps. The 'capital of the movement' was a shell.
 
@@ -115,7 +115,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>11.575500,48.137200,0</coordinates></Point></Placemark>
-<Placemark><name>11 Bad Reichenhall — the blown bridge</name><description>4 May 1945
+<Placemark><name>DZC Bad Reichenhall — the blown bridge</name><description>4 May 1945
 
 The 506th's column was held up by a demolished bridge on the road into the Berchtesgaden valley while the US 3rd Infantry Division and the French 2nd Armoured got into the town first. Sink was not pleased.
 
@@ -126,7 +126,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.877000,47.724500,0</coordinates></Point></Placemark>
-<Placemark><name>12 Berchtesgaden — the Berchtesgadener Hof</name><description>5 May 1945
+<Placemark><name>DZC Berchtesgaden — the Berchtesgadener Hof</name><description>5 May 1945
 
 The 506th entered Berchtesgaden on the afternoon of 5 May. Sink took the Berchtesgadener Hof, the Nazi Party's grand hotel, as regimental HQ; Winters' 2nd Battalion set up there too, and the men found the wine cellars, the silver and the Mercedes limousines. The hotel was demolished in 2006; its site in the town, near today's Haus der Berge national-park centre, is several kilometres below the Obersalzberg.
 
@@ -137,7 +137,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.992500,47.626300,0</coordinates></Point></Placemark>
-<Placemark><name>13 Obersalzberg — the Berghof and Göring's house</name><description>5–7 May 1945
+<Placemark><name>DZC Obersalzberg — the Berghof and Göring's house</name><description>5–7 May 1945
 
 Hitler's mountain: the Berghof, bombed by the RAF on 25 April and burned by the SS, Göring's and Bormann's houses, the SS barracks, the tunnel system. Easy men walked through the ruins and helped themselves to what was left; Göring's wine cellar became legend. Most of the major Nazi structures were demolished in 1952 or removed in later phases; the Dokumentation Obersalzberg now stands on the site.
 
@@ -148,7 +148,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>13.041900,47.633600,0</coordinates></Point></Placemark>
-<Placemark><name>14 Kehlsteinhaus — the Eagle's Nest</name><description>5–6 May 1945
+<Placemark><name>DZC Kehlsteinhaus — the Eagle's Nest</name><description>5–6 May 1945
 
 The tea-house on the Kehlstein, 1,834 m up, built for Hitler's 50th birthday. Winters, Nixon, Welsh and Easy men are said to have gone up after 5 May (who got there first is disputed); the photograph of them on a terrace, traditionally identified as the Eagle's Nest though some researchers place it at another Obersalzberg property, is the end of the Easy Company war in one frame. Whether they used the brass lift is uncertain — it had reportedly been disabled when the first troops arrived. The house survived because the RAF missed it.
 
@@ -159,7 +159,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>13.041800,47.611400,0</coordinates></Point></Placemark>
-<Placemark><name>15 Berchtesgaden — VE Day</name><description>8 May 1945
+<Placemark><name>DZC Berchtesgaden — VE Day</name><description>8 May 1945
 
 The war in Europe ended with the 506th around Berchtesgaden. Winters' order for the day — 'effective immediately, all troops will stand fast' — and the champagne from Göring's cellar. The men began counting points.
 
@@ -170,7 +170,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>13.003000,47.629600,0</coordinates></Point></Placemark>
-<Placemark><name>16 Zell am See — regimental HQ</name><description>9 May – Jun 1945
+<Placemark><name>DZC Zell am See — regimental HQ</name><description>9 May – Jun 1945
 
 The 506th moved over the border into the Austrian Salzburg province to disarm the German forces there. Sink's regimental HQ was in the Grand Hotel on the lake at Zell am See; the town became the regiment's occupation capital for the summer.
 
@@ -181,7 +181,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.794000,47.323100,0</coordinates></Point></Placemark>
-<Placemark><name>17 Kaprun — 2nd Battalion and Easy Company</name><description>May – Jun 1945
+<Placemark><name>DZC Kaprun — 2nd Battalion and Easy Company</name><description>May – Jun 1945
 
 Easy was billeted in Kaprun, at the foot of the Glockner range, with the battalion HQ. Occupation duty: road-blocks, collecting weapons, guarding the vast dam construction site with its slave-labour camp, and a great deal of swimming, hunting and drinking. The Sergeant Grant shooting is usually placed at a road-block in this area; the exact spot, like the company's billets, is not documented.
 
@@ -192,7 +192,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.759000,47.272300,0</coordinates></Point></Placemark>
-<Placemark><name>18 Saalfelden — the German surrender</name><description>May 1945
+<Placemark><name>DZC Saalfelden — the German surrender</name><description>May 1945
 
 Winters supervised the surrender of German units in the valley — columns marching in with their weapons, ordered to stack them and go home. Which formation and which commander is not recorded in a primary source. Tens of thousands of German soldiers were processed through the Saalfelden–Zell basin. Here, too, a German brain surgeon saved Sergeant Grant's life.
 
@@ -203,7 +203,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.848000,47.427000,0</coordinates></Point></Placemark>
-<Placemark><name>19 Zell am See — the summer of 1945</name><description>Jun – 30 Jun 1945
+<Placemark><name>DZC Zell am See — the summer of 1945</name><description>Jun – 30 Jun 1945
 
 Training for the Pacific began again in June — the 101st was scheduled to jump on Japan. Men with 85 points went home; the rest swam in the lake, drove Göring's cars and waited. On 1 July the regiment left Austria.
 
@@ -214,7 +214,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>12.800000,47.300000,0</coordinates></Point></Placemark>
-<Placemark><name>20 Joigny — the barracks in France</name><description>Jul – Nov 1945
+<Placemark><name>DZC Joigny — the barracks in France</name><description>Jul – Nov 1945
 
 The 101st was reassembled in the Yonne, at Joigny and Auxerre, to reorganise for the Pacific. Japan surrendered on 15 August and the jump never came. The company emptied by points through the autumn; Winters, Welsh, Speirs and the last of the Toccoa men went home one by one.
 
@@ -225,7 +225,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>3.398600,47.982500,0</coordinates></Point></Placemark>
-<Placemark><name>21 Auxerre — the 101st Airborne inactivated</name><description>30 Nov 1945
+<Placemark><name>DZC Auxerre — the 101st Airborne inactivated</name><description>30 Nov 1945
 
 On 30 November 1945 the 101st Airborne Division was inactivated in France and Easy Company ceased to exist. Of the 140 men who had jumped into Normandy, and the hundreds who followed, 48 Easy men had been killed by the Winters/Ambrose count — 49 by other rosters. The company's flag went home in a footlocker.
 
@@ -238,7 +238,7 @@ Guide: https://dzcharlie.com/germany-austria.html
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>3.567500,47.798200,0</coordinates></Point></Placemark>
 </Folder>
 <Folder><name>Tour stops</name>
-<Placemark><name>Ludendorff Bridge, Remagen — Peace Museum</name><description>Tour day 1
+<Placemark><name>DZC Ludendorff Bridge, Remagen — Peace Museum</name><description>Tour day 1
 
 The railway bridge captured intact on 7 March that put the first Americans across the Rhine; it collapsed ten days later. The surviving towers hold the Peace Museum.
 
@@ -249,7 +249,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>7.242500,50.579000,0</coordinates></Point></Placemark>
-<Placemark><name>Zons — the walled town on the Rhine</name><description>Tour day 1
+<Placemark><name>DZC Zons — the walled town on the Rhine</name><description>Tour day 1
 
 A medieval customs town on the 506th's stretch of river, untouched by the war, between Cologne and Dormagen. The dike path north of it is the regiment's April 1945 outpost line.
 
@@ -260,7 +260,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>6.844300,51.122800,0</coordinates></Point></Placemark>
-<Placemark><name>Dachau Concentration Camp Memorial</name><description>Tour day 2
+<Placemark><name>DZC Dachau Concentration Camp Memorial</name><description>Tour day 2
 
 The first camp and the model for all the others; the Kaufering camps were its sub-camps. Liberated by the 42nd and 45th Divisions the same weekend Easy was at Landsberg.
 
@@ -271,7 +271,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>11.468300,48.269800,0</coordinates></Point></Placemark>
-<Placemark><name>Munich Documentation Centre for the History of National Socialism</name><description>Tour day 3
+<Placemark><name>DZC Munich Documentation Centre for the History of National Socialism</name><description>Tour day 3
 
 On the site of the Brown House, the party's headquarters: how Munich made the movement, and what the city did with it. Context for everything on the Obersalzberg.
 
@@ -282,7 +282,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>11.568000,48.146600,0</coordinates></Point></Placemark>
-<Placemark><name>Dokumentation Obersalzberg</name><description>Tour day 3
+<Placemark><name>DZC Dokumentation Obersalzberg</name><description>Tour day 3
 
 The museum on Hitler's mountain: the Obersalzberg as the second seat of government, the bunker system underneath, and the American arrival of May 1945. Rebuilt and reopened in 2023.
 
@@ -293,7 +293,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>13.041800,47.631300,0</coordinates></Point></Placemark>
-<Placemark><name>Königssee</name><description>Tour day 4
+<Placemark><name>DZC Königssee</name><description>Tour day 4
 
 The fjord-like lake below the Watzmann, where the 506th swam and boated in May 1945. Electric boats to St Bartholomä; the echo trumpet still plays.
 
@@ -304,7 +304,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>12.987000,47.590000,0</coordinates></Point></Placemark>
-<Placemark><name>Grand Hotel Zell am See — regimental HQ</name><description>Tour day 5
+<Placemark><name>DZC Grand Hotel Zell am See — regimental HQ</name><description>Tour day 5
 
 Sink's headquarters on the promontory in the lake; the ballroom and terrace are as the regiment knew them. Still a hotel — coffee on the terrace is allowed.
 
@@ -315,7 +315,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>12.801200,47.324050,0</coordinates></Point></Placemark>
-<Placemark><name>Kaprun high-mountain dams (Mooserboden)</name><description>Tour day 5
+<Placemark><name>DZC Kaprun high-mountain dams (Mooserboden)</name><description>Tour day 5
 
 The hydro-electric project begun in 1938 with forced and slave labour from the camps; the 506th guarded the site and its DP camp in 1945. Finished after the war as a symbol of Austrian reconstruction. Bus and inclined lift to the dams; exhibition &quot;Erlebniswelt Strom&quot;.
 
@@ -326,7 +326,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>12.717500,47.162500,0</coordinates></Point></Placemark>
-<Placemark><name>Torgau — Elbe Day</name><description>Tour day 1
+<Placemark><name>DZC Torgau — Elbe Day</name><description>Tour day 1
 
 Where American and Soviet troops met and cut Germany in two.
 
@@ -337,7 +337,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>13.005000,51.560000,0</coordinates></Point></Placemark>
-<Placemark><name>Berlin — Reichstag and the Führerbunker site</name><description>Tour day 1
+<Placemark><name>DZC Berlin — Reichstag and the Führerbunker site</name><description>Tour day 1
 
 The end of Hitler and of the Reich; the bunker site is a car park with an information board.
 
@@ -348,7 +348,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>13.381100,52.512700,0</coordinates></Point></Placemark>
-<Placemark><name>Nuremberg — Documentation Centre &amp; Zeppelinfeld</name><description>Tour day 2
+<Placemark><name>DZC Nuremberg — Documentation Centre &amp; Zeppelinfeld</name><description>Tour day 2
 
 The party's parade ground and the courtroom of the 1945–46 trials.
 
@@ -359,7 +359,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>11.110800,49.433500,0</coordinates></Point></Placemark>
-<Placemark><name>Mauthausen Memorial</name><description>Tour day 5
+<Placemark><name>DZC Mauthausen Memorial</name><description>Tour day 5
 
 The Austrian main camp, liberated the day Easy reached Berchtesgaden.
 
@@ -372,7 +372,7 @@ Guide: https://dzcharlie.com/germany-austria.html
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>14.501000,48.257000,0</coordinates></Point></Placemark>
 </Folder>
 <Folder><name>Museums</name>
-<Placemark><name>NS Documentation Centre (EL-DE Haus)</name><description>Cologne
+<Placemark><name>DZC NS Documentation Centre (EL-DE Haus)</name><description>Cologne
 
 Gestapo prison and the story of Cologne under the Nazis; ten minutes from the cathedral.
 
@@ -381,7 +381,7 @@ Allow: 1 hr
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s2</styleUrl><Point><coordinates>6.952000,50.939400,0</coordinates></Point></Placemark>
-<Placemark><name>Salzbergwerk Berchtesgaden</name><description>Berchtesgaden
+<Placemark><name>DZC Salzbergwerk Berchtesgaden</name><description>Berchtesgaden
 
 The salt mine 506th men toured as tourists in May 1945. (Göring's looted art was found in Obersalzberg shelters, trains and caches — the famous salt-mine repository was Altaussee in Austria, not here.)
 
@@ -390,7 +390,7 @@ Allow: 1.5 hr
 Guide: https://dzcharlie.com/germany-austria.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s2</styleUrl><Point><coordinates>13.018000,47.637970,0</coordinates></Point></Placemark>
-<Placemark><name>Salzburg — Festung &amp; old town</name><description>Salzburg
+<Placemark><name>DZC Salzburg — Festung &amp; old town</name><description>Salzburg
 
 The 506th's nearest city in the summer of 1945; passes and the opera festival's first post-war season in August 1945.
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document><name>Easy Company — Normandy</name><description>Waypoints from the DZ Charlie field guides (dzcharlie.com).</description>
-<Style id="s0"><IconStyle><color>ff2222cc</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
-<Style id="s1"><IconStyle><color>ffcc7a1f</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
-<Style id="s2"><IconStyle><color>ff2a8f2a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="s0"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
+<Style id="s1"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
+<Style id="s2"><IconStyle><scale>1.1</scale><Icon><href>https://dzcharlie.com/icon-192.png</href></Icon></IconStyle></Style>
 <Folder><name>Easy Company timeline</name>
-<Placemark><name>01 Winters' probable landing area (reconstruction)</name><description>6 Jun 1944 ~01:30
+<Placemark><name>DZC Winters' probable landing area (reconstruction)</name><description>6 Jun 1944 ~01:30
 
 Winters landed well off DZ C, west of Sainte-Mère-Église. Some researchers place it near the D15/D17 road junction, but this is a reconstruction, not a settled consensus. Treat the coordinate as the centre of a search area. He oriented himself, gathered scattered paratroopers and moved round the north side of the town toward the 506th objective.
 
@@ -16,7 +16,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.323300,49.408000,0</coordinates></Point></Placemark>
-<Placemark><name>02 Rue Saint-Martin / D423 sector</name><description>6 Jun ~02:30
+<Placemark><name>DZC Rue Saint-Martin / D423 sector</name><description>6 Jun ~02:30
 
 Winters' growing group linked up with Easy men including Malarkey, Guarnere, Toye and Wynn in this road sector, then continued east and fell in behind Lt. Col. Cole's 502nd PIR group.
 
@@ -27,7 +27,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.306000,49.414000,0</coordinates></Point></Placemark>
-<Placemark><name>03 D423 / D115 junction — German column ambush</name><description>6 Jun ~03:00
+<Placemark><name>DZC D423 / D115 junction — German column ambush</name><description>6 Jun ~03:00
 
 A German column was ambushed in this junction area. Evidence does not support Winters personally leading the ambush. Afterwards the party continued with Cole's group toward Audouville-la-Hubert.
 
@@ -38,7 +38,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.277740,49.421100,0</coordinates></Point></Placemark>
-<Placemark><name>04 La Herguerie farm, Audouville-la-Hubert</name><description>6 Jun pre-dawn
+<Placemark><name>DZC La Herguerie farm, Audouville-la-Hubert</name><description>6 Jun pre-dawn
 
 Winters and the Easy men with him searched the farm while moving toward the 506th assembly area, then returned to the road toward Le Grand Chemin.
 
@@ -49,7 +49,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.243370,49.408450,0</coordinates></Point></Placemark>
-<Placemark><name>05 Le Grand Chemin — 2/506 assembly / CP</name><description>6 Jun morning
+<Placemark><name>DZC Le Grand Chemin — 2/506 assembly / CP</name><description>6 Jun morning
 
 Winters joined 2nd Battalion elements here. With Meehan missing he was drawn into the leadership vacuum and sent forward to investigate and neutralize artillery firing toward Utah Beach.
 
@@ -60,7 +60,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.224600,49.394000,0</coordinates></Point></Placemark>
-<Placemark><name>06 Brécourt Manor battery trench line</name><description>6 Jun ~08:30–noon
+<Placemark><name>DZC Brécourt Manor battery trench line</name><description>6 Jun ~08:30–noon
 
 The four-gun battery is firmly identified. Assault from the Le Grand Chemin side along hedgerows and trenches: base of fire, covered approach, into the trench, guns reduced one by one. The force withdrew rather than assaulting the manor. The exact geometry of every gun pit, especially the westernmost, is still debated.
 
@@ -71,7 +71,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.224300,49.391600,0</coordinates></Point></Placemark>
-<Placemark><name>07 Sainte-Marie-du-Mont sector</name><description>6 Jun afternoon/evening
+<Placemark><name>DZC Sainte-Marie-du-Mont sector</name><description>6 Jun afternoon/evening
 
 Easy and 2/506 operated through this sector after Brécourt as airborne and seaborne forces consolidated, then moved south-west toward the battalion/regimental position at Culoville.
 
@@ -82,7 +82,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.225800,49.377800,0</coordinates></Point></Placemark>
-<Placemark><name>08 Culoville / Hiesville — 506th CP area</name><description>Night 6–7 Jun
+<Placemark><name>DZC Culoville / Hiesville — 506th CP area</name><description>Night 6–7 Jun
 
 Winters and Easy spent their first Normandy night here near the 506th command post. At first light Easy was ordered to lead the 2nd Battalion column toward Vierville.
 
@@ -93,7 +93,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.249490,49.370330,0</coordinates></Point></Placemark>
-<Placemark><name>09 Vierville (Cotentin)</name><description>7 Jun ~06:00 onward
+<Placemark><name>DZC Vierville (Cotentin)</name><description>7 Jun ~06:00 onward
 
 Easy advanced on point toward Vierville and met resistance from German paratroopers. The village was cleared with support from other 506th elements and armour; movement continued south toward Angoville-au-Plain.
 
@@ -104,7 +104,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.245300,49.361100,0</coordinates></Point></Placemark>
-<Placemark><name>10 Angoville-au-Plain — regimental CP security</name><description>7–10 Jun
+<Placemark><name>DZC Angoville-au-Plain — regimental CP security</name><description>7–10 Jun
 
 Easy was pulled into reserve and security around Col. Sink's regimental command post while the attack on Carentan was prepared. On the evening of 11 June it rejoined the battalion advance.
 
@@ -115,7 +115,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.253300,49.349300,0</coordinates></Point></Placemark>
-<Placemark><name>11 Dead Man's Corner / St-Côme-du-Mont road</name><description>11 Jun evening
+<Placemark><name>DZC Dead Man's Corner / St-Côme-du-Mont road</name><description>11 Jun evening
 
 Easy passed this landmark moving south toward Carentan; it was not Easy's principal battle site that day. The company crossed the Douve causeway corridor, then left the road and moved across fields toward the south-west approach to Carentan.
 
@@ -126,7 +126,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.268800,49.328700,0</coordinates></Point></Placemark>
-<Placemark><name>12 South-west approach — jump-off on the Route d'Auvers</name><description>Night 11–12 Jun
+<Placemark><name>DZC South-west approach — jump-off on the Route d'Auvers</name><description>Night 11–12 Jun
 
 After a night march across the fields by way of Hill 30, Easy reached its jump-off point on the crest of the Route d'Auvers at about 05:30 on 12 June, roughly a hundred yards west of the junction with the road to Périers. From here the company attacked east into Carentan.
 
@@ -137,7 +137,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.252000,49.300430,0</coordinates></Point></Placemark>
-<Placemark><name>13 Carentan — Route d'Auvers / Rue Holgate</name><description>12 Jun early morning
+<Placemark><name>DZC Carentan — Route d'Auvers / Rue Holgate</name><description>12 Jun early morning
 
 Easy entered Carentan on this axis and fought through the approach and along Rue Holgate toward the railway, building to building. Winters was wounded in the shin near the railway sector.
 
@@ -148,7 +148,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.249750,49.300850,0</coordinates></Point></Placemark>
-<Placemark><name>14 Donville / Bloody Gulch defensive sector</name><description>12–13 Jun
+<Placemark><name>DZC Donville / Bloody Gulch defensive sector</name><description>12–13 Jun
 
 Easy dug in south-west of Carentan and held the right flank during the German counterattack of 13 June (17th SS Panzergrenadier and Fallschirmjäger Regiment 6 elements) until armour from the 2nd Armored Division helped restore the situation. The exact hedgerow occupied is disputed.
 
@@ -159,7 +159,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.282130,49.297210,0</coordinates></Point></Placemark>
-<Placemark><name>15 Carentan — division reserve / billets</name><description>13 Jun ~23:00 – 19 Jun
+<Placemark><name>DZC Carentan — division reserve / billets</name><description>13 Jun ~23:00 – 19 Jun
 
 After the 13 June battle Easy and the 506th were withdrawn into division reserve in Carentan. Winters received treatment; Lt. Welsh temporarily ran the company. Local security, recovery and patrols.
 
@@ -170,7 +170,7 @@ Accuracy: MEDIUM — close to the spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.248200,49.303200,0</coordinates></Point></Placemark>
-<Placemark><name>16 Reconnaissance / patrol sector outside Carentan</name><description>≈25 Jun
+<Placemark><name>DZC Reconnaissance / patrol sector outside Carentan</name><description>≈25 Jun
 
 Easy conducted reconnaissance and patrol activity; Albert Blithe was seriously wounded on 25 June 1944, his twenty-first birthday. Published accounts do not justify a single exact coordinate for the patrol route.
 
@@ -181,7 +181,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.270000,49.290000,0</coordinates></Point></Placemark>
-<Placemark><name>17 Carentan defensive / patrol sector</name><description>21–28 Jun
+<Placemark><name>DZC Carentan defensive / patrol sector</name><description>21–28 Jun
 
 Easy remained in the Normandy line on defensive and patrol duties. Day-by-day company positions are not documented well enough to plot without inventing precision. Relieved from the line on 28 June.
 
@@ -192,7 +192,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.250000,49.300000,0</coordinates></Point></Placemark>
-<Placemark><name>18 Off the line — Saint-Sauveur-le-Vicomte</name><description>27–29 Jun
+<Placemark><name>DZC Off the line — Saint-Sauveur-le-Vicomte</name><description>27–29 Jun
 
 The division came out of the line at Carentan on 27 June and moved by truck to a bivouac west of Saint-Sauveur-le-Vicomte, where the 506th spent two nights; on 29 June it moved up toward Cherbourg. No exact Easy Company position is recorded.
 
@@ -203,7 +203,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.548280,49.379940,0</coordinates></Point></Placemark>
-<Placemark><name>19 Tollevast — the bivouac near Cherbourg</name><description>29 Jun – 9 Jul
+<Placemark><name>DZC Tollevast — the bivouac near Cherbourg</name><description>29 Jun – 9 Jul
 
 From 29 June the division was in a bivouac area about five miles south of Cherbourg; the 2nd Battalion's was at Tollevast. Training, maintenance, rest, awards and preparation for the return to England. No exact Easy Company tent location is claimed.
 
@@ -214,7 +214,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.607650,49.577740,0</coordinates></Point></Placemark>
-<Placemark><name>20 Utah Beach embarkation area</name><description>10–11 Jul
+<Placemark><name>DZC Utah Beach embarkation area</name><description>10–11 Jul
 
 Easy moved down to Utah Beach on 10 July to prepare for embarkation; the exact loading point is not established. Departure around 11 July. The historical endpoint of the Normandy ground campaign.
 
@@ -225,7 +225,7 @@ Accuracy: HIGH — exact spot.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.176400,49.415200,0</coordinates></Point></Placemark>
-<Placemark><name>21 Southampton, England</name><description>12 Jul 1944
+<Placemark><name>DZC Southampton, England</name><description>12 Jul 1944
 
 The returning convoy reached Southampton on the night of 12 July; the men went by train to Aldbourne. Outside Normandy — included to close the sequence.
 
@@ -238,7 +238,7 @@ Guide: https://dzcharlie.com/normandy.html
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>-1.400000,50.900000,0</coordinates></Point></Placemark>
 </Folder>
 <Folder><name>Tour stops</name>
-<Placemark><name>Sainte-Mère-Église</name><description>Tour day 1
+<Placemark><name>DZC Sainte-Mère-Église</name><description>Tour day 1
 
 Begin in the square before the museum. The church and compact street plan make this one of Normandy's strongest orientation points for the airborne landings. Chiefly an 82nd Airborne story, but for Easy it shows the scale of the night-drop chaos.
 
@@ -249,7 +249,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.318100,49.408900,0</coordinates></Point></Placemark>
-<Placemark><name>Landing/scatter area — Sticks 68–71 sector</name><description>Tour day 1
+<Placemark><name>DZC Landing/scatter area — Sticks 68–71 sector</name><description>Tour day 1
 
 A dispersion lesson, not four exact landing sites. Men landed across a broad area and assembled in improvised groups; the company that fought on 6 June was not the one that boarded in England.
 
@@ -260,7 +260,7 @@ Accuracy: AREA — centre of a wider area.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.320000,49.400000,0</coordinates></Point></Placemark>
-<Placemark><name>Lt. Thomas Meehan / Stick 66 C-47 Memorial</name><description>Tour day 1
+<Placemark><name>DZC Lt. Thomas Meehan / Stick 66 C-47 Memorial</name><description>Tour day 1
 
 C-47 42-93095, carrying Lt. Meehan, 1st Sgt. Evans and 15 other Easy paratroopers, was hit by flak and crashed near Beuzeville-au-Plain. All five aircrew and 17 paratroopers were killed.
 
@@ -271,7 +271,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.285792,49.431313,0</coordinates></Point></Placemark>
-<Placemark><name>Ravenoville / Marmion Farm area</name><description>Tour day 1
+<Placemark><name>DZC Ravenoville / Marmion Farm area</name><description>Tour day 1
 
 Associated with a separated Easy group — Guth, Talbert, 'Smokey' Gordon and Tipper. Small groups formed from whoever was nearby, fought local actions and moved toward friendly objectives.
 
@@ -284,7 +284,7 @@ Private land — view from the road.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.264000,49.456500,0</coordinates></Point></Placemark>
-<Placemark><name>Richard D. Winters Leadership Monument</name><description>Tour day 1
+<Placemark><name>DZC Richard D. Winters Leadership Monument</name><description>Tour day 1
 
 Winters stands for the junior officers who led on D-Day. Not a combat position, but its placement on the road to Utah makes it an effective pause before Brécourt.
 
@@ -295,7 +295,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.213490,49.391510,0</coordinates></Point></Placemark>
-<Placemark><name>Easy Company / 506th Brécourt Memorial</name><description>Tour day 1
+<Placemark><name>DZC Easy Company / 506th Brécourt Memorial</name><description>Tour day 1
 
 The practical public viewpoint for the Brécourt story. Orient toward the private battery area; the guns were believed to be firing toward Utah Beach.
 
@@ -306,7 +306,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.222732,49.391722,0</coordinates></Point></Placemark>
-<Placemark><name>La Fière Bridge &amp; Causeway</name><description>Tour day 2
+<Placemark><name>DZC La Fière Bridge &amp; Causeway</name><description>Tour day 2
 
 Not an Easy action but indispensable context: control of the Merderet crossings produced some of the fiercest airborne fighting of the invasion. The causeway shows how flooded lowlands turned a road into a bottleneck.
 
@@ -317,7 +317,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.363350,49.401370,0</coordinates></Point></Placemark>
-<Placemark><name>St-Côme-du-Mont</name><description>Tour day 2
+<Placemark><name>DZC St-Côme-du-Mont</name><description>Tour day 2
 
 The 101st pushed through here toward Carentan; the 506th took the village on 8 June while Easy was in reserve. Hedgerows and narrow roads fragmented movement.
 
@@ -328,7 +328,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.272000,49.336000,0</coordinates></Point></Placemark>
-<Placemark><name>Purple Heart Lane / Carentan causeway</name><description>Tour day 2
+<Placemark><name>DZC Purple Heart Lane / Carentan causeway</name><description>Tour day 2
 
 The causeway toward Carentan became notorious: troops advancing along it were exposed with no room to manoeuvre. Chiefly a 502nd PIR story, but it is the battlefield Easy moved into.
 
@@ -339,7 +339,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.259400,49.314700,0</coordinates></Point></Placemark>
-<Placemark><name>German Military Cemetery, La Cambe</name><description>Tour day 3
+<Placemark><name>DZC German Military Cemetery, La Cambe</name><description>Tour day 3
 
 The day deliberately begins with the German dead — a stark contrast to the American cemetery later, broadening the tour from unit history to the human cost.
 
@@ -350,7 +350,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.026900,49.342500,0</coordinates></Point></Placemark>
-<Placemark><name>Pointe du Hoc</name><description>Tour day 3
+<Placemark><name>DZC Pointe du Hoc</name><description>Tour day 3
 
 The Rangers' cliff assault was separate from Easy's, but the preserved craters, casemates and cliff edge make the pre-invasion bombardment legible. Same kind of threat as Brécourt, on a larger scale.
 
@@ -361,7 +361,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.989400,49.396300,0</coordinates></Point></Placemark>
-<Placemark><name>Omaha Beach — Dog Green / Vierville</name><description>Tour day 3
+<Placemark><name>DZC Omaha Beach — Dog Green / Vierville</name><description>Tour day 3
 
 Among Omaha's most punishing sectors. Open sand, limited exits, commanding bluffs — the contrast with Utah explains why the two beachheads developed so differently.
 
@@ -372,7 +372,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.902860,49.379170,0</coordinates></Point></Placemark>
-<Placemark><name>Omaha Beach — central sector</name><description>Tour day 3
+<Placemark><name>DZC Omaha Beach — central sector</name><description>Tour day 3
 
 A second Omaha stop keeps the beach from collapsing into one viewpoint: compare exits, bluffs and fields of fire across the frontage.
 
@@ -383,7 +383,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.871000,49.369700,0</coordinates></Point></Placemark>
-<Placemark><name>Normandy American Cemetery</name><description>Tour day 3
+<Placemark><name>DZC Normandy American Cemetery</name><description>Tour day 3
 
 Colleville-sur-Mer turns the battlefield into individual loss; its position above Omaha makes geography and remembrance inseparable.
 
@@ -394,7 +394,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.857300,49.359200,0</coordinates></Point></Placemark>
-<Placemark><name>Bayeux — Museum of the Battle of Normandy</name><description>Tour day 3
+<Placemark><name>DZC Bayeux — Museum of the Battle of Normandy</name><description>Tour day 3
 
 Widens the lens from 6 June to the whole campaign: bocage, attrition, breakout, collapse.
 
@@ -405,7 +405,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.712000,49.274100,0</coordinates></Point></Placemark>
-<Placemark><name>Longues-sur-Mer German Battery</name><description>Tour day 4
+<Placemark><name>DZC Longues-sur-Mer German Battery</name><description>Tour day 4
 
 One of the best places to understand the Atlantic Wall as a working artillery system — original guns remain in their casemates.
 
@@ -416,7 +416,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.694600,49.343000,0</coordinates></Point></Placemark>
-<Placemark><name>Arromanches-les-Bains / Mulberry Harbour</name><description>Tour day 4
+<Placemark><name>DZC Arromanches-les-Bains / Mulberry Harbour</name><description>Tour day 4
 
 The logistics story: Port Winston let men, vehicles and supplies flow into Normandy. Read it as a system — offshore Phoenix caissons → floating roadways → shore discharge.
 
@@ -427,7 +427,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.620700,49.339400,0</coordinates></Point></Placemark>
-<Placemark><name>British Normandy Memorial, Ver-sur-Mer</name><description>Tour day 4
+<Placemark><name>DZC British Normandy Memorial, Ver-sur-Mer</name><description>Tour day 4
 
 Brings British and Commonwealth sacrifice into the route, above Gold Beach — Overlord was a coalition operation.
 
@@ -438,7 +438,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.537500,49.338500,0</coordinates></Point></Placemark>
-<Placemark><name>Caen Memorial Museum</name><description>Tour day 5
+<Placemark><name>DZC Caen Memorial Museum</name><description>Tour day 5
 
 The strategic frame: origins and course of the war, occupation, D-Day and the Battle of Normandy. Deliberately placed late, after four days of terrain.
 
@@ -449,7 +449,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.384700,49.197900,0</coordinates></Point></Placemark>
-<Placemark><name>Pegasus Bridge / Memorial Pegasus</name><description>Tour day 5
+<Placemark><name>DZC Pegasus Bridge / Memorial Pegasus</name><description>Tour day 5
 
 The glider capture of the Orne and canal bridges was one of D-Day's most precise opening actions — the opposite of the scattered American drop, with the same need to secure crossings and protect a flank.
 
@@ -460,7 +460,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.274500,49.242000,0</coordinates></Point></Placemark>
-<Placemark><name>Merville Battery</name><description>Tour day 5
+<Placemark><name>DZC Merville Battery</name><description>Tour day 5
 
 The 9th Parachute Battalion attacked this battery despite severe dispersal and lost equipment — the direct parallel to Brécourt. Preserved casemates let you read it from the defender's side.
 
@@ -471,7 +471,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.196500,49.269400,0</coordinates></Point></Placemark>
-<Placemark><name>Normandy Victory Museum</name><description>Extra stop
+<Placemark><name>DZC Normandy Victory Museum</name><description>Extra stop
 
 Hedgerow fighting and the daily life of soldiers and civilians — the world Easy lived in from 13 to 28 June.
 
@@ -482,7 +482,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.192860,49.304960,0</coordinates></Point></Placemark>
-<Placemark><name>D-Day Wings Museum</name><description>Extra stop
+<Placemark><name>DZC D-Day Wings Museum</name><description>Extra stop
 
 Aviation context — the aircraft and crews that carried the airborne divisions and covered the beaches.
 
@@ -493,7 +493,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.441300,49.175310,0</coordinates></Point></Placemark>
-<Placemark><name>Crisbecq (Marcouf) Battery</name><description>Tour day 1
+<Placemark><name>DZC Crisbecq (Marcouf) Battery</name><description>Tour day 1
 
 Heavy 210 mm naval battery that dueled with the fleet off Utah and was not taken until 12 June. Shows the scale of gun the Brécourt battery was a small cousin of.
 
@@ -504,7 +504,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.296720,49.479920,0</coordinates></Point></Placemark>
-<Placemark><name>Azeville Battery</name><description>Tour day 1
+<Placemark><name>DZC Azeville Battery</name><description>Tour day 1
 
 Four casemates linked by tunnels, painted to look like houses; fired on Utah and held out until 9 June.
 
@@ -515,7 +515,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-1.306000,49.461000,0</coordinates></Point></Placemark>
-<Placemark><name>Juno Beach Centre — Courseulles</name><description>Tour day 4
+<Placemark><name>DZC Juno Beach Centre — Courseulles</name><description>Tour day 4
 
 The Canadians took the heaviest losses of the British beaches in the first hour, then advanced further inland than any other force on D-Day.
 
@@ -526,7 +526,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.460000,49.337300,0</coordinates></Point></Placemark>
-<Placemark><name>Bény-sur-Mer Canadian Cemetery</name><description>Tour day 4
+<Placemark><name>DZC Bény-sur-Mer Canadian Cemetery</name><description>Tour day 4
 
 2,048 Canadian graves from Juno and the fighting for Caen.
 
@@ -537,7 +537,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.450570,49.303730,0</coordinates></Point></Placemark>
-<Placemark><name>Hillman fortress — Colleville-Montgomery</name><description>Tour day 5
+<Placemark><name>DZC Hillman fortress — Colleville-Montgomery</name><description>Tour day 5
 
 The German regimental HQ bunker complex that held up the Suffolks for most of D-Day and helped stop Sword's advance on Caen.
 
@@ -548,7 +548,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.310030,49.265280,0</coordinates></Point></Placemark>
-<Placemark><name>Sword Beach — Ouistreham</name><description>Tour day 5
+<Placemark><name>DZC Sword Beach — Ouistreham</name><description>Tour day 5
 
 Lord Lovat's commandos landed here with a piper playing and marched to relieve Pegasus Bridge by early afternoon. The Grand Bunker — the German fire-control tower — is now a museum.
 
@@ -559,7 +559,7 @@ Accuracy: Documented site.
 Guide: https://dzcharlie.com/normandy.html
 
 DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>-0.255300,49.285700,0</coordinates></Point></Placemark>
-<Placemark><name>Ranville War Cemetery</name><description>Tour day 5
+<Placemark><name>DZC Ranville War Cemetery</name><description>Tour day 5
 
 2,236 graves, mostly of the airborne division, beside the first village liberated by the British.
 
