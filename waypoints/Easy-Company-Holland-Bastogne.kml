@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><name>Easy Company — Holland &amp; Bastogne</name><description>Waypoints from the DZ Charlie field guides (dzcharlie.com).</description>
+<Style id="s0"><IconStyle><color>ff2222cc</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="s1"><IconStyle><color>ffcc7a1f</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Style id="s2"><IconStyle><color>ff2a8f2a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style>
+<Folder><name>Easy Company timeline</name>
+<Placemark><name>01 Drop Zone B — Sonse Heide, north of Son</name><description>17 Sep 1944 ~13:00
+
+Operation Market Garden opened in daylight. The 506th jumped onto the heath between Son and Best in the best drop the regiment ever had: on target, little flak, the company assembled within the hour. Compared with Normandy it was a parade.
+
+The Wings of Liberation museum stands beside the old landing ground. Look at the flat, open heath and imagine 6,700 men of the 101st coming down in one lift.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.470000,51.532000,0</coordinates></Point></Placemark>
+<Placemark><name>02 Son bridge — Wilhelmina Canal</name><description>17 Sep afternoon
+
+The 506th's first objective. As the lead battalion reached the canal, the Germans blew the bridge; an 88 mm gun on the far bank fired down the road. Engineers rigged a footbridge that night and Easy crossed in the dark. The delay cost the whole corridor a day.
+
+Stand on the modern bridge and look at the canal's width: the whole timetable of Market Garden turned on this gap.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.492070,51.505610,0</coordinates></Point></Placemark>
+<Placemark><name>03 Eindhoven — Woensel and the city centre</name><description>18 Sep 1944
+
+The 506th entered Eindhoven from the north through Woensel and cleared the town by early afternoon; Easy moved through the celebrations. The Guards Armoured Division's tanks arrived that evening and the corridor was open — a day late.
+
+The Airborne Memorial on Airbornelaan marks the entry route; the centre is where the crowds were.
+
+Accuracy: AREA — centre of a wider area.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.489700,51.476500,0</coordinates></Point></Placemark>
+<Placemark><name>04 Nuenen — the ambush of 19–20 September</name><description>19–20 Sep 1944
+
+Easy rode east on British Cromwell tanks toward Helmond and ran into the 107th Panzer Brigade at the edge of Nuenen. Tanks were knocked out, the company was pinned and pulled back with about fifteen casualties; Bull Randleman, missing, spent the night hiding in a barn. The memorial names nine Easy men who died in Holland.
+
+The village where Van Gogh painted the Potato Eaters. Read the open fields east of the memorial — this was tank country, not hedgerows.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.545100,51.470600,0</coordinates></Point></Placemark>
+<Placemark><name>05 Uden — cut off on Hell's Highway</name><description>20–22 Sep 1944
+
+Winters and part of Easy moved to Uden while the rest of the battalion was still at Veghel. On 22 September the Germans cut the road between the two towns; for a day the group in Uden held the town with a handful of men, bluffing strength they did not have.
+
+Market town on the corridor; the highway through it is the original single road.
+
+Accuracy: MEDIUM — close to the spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.619000,51.660000,0</coordinates></Point></Placemark>
+<Placemark><name>06 Veghel and Koevering — the road cuts</name><description>22–25 Sep 1944
+
+The 101st fought to reopen Hell's Highway at Veghel (22 Sep) and again at Koevering, where the Germans cut the road for a day on 24–25 September. Every hour the road was shut, the men at Arnhem were nearer defeat.
+
+Veghel's canal bridges were the German objective; the Koevering hamlet lies on the straight road south toward Sint-Oedenrode.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.532530,51.608150,0</coordinates></Point></Placemark>
+<Placemark><name>07 The Island — Zetten / Randwijk sector</name><description>2–4 Oct 1944
+
+After Market Garden failed at Arnhem, the 101st relieved the British on the Island — the flat polder between the Waal and the Neder-Rijn. The 506th took the western sector around Zetten, Randwijk and Heteren, facing the river dike.
+
+Polder country: dikes are the only high ground and the only roads. Everything else is flat, wet and observed.
+
+Accuracy: MEDIUM — close to the spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.710000,51.935000,0</coordinates></Point></Placemark>
+<Placemark><name>08 The Crossroads — Randwijkse Rijndijk, Heteren</name><description>5 Oct 1944, dawn
+
+Winters took a squad, then a platoon, against a much larger German force (Winters estimated two SS companies) at a road junction below the dike. A bayonet-led assault at first light and a covering line of machine guns broke the German force: about 50 killed and 11 captured for one Easy man killed (William Dukeman) and 22 wounded. Winters' last fight as company commander; he became battalion executive officer on 9 October.
+
+The memorial stands at the junction. Walk up onto the dike and look north toward the river — the Germans came from there.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.731700,51.958600,0</coordinates></Point></Placemark>
+<Placemark><name>09 Operation Pegasus — the Rhine crossing</name><description>22–23 Oct 1944, night
+
+Easy provided the covering force on the south bank while about 138 Allied evaders from Arnhem, mostly British, were brought across the Neder-Rijn in boats by the 506th. Lt. Heyliger, now commanding Easy, led the crossing party.
+
+Look across the river toward Renkum: the escapers gathered in the woods on the far bank and signalled with a V-for-victory light.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.705210,51.955730,0</coordinates></Point></Placemark>
+<Placemark><name>10 The dike — Heyliger shot by a sentry</name><description>31 Oct 1944
+
+Walking the line at night with Winters, Moose Heyliger was shot by a nervous Easy sentry and badly wounded. Norman Dike took command — the beginning of the leadership problem that would surface at Bastogne.
+
+Area only; the incident happened on the dike road in the Randwijk sector.
+
+Accuracy: AREA — centre of a wider area.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.720000,51.958000,0</coordinates></Point></Placemark>
+<Placemark><name>11 The Island line — patrols, shelling, flood</name><description>1–25 Nov 1944
+
+Seven weeks of static war: outposts on the dike, night patrols across the flooded polder, German artillery, rain and cold. On 25–27 November the 101st was finally relieved and moved to France. Easy had jumped into Holland with 154 men and came out with 98.
+
+Area reference for the whole sector between Zetten, Randwijk and Heteren.
+
+Accuracy: AREA — centre of a wider area.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.700000,51.940000,0</coordinates></Point></Placemark>
+<Placemark><name>12 Mourmelon-le-Grand — refit in Champagne</name><description>28 Nov – 17 Dec 1944
+
+Old French army barracks near Reims: replacements, passes to Paris, football, and a company that expected to spend the winter here. On 17 December the German offensive in the Ardennes changed everything; the division was alerted that night.
+
+The camp is still a French military base; the town is the reference point.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>4.364440,49.140830,0</coordinates></Point></Placemark>
+<Placemark><name>13 Bastogne — arrival by truck</name><description>18–19 Dec 1944, night
+
+Ten hours in open trucks, winter clothing grossly inadequate, short of ammunition and food. The 101st arrived at Bastogne on the night of 18–19 December, walking in past retreating troops who handed over what they could spare. The 506th moved out to the north-east at once.
+
+The town square and the roads radiating from it explain why Bastogne mattered: seven roads meet here.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.715000,50.004000,0</coordinates></Point></Placemark>
+<Placemark><name>14 Bois Jacques — the front line facing Foy</name><description>19 Dec 1944 – 2 Jan 1945
+
+Easy dug in on the edge of the Bois Jacques looking down on Foy. Encircled from 21 December, without winter gear or enough ammunition, the company held its line through fog, snow and shelling. The skies cleared on 23 December; Patton's 4th Armored Division broke through on the 26th. Harry Welsh was wounded on Christmas Eve.
+
+The foxholes are still there, either side of the Bizory–Foy road. Stand in one and look at Foy: that was the view for three weeks.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.760400,50.033500,0</coordinates></Point></Placemark>
+<Placemark><name>15 Bois Jacques — the shelling of 3 January</name><description>3 Jan 1945
+
+After a morning attack into the woods across the road, Easy was caught by German artillery in the trees: Joe Toye and Bill Guarnere each lost a leg, Buck Compton was evacuated — officially for severe trench foot; the ‘breakdown’ of the book and the series is Ambrose's interpretation, which Compton himself rejected. Tree bursts made the wood itself the weapon.
+
+Same ground as the foxholes; the memorial beside the road lists the fourteen Easy men killed around Bastogne.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.762000,50.030000,0</coordinates></Point></Placemark>
+<Placemark><name>16 Bois Jacques — 9–10 January</name><description>9–10 Jan 1945
+
+Renewed attacks into the woods toward Foy and Noville; on 10 January a barrage killed Skip Muck and Alex Penkala in their foxhole. The company was now down to about half its Holland strength.
+
+Wood-line west of the foxhole site; approximate.
+
+Accuracy: MEDIUM — close to the spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.752000,50.032000,0</coordinates></Point></Placemark>
+<Placemark><name>17 Foy — the attack of 13 January</name><description>13 Jan 1945
+
+Easy attacked across the open snow into Foy. Lt. Dike's advance stopped in the open — Winters and Lipton described him as freezing; Clancy Lyall said he saw Dike wounded in the shoulder — and Winters, watching from the wood-line, sent Ronald Speirs to relieve him. Speirs ran through the village to link up with I Company and back again. Foy fell; Easy lost one man killed and several wounded — Shifty Powers shot the German sniper who had done much of the damage.
+
+Walk from the wood-line down to the village: about 250 m of open ground with no cover. That is what the company crossed.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.749200,50.044690,0</coordinates></Point></Placemark>
+<Placemark><name>18 Noville</name><description>14–15 Jan 1945
+
+The 506th pushed north from Foy to Noville, the village the 10th Armored's Team Desobry had held on 19–20 December. Easy took it on 15 January, the day the US 1st and 3rd Armies were about to meet at Houffalize and close the Bulge.
+
+The church and the crossroads are the same; the village was rebuilt after the war.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.757300,50.061500,0</coordinates></Point></Placemark>
+<Placemark><name>19 Rachamps — the last Bastogne attack</name><description>16 Jan 1945
+
+Easy's final objective in the Ardennes. The company spent the night in the church, where the village schoolgirls sang for them; the Easy Company memorial is beside it. On 17 January the 101st was relieved. Bastogne had cost Easy fourteen killed, about 32 wounded and 21 evacuated for cold-weather injuries.
+
+The church appears in the series; Guarnere and Heffron planted a tree here at the unveiling.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>5.787100,50.083800,0</coordinates></Point></Placemark>
+<Placemark><name>20 Alsace — the Moder line</name><description>20 Jan – 4 Feb 1945
+
+In late January the 101st moved to Alsace as Operation Nordwind, the last German offensive in the west, was ending. The 506th took over the line at Pfaffenhoffen and Niedermodern on the Moder, west of Haguenau, in deep snow, patrolling and being shelled; Easy's 2nd Battalion stayed in reserve at Grassendorf until the regiment moved into Haguenau on 5 February.
+
+Area reference: the villages between Pfaffenhoffen and Haguenau along the river.
+
+Accuracy: AREA — centre of a wider area.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>7.606000,48.842000,0</coordinates></Point></Placemark>
+<Placemark><name>21 Haguenau — the Moder river patrol</name><description>5–23 Feb 1945
+
+Easy held the south bank of the Moder inside Haguenau, the Germans a street away on the north bank. On the night of 15 February a patrol led by Lt. Jones crossed the river, blew into a German outpost and brought back two prisoners; Eugene Jackson was mortally wounded when his own grenade detonated in the fight at the outpost; accounts differ on whether enemy fire made him drop it or it went off early. Winters quietly cancelled the second patrol ordered for the next night. Relieved on 23 February; back to Mourmelon by rail on the 25th — the company's last combat.
+
+The river is startlingly narrow. The Liberation memorial on the Moder canal marks the axis the Americans finally crossed on 16 March, after Easy had gone.
+
+Accuracy: HIGH — exact spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s0</styleUrl><Point><coordinates>7.792000,48.820000,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Tour stops</name>
+<Placemark><name>Wings of Liberation Museum, Best</name><description>Tour day 1
+
+Vehicles, aircraft, a Waco glider and the story of the Brabant liberation, on the edge of the ground the 101st landed on. The right start: it explains the plan before you drive the road.
+
+Look at the map of the corridor first; the museum sits almost on Drop Zone B.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.440196,51.515947,0</coordinates></Point></Placemark>
+<Placemark><name>Son bridge &amp; 101st Airborne memorial</name><description>Tour day 1
+
+The Wilhelmina Canal crossing the Germans blew as the 506th arrived; the memorial stands on 17 Septemberplein beside the modern bridge. Engineers bridged the gap overnight; Easy crossed on the footbridge.
+
+Stand at the water's edge: the far bank is where the 88 was.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.491200,51.512000,0</coordinates></Point></Placemark>
+<Placemark><name>Eindhoven — 18 Septemberplein</name><description>Tour day 1
+
+The square named for liberation day. Easy marched through cheering crowds here; that night the Luftwaffe bombed the city and the celebrations ended.
+
+Walk the centre; the Philips town the paratroopers saw was largely rebuilt.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.477500,51.442500,0</coordinates></Point></Placemark>
+<Placemark><name>Sint-Oedenrode</name><description>Tour day 1
+
+The 502nd's town on the corridor; the highway through it is the original road. A good place to feel how narrow the whole operation was.
+
+One road, two ditches, flat fields either side.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.459900,51.564800,0</coordinates></Point></Placemark>
+<Placemark><name>Koevering</name><description>Tour day 1
+
+The last cut of Hell's Highway, 24–25 September, on the straight road between Sint-Oedenrode and Veghel. Burnt-out convoys lined the road here while Arnhem fell.
+
+Drive it slowly; the road is the exhibit.
+
+Accuracy: MEDIUM — close to the spot.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.492900,51.586940,0</coordinates></Point></Placemark>
+<Placemark><name>Grave bridge (John S. Thompson bridge)</name><description>Tour day 2
+
+The Maas bridge taken intact by the 504th within minutes of landing on 17 September — the first Market Garden bridge secured.
+
+The 82nd's textbook success, in contrast to Son.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.736650,51.769250,0</coordinates></Point></Placemark>
+<Placemark><name>Nijmegen — Waal crossing &amp; road bridge</name><description>Tour day 2
+
+On 20 September the 504th crossed the Waal in canvas boats under fire while the Guards' tanks rushed the road bridge. Half the boats were lost; the bridge fell at 19:00. The Waal crossing memorial stands on the south bank.
+
+The width of the river is the story.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.871700,51.851100,0</coordinates></Point></Placemark>
+<Placemark><name>Freedom Museum, Groesbeek</name><description>Tour day 2
+
+The whole Market Garden and Rhineland story, on the 82nd's landing ground above Nijmegen.
+
+Use the corridor map to place Easy's road inside the plan.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.937010,51.785650,0</coordinates></Point></Placemark>
+<Placemark><name>Driel — Polish brigade memorial</name><description>Tour day 2
+
+Where Sosabowski's Poles landed on 21 September and tried to reach the trapped British across the river. The Island begins here.
+
+Look north across the Rhine to Oosterbeek.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.813890,51.961170,0</coordinates></Point></Placemark>
+<Placemark><name>John Frost Bridge, Arnhem</name><description>Tour day 2
+
+A bridge too far: Frost's 700 men held the north end for four days and were overrun on 21 September. The rebuilt bridge carries his name.
+
+Stand at the north end; the houses the paras held were on this side.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.911500,51.977500,0</coordinates></Point></Placemark>
+<Placemark><name>Airborne Museum Hartenstein, Oosterbeek</name><description>Tour day 2
+
+Urquhart's headquarters hotel, now the museum of the Arnhem battle: nine days in the perimeter, then Operation Berlin's night evacuation.
+
+The evacuation route ran south from here to the river — the same river Easy watched from the other side a month later.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.832670,51.987750,0</coordinates></Point></Placemark>
+<Placemark><name>Airborne War Cemetery, Oosterbeek</name><description>Tour day 2
+
+1,700 graves, mostly of the 1st Airborne Division. Local schoolchildren lay flowers here every September.
+
+End the day here.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.848420,51.993600,0</coordinates></Point></Placemark>
+<Placemark><name>Bastogne War Museum &amp; Mardasson Memorial</name><description>Tour day 3
+
+The best single museum of the Bulge, beside the star-shaped American memorial. Do it first: it gives the siege its shape before you go into the woods.
+
+Walk up to the Mardasson after the museum and look north-east — the Bois Jacques is the dark line on the skyline.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.738500,50.008500,0</coordinates></Point></Placemark>
+<Placemark><name>Bizory</name><description>Tour day 3
+
+The 506th's right-hand village; the road from here to Foy runs straight through the Easy Company positions.
+
+Turn north onto the Foy road.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.764320,50.019570,0</coordinates></Point></Placemark>
+<Placemark><name>Easy Company memorial, Bois Jacques</name><description>Tour day 3
+
+Built by the Men of Easy Company Foundation on the Bizory–Foy road: fourteen names of Easy men killed here between 18 December and 13 January, and a text about −28 °C nights with little food and ammunition.
+
+Read the names, then walk on into the wood.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.756707,50.028903,0</coordinates></Point></Placemark>
+<Placemark><name>Recogne German war cemetery</name><description>Tour day 3
+
+6,800 German dead from the Bulge, a kilometre from Foy — the men on the other side of the snowfield.
+
+Place of remembrance.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.740870,50.048420,0</coordinates></Point></Placemark>
+<Placemark><name>101st Airborne Museum — Le Mess</name><description>Tour day 4
+
+In the former officers' mess: uniforms, a bomb-shelter experience and a strong 101st collection. Avenue de la Gare 11.
+
+Good for the human scale of the siege.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.712212,49.999255,0</coordinates></Point></Placemark>
+<Placemark><name>Bastogne Barracks</name><description>Tour day 4
+
+The Belgian barracks where General McAuliffe's staff worked in the cellars and where the German surrender demand was answered with 'Nuts!' on 22 December. Guided visits; large vehicle restoration hall.
+
+The cellar is the real thing.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.716140,50.010580,0</coordinates></Point></Placemark>
+<Placemark><name>Place McAuliffe &amp; the Sherman</name><description>Tour day 4
+
+The square at the centre of the seven roads, with the general's bust and a Sherman tank knocked out at Renuamont.
+
+Count the roads: this is why 101st was sent here.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.717000,50.000700,0</coordinates></Point></Placemark>
+<Placemark><name>Houffalize — the Panther</name><description>Tour day 4
+
+Where the US 1st and 3rd Armies met on 16 January to close the Bulge; a German Panther tank sits in the town centre.
+
+Same day Easy took Rachamps, 10 km south.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.790700,50.128940,0</coordinates></Point></Placemark>
+<Placemark><name>December 44 Museum, La Gleize</name><description>Tour day 4
+
+The high-water mark of Kampfgruppe Peiper on the northern shoulder, with a King Tiger outside.
+
+The German side of the offensive.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.845590,50.410060,0</coordinates></Point></Placemark>
+<Placemark><name>Baugnez crossroads — Malmedy massacre memorial</name><description>Tour day 4
+
+The crossroads where 84 American prisoners were shot on 17 December. The Baugnez 44 Historical Center beside it closed permanently in January 2023; the memorial wall and the field remain open.
+
+Place of remembrance first.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>6.066740,50.403690,0</coordinates></Point></Placemark>
+<Placemark><name>Liberation memorial — Moder canal</name><description>Tour day 5
+
+On Boulevard de la Libération, marking where American tanks crossed the Moder canal on 16 March 1945 for the town's final liberation — three weeks after Easy left.
+
+The bronze reliefs show the crossing.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>7.797611,48.816264,0</coordinates></Point></Placemark>
+<Placemark><name>Haguenau centre &amp; Musée Historique</name><description>Tour day 5
+
+The old Alsatian town Easy knew as a half-ruined front line; the history museum covers the two liberations of 1944–45.
+
+Compare the intact streets today with the shelled town of February 1945.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>7.791880,48.812890,0</coordinates></Point></Placemark>
+<Placemark><name>Fort de Schoenenbourg — Maginot Line</name><description>Tour day 5
+
+The largest visitable Maginot fort in Alsace, 20 km north: kilometres of galleries and turrets. Context for the fortified border the 1945 winter fighting sat on.
+
+Bring a jacket — 12 °C underground.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>7.914000,48.968000,0</coordinates></Point></Placemark>
+<Placemark><name>Joe Mann memorial, Best</name><description>Extra stop
+
+Pvt. Joe Mann of the 502nd threw himself on a grenade at the Best bridge fight on 19 September; Medal of Honor. The pelican memorial stands in the woods where the 502nd fought.
+
+Ten minutes from the Wings of Liberation museum.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.419210,51.502770,0</coordinates></Point></Placemark>
+<Placemark><name>506th PIR memorial, Elst</name><description>Extra stop
+
+Memorial to the 506th on the Island, in the town the regiment held in October–November 1944.
+
+On the way from Driel to the Heteren crossroads.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.801140,51.920950,0</coordinates></Point></Placemark>
+<Placemark><name>Overloon War Museum</name><description>Tour day 2
+
+Site of the October 1944 tank battle east of the corridor; one of the largest vehicle collections in Europe.
+
+Two hours; big halls.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.956940,51.569960,0</coordinates></Point></Placemark>
+<Placemark><name>Netherlands American Cemetery, Margraten</name><description>Tour day 2
+
+American dead of Holland, the Bulge and the Rhineland, including 101st men.
+
+Between the Dutch and Belgian legs of the tour.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.803380,50.817750,0</coordinates></Point></Placemark>
+<Placemark><name>Henri-Chapelle American Cemetery</name><description>Tour day 4
+
+Bulge and Rhineland dead, north of Liège.
+
+On the way to the northern shoulder.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>5.899080,50.696610,0</coordinates></Point></Placemark>
+<Placemark><name>Elsenborn Ridge</name><description>Tour day 4
+
+Where the 2nd and 99th Divisions stopped the 6th Panzer Army — the shoulder that held.
+
+Open ridge; memorials at Rocherath-Krinkelt.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>6.230000,50.463000,0</coordinates></Point></Placemark>
+<Placemark><name>Clervaux — castle &amp; museum</name><description>Tour day 4
+
+The castle held for two days by the 110th Infantry on 16–18 December, delaying Panzer Lehr on the road to Bastogne.
+
+Museum in the castle.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>6.027000,50.054500,0</coordinates></Point></Placemark>
+<Placemark><name>Luxembourg American Cemetery — Patton's grave</name><description>Tour day 4
+
+The Third Army's dead of the Bulge and their general.
+
+Hamm, outside Luxembourg city.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>6.185500,49.611500,0</coordinates></Point></Placemark>
+<Placemark><name>Natzweiler-Struthof</name><description>Tour day 5
+
+The only Nazi camp on French soil; liberated November 1944.
+
+Memorial site in the Vosges.
+
+Accuracy: Documented site.
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s1</styleUrl><Point><coordinates>7.252500,48.454800,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Museums</name>
+<Placemark><name>Airborne at the Bridge</name><description>Arnhem
+
+Small museum at the north end of the John Frost Bridge.
+
+Allow: 30 min
+
+Guide: https://dzcharlie.com/holland-bastogne.html
+
+DZ Charlie field guides · dzcharlie.com</description><styleUrl>#s2</styleUrl><Point><coordinates>5.909000,51.978000,0</coordinates></Point></Placemark>
+</Folder>
+</Document>
+</kml>
