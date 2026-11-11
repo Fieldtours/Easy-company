@@ -34,6 +34,9 @@ var TX={
    dna:"¿Sigues buscando a alguien desaparecido? Las familias pueden aportar una muestra de ADN al Banco Estatal de ADN de víctimas de la Guerra y la Dictadura, para ayudar a identificar restos hallados en fosas. La oficina de memoria democrática de tu comunidad autónoma te explica cómo."}
 };
 var T=TX[LANG];
+/* WWII lists search by surname only: "Theodore Roosevelt Jr." -> "Roosevelt" (Spanish double surnames are kept as typed) */
+function surOf(t){t=(t||"").replace(/[,]/g," ").trim();if(KIND==="scw")return t;
+  var w=t.split(/\s+/).filter(function(x){return x&&!/^(jr|sr|ii|iii|iv)\.?$/i.test(x)});return w.length?w[w.length-1]:"";}
 var FILL={us:function(sur){return "https://weremember.abmc.gov/s?q="+encodeURIComponent(sur)+"&v=G&type=16"}};
 function e(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 
@@ -85,13 +88,13 @@ function show(opener,place,best){
     '<div id="dzrel-dna" class="dzrel-dna" hidden>'+T.dna+'</div>'+
     '<a id="dzrel-go" class="dzrel-go" target="_blank" rel="noopener">'+T.go+'</a><div id="dzrel-ok" class="dzrel-ok" aria-live="polite"></div>'+
     '<p class="dzrel-priv">'+T.priv+'</p></div>';
-  function upd(){var k=b.querySelector('input[name=dzrel-l]:checked').value,it=L[k],sur=b.querySelector("#dzrel-s").value.trim();
+  function upd(){var k=b.querySelector('input[name=dzrel-l]:checked').value,it=L[k],sur=surOf(b.querySelector("#dzrel-s").value);
     var f=KIND==="scw"?null:FILL[k];
     b.querySelector("#dzrel-go").href=(f&&sur)?f(sur):it[3];b.querySelector("#dzrel-dna").hidden=!(KIND==="scw"&&it[4])}
   b.querySelectorAll('input[name=dzrel-l]').forEach(function(r){r.addEventListener("change",function(){upd();b.querySelector("#dzrel-ok").textContent=""})});
   b.querySelector("#dzrel-s").addEventListener("input",upd);upd();
   b.querySelector("#dzrel-go").addEventListener("click",function(){
-    upd();var s=b.querySelector("#dzrel-s").value.trim();
+    upd();var s=surOf(b.querySelector("#dzrel-s").value);
     if(s){try{navigator.clipboard.writeText(s).then(function(){b.querySelector("#dzrel-ok").textContent=T.copied},function(){})}catch(x){}}
   });
   b.hidden=false;document.documentElement.classList.add("dzrel-open");
