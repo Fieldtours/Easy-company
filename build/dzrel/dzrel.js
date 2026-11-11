@@ -23,17 +23,18 @@ var SC={
 };
 var TX={
  en:{link:"Looking for a relative?",top:"Relatives",topL:"Looking for a relative? Search the official lists of the war dead",title:"Looking for a relative?",who:"Who are you looking for?",best:"best here",sur:"Surname",fir:"First name (if you know)",
-   go:"Search the official list ↗",copied:"Name copied: paste it into the search there.",close:"Close",
+   go:"Search the official list ↗",copied:"Surname copied: paste it into the search there.",tip:"Search by surname only: it finds far more than a full name.",close:"Close",
    priv:"Opens the official website. Nothing you type is stored by DZ Charlie.",
    intro:"Official lists of the war dead, including the missing who have no known grave.",
    dna:"Still looking for someone who disappeared? Families can give a DNA sample to Spain's State DNA Bank for victims of the war and the dictatorship, to help identify remains found in mass graves. Your regional democratic memory office can explain how."},
  es:{link:"¿Buscas a un familiar?",top:"Familiares",topL:"¿Buscas a un familiar? Busca en las listas oficiales de víctimas",title:"¿Buscas a un familiar?",who:"¿A quién buscas?",best:"la mejor aquí",sur:"Apellido(s)",fir:"Nombre (si lo sabes)",
-   go:"Buscar en la lista oficial ↗",copied:"Nombre copiado: pégalo en el buscador.",close:"Cerrar",
+   go:"Buscar en la lista oficial ↗",copied:"Apellido copiado: pégalo en el buscador.",tip:"Busca solo por el apellido: encuentra mucho más que el nombre completo.",close:"Cerrar",
    priv:"Se abre la web oficial. DZ Charlie no guarda nada de lo que escribes.",
    intro:"Listas oficiales de víctimas, incluidos los desaparecidos sin tumba conocida.",
    dna:"¿Sigues buscando a alguien desaparecido? Las familias pueden aportar una muestra de ADN al Banco Estatal de ADN de víctimas de la Guerra y la Dictadura, para ayudar a identificar restos hallados en fosas. La oficina de memoria democrática de tu comunidad autónoma te explica cómo."}
 };
 var T=TX[LANG];
+var FILL={us:function(sur){return "https://weremember.abmc.gov/s?q="+encodeURIComponent(sur)+"&v=G&type=16"}};
 function e(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 
 /* which stops get the link, and which list to suggest first */
@@ -79,17 +80,19 @@ function show(opener,place,best){
   b.innerHTML='<div class="dzrel-in"><div class="dzrel-top"><h3 id="dzrel-h">'+T.title+'</h3><button type="button" class="dzrel-x" aria-label="'+T.close+'">×</button></div>'+
     '<p class="dzrel-p">'+T.intro+'</p>'+(place?'<div class="dzrel-place">'+e(place)+'</div>':'')+
     '<fieldset><legend>'+T.who+'</legend>'+opts+'</fieldset>'+
-    '<label class="dzrel-f">'+T.sur+'<input id="dzrel-s" autocomplete="off"></label>'+
+    '<label class="dzrel-f">'+T.sur+'<input id="dzrel-s" autocomplete="off"></label>'+'<p class="dzrel-tip">'+T.tip+'</p>'+
     '<label class="dzrel-f">'+T.fir+'<input id="dzrel-n" autocomplete="off"></label>'+
     '<div id="dzrel-dna" class="dzrel-dna" hidden>'+T.dna+'</div>'+
     '<a id="dzrel-go" class="dzrel-go" target="_blank" rel="noopener">'+T.go+'</a><div id="dzrel-ok" class="dzrel-ok" aria-live="polite"></div>'+
     '<p class="dzrel-priv">'+T.priv+'</p></div>';
-  function upd(){var k=b.querySelector('input[name=dzrel-l]:checked').value,it=L[k];
-    b.querySelector("#dzrel-go").href=it[3];b.querySelector("#dzrel-dna").hidden=!(KIND==="scw"&&it[4]);b.querySelector("#dzrel-ok").textContent=""}
-  b.querySelectorAll('input[name=dzrel-l]').forEach(function(r){r.addEventListener("change",upd)});upd();
+  function upd(){var k=b.querySelector('input[name=dzrel-l]:checked').value,it=L[k],sur=b.querySelector("#dzrel-s").value.trim();
+    var f=KIND==="scw"?null:FILL[k];
+    b.querySelector("#dzrel-go").href=(f&&sur)?f(sur):it[3];b.querySelector("#dzrel-dna").hidden=!(KIND==="scw"&&it[4])}
+  b.querySelectorAll('input[name=dzrel-l]').forEach(function(r){r.addEventListener("change",function(){upd();b.querySelector("#dzrel-ok").textContent=""})});
+  b.querySelector("#dzrel-s").addEventListener("input",upd);upd();
   b.querySelector("#dzrel-go").addEventListener("click",function(){
-    var s=b.querySelector("#dzrel-s").value.trim(),n=b.querySelector("#dzrel-n").value.trim(),full=(n?n+" ":"")+s;
-    if(full){try{navigator.clipboard.writeText(full).then(function(){b.querySelector("#dzrel-ok").textContent=T.copied},function(){})}catch(x){}}
+    upd();var s=b.querySelector("#dzrel-s").value.trim();
+    if(s){try{navigator.clipboard.writeText(s).then(function(){b.querySelector("#dzrel-ok").textContent=T.copied},function(){})}catch(x){}}
   });
   b.hidden=false;document.documentElement.classList.add("dzrel-open");
   var hd=b.querySelector("#dzrel-h");hd.setAttribute("tabindex","-1");b.querySelector(".dzrel-in").scrollTop=0;setTimeout(function(){hd.focus({preventScroll:true})},30);
