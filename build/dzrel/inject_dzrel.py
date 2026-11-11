@@ -28,7 +28,7 @@ for p in sys.argv[1:]:
     if not m or 'id="vz-script"' not in s: sys.exit(f'{p}: no visiting-info layer found')
     s = re.sub(r'\n?<!-- dzrel start.*?<!-- dzrel end -->\n?', '\n', s, flags=re.S)
     block = ('<!-- dzrel start: "Looking for a relative?" link on cemetery, memorial and camp stops (Nov 2026) -->\n'
-             f'<style id="dzrel-css">\n{CSS}</style>\n<script id="dzrel-script">\n{JS.replace("__KIND__", m.group(1)).replace("__PICKS__", json.dumps(scw_picks(p) if m.group(1) == "scw" else {}))}</script>\n<!-- dzrel end -->\n')
+             f'<style id="dzrel-css">\n{CSS}</style>\n<script id="dzrel-script">\n{JS.replace("__KIND__", m.group(1)).replace("__DEF__", 'vic' if m.group(1) == 'scw' else ('us' if re.search(r'normandy|holland|germany-austria', p) else 'cwgc')).replace("__PICKS__", json.dumps(scw_picks(p) if m.group(1) == "scw" else {}))}</script>\n<!-- dzrel end -->\n')
     i = s.index('</script>', s.index('id="vz-script"')) + len('</script>')
     s = s[:i] + '\n' + block + s[i:].lstrip('\n')
     open(p, 'w', encoding='utf-8').write(s)

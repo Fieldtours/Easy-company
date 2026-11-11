@@ -24,12 +24,12 @@ var SC={
  dep:[{en:"Spaniards deported to Nazi camps",es:"Españoles deportados a campos nazis"},{en:"Mauthausen and other camps",es:"Mauthausen y otros campos"},{en:"Arolsen Archives",es:"Arolsen Archives"},"https://collections.arolsen-archives.org/en/search"]
 };
 var TX={
- en:{link:"Looking for a relative?",title:"Looking for a relative?",who:"Who are you looking for?",best:"best here",sur:"Surname",fir:"First name (if you know)",
+ en:{link:"Looking for a relative?",top:"Relatives",topL:"Looking for a relative? Search the official lists of the war dead",title:"Looking for a relative?",who:"Who are you looking for?",best:"best here",sur:"Surname",fir:"First name (if you know)",
    go:"Search the official list ↗",copied:"Name copied: paste it into the search there.",close:"Close",
    priv:"Opens the official website. Nothing you type is stored by DZ Charlie.",
    intro:"Official lists of the war dead, including the missing who have no known grave.",
    dna:"Still looking for someone who disappeared? Families can give a DNA sample to Spain's State DNA Bank for victims of the war and the dictatorship, to help identify remains found in mass graves. Your regional democratic memory office can explain how."},
- es:{link:"¿Buscas a un familiar?",title:"¿Buscas a un familiar?",who:"¿A quién buscas?",best:"la mejor aquí",sur:"Apellido(s)",fir:"Nombre (si lo sabes)",
+ es:{link:"¿Buscas a un familiar?",top:"Familiares",topL:"¿Buscas a un familiar? Busca en las listas oficiales de víctimas",title:"¿Buscas a un familiar?",who:"¿A quién buscas?",best:"la mejor aquí",sur:"Apellido(s)",fir:"Nombre (si lo sabes)",
    go:"Buscar en la lista oficial ↗",copied:"Nombre copiado: pégalo en el buscador.",close:"Cerrar",
    priv:"Se abre la web oficial. DZ Charlie no guarda nada de lo que escribes.",
    intro:"Listas oficiales de víctimas, incluidos los desaparecidos sin tumba conocida.",
@@ -78,9 +78,9 @@ function show(opener,place,best){
   cur=opener;var b=panel(),L=KIND==="scw"?SC:WW,keys=Object.keys(L);
   keys.splice(keys.indexOf(best),1);keys.unshift(best);
   var nm=function(k){return KIND==="scw"?L[k][0][LANG]:L[k][0]},sub=function(k){return KIND==="scw"?L[k][1][LANG]:L[k][1]};
-  var opts=keys.map(function(k,i){return '<label class="dzrel-o"><input type="radio" name="dzrel-l" value="'+k+'"'+(i?'':' checked')+'><span><b>'+e(nm(k))+'</b>'+(i?'':' <em>· '+T.best+'</em>')+'<small>'+e(sub(k))+'</small></span></label>'}).join("");
+  var opts=keys.map(function(k,i){return '<label class="dzrel-o"><input type="radio" name="dzrel-l" value="'+k+'"'+(i?'':' checked')+'><span><b>'+e(nm(k))+'</b>'+(i||!place?'':' <em>· '+T.best+'</em>')+'<small>'+e(sub(k))+'</small></span></label>'}).join("");
   b.innerHTML='<div class="dzrel-in"><div class="dzrel-top"><h3 id="dzrel-h">'+T.title+'</h3><button type="button" class="dzrel-x" aria-label="'+T.close+'">×</button></div>'+
-    '<p class="dzrel-p">'+T.intro+'</p><div class="dzrel-place">'+e(place)+'</div>'+
+    '<p class="dzrel-p">'+T.intro+'</p>'+(place?'<div class="dzrel-place">'+e(place)+'</div>':'')+
     '<fieldset><legend>'+T.who+'</legend>'+opts+'</fieldset>'+
     '<label class="dzrel-f">'+T.sur+'<input id="dzrel-s" autocomplete="off"></label>'+
     '<label class="dzrel-f">'+T.fir+'<input id="dzrel-n" autocomplete="off"></label>'+
@@ -122,8 +122,19 @@ function deco(){
     rep.parentNode.insertBefore(a,rep);
   }
 }
+var DEF="__DEF__";
+function topBtn(){
+  if(document.getElementById("dzrel-top"))return;
+  var ref=document.getElementById("b-search")||document.getElementById("srchbtn");if(!ref||!ref.parentNode)return;
+  var b=document.createElement("button");b.type="button";b.id="dzrel-top";b.className=ref.className;
+  b.setAttribute("aria-label",T.topL);b.title=T.topL;
+  var lab=ref.querySelector("span");var cls=lab&&lab.className?' class="'+lab.className+'"':'';
+  b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7.5" r="3.6"/><path d="M4.5 20.5c.6-4.3 3.6-6.8 7.5-6.8s6.9 2.5 7.5 6.8"/></svg><span'+cls+'>'+T.top+'</span>';
+  b.addEventListener("click",function(){show(b,"",DEF)});
+  ref.parentNode.insertBefore(b,ref);
+}
 var q=false;
-function sched(){if(q)return;q=true;(window.requestAnimationFrame||setTimeout)(function(){q=false;try{deco()}catch(x){}})}
+function sched(){if(q)return;q=true;(window.requestAnimationFrame||setTimeout)(function(){q=false;try{topBtn()}catch(x){}try{deco()}catch(x){}})}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",sched);else sched();
 new MutationObserver(sched).observe(document.documentElement,{childList:true,subtree:true});
 })();

@@ -24,3 +24,7 @@ html.dzrel-open{overflow:hidden}
 #dzrel .dzrel-ok{font:13px "Courier Prime","Courier New",monospace;min-height:1.2em;margin-top:6px}
 #dzrel .dzrel-priv{font-size:12.5px;opacity:.75;margin:4px 0 0}
 #dzrel :focus-visible{outline:3px solid #c99a2e;outline-offset:2px}
+@media (max-width:430px){
+header:has(.hbtn~.hbtn~.hbtn~.hbtn~.hbtn~.hbtn:not([hidden])) .hbtn{width:47px!important}
+header:has(.hbtn~.hbtn~.hbtn~.hbtn~.hbtn~.hbtn:not([hidden])) .hbtn .hl{font-size:10px!important;letter-spacing:0!important}
+}
