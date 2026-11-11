@@ -4,23 +4,22 @@
 var KIND="__KIND__",LANG=(document.documentElement.lang||"en").slice(0,2)==="es"?"es":"en";
 var WW={
  cwgc:["Britain & the Commonwealth","UK, Canada, Australia, New Zealand, India, South Africa","Commonwealth War Graves Commission","https://www.cwgc.org/find-records/find-war-dead/"],
- us:["United States","Overseas American cemeteries and memorials","American Battle Monuments Commission","https://www.abmc.gov/database-search"],
- de:["Germany","German war dead and missing","Volksbund (German war graves)","https://www.volksbund.de/en/erinnern-gedenken/graebersuche-online"],
+ us:["United States","Overseas American cemeteries and memorials","American Battle Monuments Commission","https://weremember.abmc.gov/"],
+ de:["Germany","German war dead and missing","Volksbund (German war graves)","https://www.volksbund.de/erinnern-gedenken/graebersuche-online"],
  fr:["France","French soldiers who died 1939–1945","Mémoire des hommes","https://www.memoiredeshommes.sga.defense.gouv.fr/"],
  nl:["The Netherlands","Dutch war victims, soldiers and civilians","Oorlogsgravenstichting","https://oorlogsgravenstichting.nl/"],
  su:["Soviet Union","Red Army dead and missing","OBD Memorial","https://obd-memorial.ru/"],
  vic:["Civilians & camp victims","Victims of Nazi persecution, all nationalities","Arolsen Archives","https://collections.arolsen-archives.org/en/search"],
- pl:["Polish soldiers buried in Italy","Monte Cassino, Bologna, Loreto, Casamassima","Polish war cemeteries in Italy","https://polskiecmentarzewewloszech.eu/en/"],
  yv:["Jewish victims of the Holocaust","Names of Holocaust victims","Yad Vashem names database","https://collections.yadvashem.org/en/names"]
 };
 var SC={
- vic:[{en:"A Spaniard, from either side",es:"Un español, de cualquier bando"},{en:"Victims in Spain's state archives",es:"Víctimas en los archivos estatales"},{en:"Portal de Víctimas de la Guerra Civil (Ministry of Culture)",es:"Portal de Víctimas de la Guerra Civil (Ministerio de Cultura)"},"http://pares.mcu.es/victimasGCFPortal/"],
+ vic:[{en:"A Spaniard, from either side",es:"Un español, de cualquier bando"},{en:"1.4 million records from archives and research",es:"1,4 millones de registros de archivos e investigaciones"},{en:"Innovation and Human Rights victims database",es:"Base de datos de víctimas de Innovación y Derechos Humanos"},"https://ihr.world/es/"],
  fosa:[{en:"Someone who disappeared",es:"Una persona desaparecida"},{en:"Mass graves and exhumations across Spain",es:"Fosas y exhumaciones en toda España"},{en:"Mapa Estatal de Fosas (Spanish government)",es:"Mapa Estatal de Fosas (Gobierno de España)"},"https://mptmd.gob.es/en/portal/memoria-democratica/mapa-de-fosas/mapa-estatal-fosas",1],
  tln:[{en:"Victims in Andalucía & Extremadura",es:"Víctimas en Andalucía y Extremadura"},{en:"Todos los Nombres database",es:"Base de datos Todos los Nombres"},{en:"Todos los Nombres",es:"Todos los Nombres"},"https://www.todoslosnombres.org/",1],
- ib:[{en:"International Brigades, any country",es:"Brigadas Internacionales, cualquier país"},{en:"Volunteers from over 50 countries",es:"Voluntarios de más de 50 países"},{en:"SIDBRINT, University of Barcelona",es:"SIDBRINT, Universidad de Barcelona"},"https://sidbrint.ub.edu/en"],
+ pares:[{en:"Spain's state archives",es:"Archivos estatales"},{en:"Portal de Víctimas (Ministry of Culture), sometimes busy",es:"Portal de Víctimas (Ministerio de Cultura), a veces saturado"},{en:"Portal de Víctimas de la Guerra Civil (Ministry of Culture)",es:"Portal de Víctimas de la Guerra Civil (Ministerio de Cultura)"},"https://pares.cultura.gob.es/victimasGCFPortal/"],
+ ib:[{en:"International Brigades, any country",es:"Brigadas Internacionales, cualquier país"},{en:"Volunteers from over 50 countries",es:"Voluntarios de más de 50 países"},{en:"SIDBRINT, University of Barcelona",es:"SIDBRINT, Universidad de Barcelona"},"https://sidbrint.ub.edu/"],
  uk:[{en:"British & Irish volunteers",es:"Voluntarios británicos e irlandeses"},{en:"International Brigade Memorial Trust",es:"International Brigade Memorial Trust"},{en:"International Brigade Memorial Trust",es:"International Brigade Memorial Trust"},"https://international-brigades.org.uk/"],
- us:[{en:"American volunteers",es:"Voluntarios estadounidenses"},{en:"The Abraham Lincoln Brigade",es:"La Brigada Abraham Lincoln"},{en:"Abraham Lincoln Brigade Archives",es:"Abraham Lincoln Brigade Archives"},"https://www.alba-valb.org/volunteers"],
- ca:[{en:"Canadian volunteers",es:"Voluntarios canadienses"},{en:"The Mackenzie–Papineau Battalion",es:"El Batallón Mackenzie–Papineau"},{en:"Canadian volunteers database",es:"Base de datos de voluntarios canadienses"},"https://spanishcivilwar.ca/volunteers"],
+ us:[{en:"American volunteers",es:"Voluntarios estadounidenses"},{en:"The Abraham Lincoln Brigade",es:"La Brigada Abraham Lincoln"},{en:"Abraham Lincoln Brigade Archives",es:"Abraham Lincoln Brigade Archives"},"https://alba-valb.org/volunteer-database/"],
  dep:[{en:"Spaniards deported to Nazi camps",es:"Españoles deportados a campos nazis"},{en:"Mauthausen and other camps",es:"Mauthausen y otros campos"},{en:"Arolsen Archives",es:"Arolsen Archives"},"https://collections.arolsen-archives.org/en/search"]
 };
 var TX={
@@ -46,7 +45,6 @@ function wwPick(t){
   if(/wormhout|esquelbecq/i.test(t))return"cwgc";
   if(/oradour|mont-val|french|fran[cç]ais|nécropole/i.test(t))return"fr";
   if(/shoah|jewish|\bjews\b|holocaust|ghetto/i.test(t))return"yv";
-  if(/polish/i.test(t)&&/ital|cassino|bologna|loreto|casamassima/i.test(t))return"pl";
   if(/american|abmc|u\.s\.|us army|82nd|101st|506th|rangers|36th division|10th mountain|easy company|winters|meehan|stick 66|patton/i.test(t))return"us";
   if(/german|volksbund|kriegsgr|la cambe|recogne|ysselsteyn|futa pass|caira|motta|maleme|costermano|pomezia/i.test(t))return"de";
   if(/auschwitz|birkenau|dachau|mauthausen|treblinka|sachsenhausen|ravensbr|terez|theresien|westerbork|be[łl]?[żz]ec|sobibor|majdanek|struthof|natzweiler|kaufering|buchenwald|belsen|\bcamps?\b|ardeatine|massacre|stazzema|marzabotto|monte sole|khatyn|anne frank/i.test(t))return"vic";
